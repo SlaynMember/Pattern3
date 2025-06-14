@@ -7,8 +7,12 @@
  * and prepares them for GitHub upload.
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const imageDir = path.join(__dirname, '../public/images');
 
@@ -66,7 +70,7 @@ function formatBytes(bytes) {
 }
 
 console.log('🖼️  Image Analysis Report\n');
-console.log('=' * 50);
+console.log('='.repeat(50));
 
 const stats = getImageStats();
 
