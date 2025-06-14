@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, Mail, ArrowRight, ExternalLink } from 'lucide-react';
-import { useProjectContext } from '../context/ProjectContext';
+import { FileText, Mail, ArrowRight } from 'lucide-react';
+import { useProjectContext } from '../hooks/useProjectContext';
 
 const AIPage = () => {
   const { projects } = useProjectContext();

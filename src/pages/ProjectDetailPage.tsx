@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useProjectContext } from '../context/ProjectContext';
+import { useProjectContext } from '../hooks/useProjectContext';
 import ProjectGallery from '../components/ProjectGallery';
 import ProjectVideo from '../components/ProjectVideo';
 import NotFound from '../components/NotFound';
