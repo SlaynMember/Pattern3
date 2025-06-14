@@ -1,18 +1,13 @@
 import { useState } from 'react';
 import { createCheckoutSession } from '../lib/stripe';
-import { Product } from '../stripe-config';
 
-interface CheckoutButtonProps {
-  product: Product;
-}
-
-export default function CheckoutButton({ product }: CheckoutButtonProps) {
+export default function CheckoutButton() {
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
     try {
       setLoading(true);
-      const url = await createCheckoutSession(product.priceId, product.mode);
+      const url = await createCheckoutSession();
       window.location.href = url;
     } catch (error) {
       console.error('Error during checkout:', error);

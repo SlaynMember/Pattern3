@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FeaturedProjects from '../components/FeaturedProjects';
-import { useProjectContext } from '../context/ProjectContext';
+import { useProjectContext } from '../hooks/useProjectContext';
 
 const HomePage = () => {
   const bioRef = useRef<HTMLDivElement>(null);

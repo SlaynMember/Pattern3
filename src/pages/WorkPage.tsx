@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useProjectContext } from '../context/ProjectContext';
+import { useProjectContext } from '../hooks/useProjectContext';
 import ProjectCard from '../components/ProjectCard';
 
 const WorkPage = () => {

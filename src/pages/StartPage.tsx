@@ -7,7 +7,7 @@ import { createCheckoutSession } from '../lib/stripe';
 declare global {
   interface Window {
     Tally: {
-      openPopup: (formId: string, options?: any) => void;
+      openPopup: (formId: string, options?: Record<string, unknown>) => void;
     };
   }
 }
@@ -40,7 +40,7 @@ const StartPage = () => {
     
     try {
       setLoading(true);
-      const url = await createCheckoutSession(freeToolkit.priceId, freeToolkit.mode);
+      const url = await createCheckoutSession();
       window.location.href = url;
     } catch (error) {
       console.error('Error during checkout:', error);

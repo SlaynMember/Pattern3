@@ -8,7 +8,7 @@ import StartPage from './pages/StartPage';
 import SuccessPage from './pages/SuccessPage';
 import CancelPage from './pages/CancelPage';
 import Layout from './components/Layout';
-import { ProjectProvider } from './context/ProjectContext';
+import { ProjectProvider } from './context/ProjectProvider';
 import './App.css';
 
 function App() {

@@ -1,8 +1,6 @@
-import { createContext, useContext, ReactNode } from 'react';
-import { Project } from '../types/Project';
+import { Project } from "../types/Project";
 
-// Project data
-const projectsData: Project[] = [
+export const projectsData: Project[] = [
   {
     id: 'ai-automation',
     title: 'AI Automation - Brand Builder',
@@ -184,24 +182,3 @@ const projectsData: Project[] = [
   }
 ];
 
-interface ProjectContextType {
-  projects: Project[];
-}
-
-const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
-
-export const ProjectProvider = ({ children }: { children: ReactNode }) => {
-  return (
-    <ProjectContext.Provider value={{ projects: projectsData }}>
-      {children}
-    </ProjectContext.Provider>
-  );
-};
-
-export const useProjectContext = () => {
-  const context = useContext(ProjectContext);
-  if (context === undefined) {
-    throw new Error('useProjectContext must be used within a ProjectProvider');
-  }
-  return context;
-};

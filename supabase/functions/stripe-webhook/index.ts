@@ -21,14 +21,6 @@ const stripe = new Stripe(STRIPE_SECRET_KEY, {
   },
 });
 
-interface WebhookResponse {
-  received: boolean;
-}
-
-interface ErrorResponse {
-  error: string;
-}
-
 Deno.serve(async (req) => {
   try {
     if (req.method === 'OPTIONS') {
