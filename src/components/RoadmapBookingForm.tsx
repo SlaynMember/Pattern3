@@ -1,11 +1,5 @@
 import { useState } from 'react';
 import { Check, AlertCircle, Loader2 } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
 
 interface FormData {
   name: string;
@@ -50,24 +44,23 @@ const RoadmapBookingForm = () => {
     setErrorMessage('');
 
     try {
-      const { error } = await supabase
-        .from('roadmap_bookings')
-        .insert([{
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          industry: formData.industry,
-          team_size: formData.teamSize,
-          current_challenges: formData.currentChallenges,
-          ai_experience: formData.aiExperience,
-          timeline: formData.timeline,
-          budget: formData.budget,
-          additional_info: formData.additionalInfo,
-          created_at: new Date().toISOString()
-        }]);
+      // Create FormData for Netlify
+      const netlifyFormData = new FormData();
+      netlifyFormData.append('form-name', 'roadmap-booking');
+      
+      // Append all form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        netlifyFormData.append(key, value);
+      });
 
-      if (error) {
-        throw error;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(netlifyFormData as any).toString()
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
       }
 
       setSubmitStatus('success');
@@ -134,7 +127,16 @@ const RoadmapBookingForm = () => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form 
+        name="roadmap-booking" 
+        method="POST" 
+        data-netlify="true" 
+        onSubmit={handleSubmit} 
+        className="space-y-6"
+      >
+        {/* Hidden field for Netlify */}
+        <input type="hidden" name="form-name" value="roadmap-booking" />
+        
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
