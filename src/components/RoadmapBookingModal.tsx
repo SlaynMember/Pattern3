@@ -127,18 +127,21 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
         onClick={handleClose}
       />
       
-      {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Close Button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
-          aria-label="Close modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
+      {/* Modal Container with proper overflow handling */}
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+        {/* Header with Close Button - Fixed */}
+        <div className="relative flex-shrink-0 px-6 pt-6 pb-2">
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+            aria-label="Close modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
 
-        <div className="p-6 md:p-8">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-y-auto px-6 pb-6">
           {submitStatus === 'success' ? (
             <div className="text-center py-8">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -153,7 +156,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
               </p>
               <button
                 onClick={handleClose}
-                className="px-6 py-3 bg-[#6ba1a3] text-white rounded-lg hover:bg-[#4f8385] transition-colors font-medium"
+                className="px-6 py-3 bg-[#6ba1a3] text-white rounded-xl hover:bg-[#4f8385] transition-colors font-medium"
               >
                 Close
               </button>
@@ -170,7 +173,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
               </div>
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
                   <p className="text-red-700">{errorMessage}</p>
                 </div>
@@ -198,7 +201,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white"
                       placeholder="Your full name"
                     />
                   </div>
@@ -214,7 +217,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -232,7 +235,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white"
                       placeholder="Your company name"
                     />
                   </div>
@@ -247,7 +250,13 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.industry}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundPosition: 'right 0.75rem center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '1.5em 1.5em'
+                      }}
                     >
                       <option value="">Select your industry</option>
                       <option value="healthcare">Healthcare</option>
@@ -275,7 +284,13 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.teamSize}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundPosition: 'right 0.75rem center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '1.5em 1.5em'
+                      }}
                     >
                       <option value="">Select team size</option>
                       <option value="solo">Just me</option>
@@ -296,7 +311,13 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.aiExperience}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundPosition: 'right 0.75rem center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '1.5em 1.5em'
+                      }}
                     >
                       <option value="">Select experience level</option>
                       <option value="none">No AI experience</option>
@@ -318,7 +339,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                     rows={4}
                     value={formData.currentChallenges}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors resize-none bg-white"
                     placeholder="What are your biggest time-consuming tasks or operational challenges?"
                   />
                 </div>
@@ -334,7 +355,13 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.timeline}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundPosition: 'right 0.75rem center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '1.5em 1.5em'
+                      }}
                     >
                       <option value="">Select timeline</option>
                       <option value="asap">ASAP (within 30 days)</option>
@@ -355,7 +382,13 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundPosition: 'right 0.75rem center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '1.5em 1.5em'
+                      }}
                     >
                       <option value="">Select budget range</option>
                       <option value="under-500">Under $500/month</option>
@@ -377,7 +410,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                     rows={3}
                     value={formData.additionalInfo}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors resize-none bg-white"
                     placeholder="Anything else you'd like me to know about your business or goals?"
                   />
                 </div>
@@ -385,7 +418,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#6ba1a3] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-[#4f8385] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full bg-[#6ba1a3] text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-[#4f8385] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                 >
                   {isSubmitting ? (
                     <>
