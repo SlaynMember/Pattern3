@@ -247,7 +247,7 @@ const StartPage = () => {
             <div className="w-16 h-16 bg-[#6ba1a3]/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Shield className="w-8 h-8 text-[#6ba1a3]" />
             </div>
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">Learn With Us, Not From Your Data</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">Open Tools, Private Work</h2>
             <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
               At Pattern3, we share ideas, tools, and workflows — never your data.
             </p>
