@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Check, AlertCircle, Loader2, X } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+// Initialize Supabase client with correct environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_DATABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
