@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, ArrowRight, Plus, Shield } from 'lucide-react';
-
-declare global {
-  interface Window {
-    Tally: {
-      openPopup: (formId: string, options?: Record<string, unknown>) => void;
-    };
-  }
-}
+import RoadmapBookingForm from '../components/RoadmapBookingForm';
 
 const StartPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,14 +24,10 @@ const StartPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openTallyForm = () => {
-    if (window.Tally) {
-      window.Tally.openPopup('m6yMbN', {
-        layout: 'modal',
-        hideTitle: true,
-        emojiAnimation: 'none',
-        autoClose: 0
-      });
+  const scrollToForm = () => {
+    const formElement = document.getElementById('roadmap-booking-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -87,7 +76,7 @@ const StartPage = () => {
             />
           )}
           <button
-            onClick={openTallyForm}
+            onClick={scrollToForm}
             className="px-4 py-2 bg-[#6ba1a3] text-white rounded-md hover:bg-[#4f8385] transition-colors text-sm font-medium"
           >
             Book AI Roadmap
@@ -124,7 +113,7 @@ const StartPage = () => {
           </p>
           
           <button
-            onClick={openTallyForm}
+            onClick={scrollToForm}
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#6ba1a3] text-white rounded-xl hover:bg-[#4f8385] transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
           >
             <ArrowRight className="w-5 h-5" />
@@ -220,6 +209,11 @@ const StartPage = () => {
           </div>
         </div>
 
+        {/* Booking Form Section */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <RoadmapBookingForm />
+        </div>
+
         {/* Future Products Tease */}
         <div className="max-w-4xl mx-auto mb-20">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
@@ -284,25 +278,6 @@ const StartPage = () => {
               <h3 className="text-lg font-semibold mb-2 text-gray-900">What happens after I get my roadmap?</h3>
               <p className="text-gray-600">You can implement it yourself using our guides, or hire Pattern3 for hands-on implementation. The choice is yours.</p>
             </div>
-          </div>
-        </div>
-
-        {/* Footer CTA */}
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-[#6ba1a3] p-8 md:p-12 rounded-2xl text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Still unsure where to start?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              The Pattern3 AI Roadmap is the first step to transforming your business with AI.
-            </p>
-            <button
-              onClick={openTallyForm}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#6ba1a3] rounded-xl hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
-            >
-              <ArrowRight className="w-5 h-5" />
-              Book Now - $399
-            </button>
           </div>
         </div>
 
