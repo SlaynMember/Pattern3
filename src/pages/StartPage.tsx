@@ -243,37 +243,23 @@ const StartPage = () => {
 
         {/* Learn With Us Section */}
         <div className="max-w-4xl mx-auto mb-20">
-          <div className="bg-gradient-to-r from-[#6ba1a3]/10 to-[#6ba1a3]/5 p-8 rounded-2xl">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 bg-[#6ba1a3]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <Shield className="w-6 h-6 text-[#6ba1a3]" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-gray-900">Learn With Us, Not From Your Data</h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  💡 At Pattern3, we share ideas, tools, and workflows — never your data.
-                </p>
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  I post real-world automation tips, AI breakdowns, and case studies inspired by my work 
-                  (with permission or anonymized).
-                </p>
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  🎥 Follow <strong>@w_patt3</strong> on TikTok for behind-the-scenes experiments, 
-                  design walkthroughs, and small business wins.
-                </p>
-              </div>
+          <div className="bg-gradient-to-r from-[#6ba1a3]/10 to-[#6ba1a3]/5 p-8 rounded-2xl text-center">
+            <div className="w-16 h-16 bg-[#6ba1a3]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Shield className="w-8 h-8 text-[#6ba1a3]" />
             </div>
-            <div className="text-center">
-              <a
-                href="https://www.tiktok.com/@w_patt3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
-              >
-                <MessageCircle className="w-5 h-5" />
-                @w_patt3 on TikTok
-              </a>
-            </div>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">Learn With Us, Not From Your Data</h2>
+            <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+              At Pattern3, we share ideas, tools, and workflows — never your data.
+            </p>
+            <a
+              href="https://www.tiktok.com/@w_patt3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+            >
+              <MessageCircle className="w-5 h-5" />
+              @w_patt3 on TikTok
+            </a>
           </div>
         </div>
 
