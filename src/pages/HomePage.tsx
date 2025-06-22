@@ -196,7 +196,7 @@ const HomePage = () => {
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 md:p-12 rounded-2xl border border-gray-200 shadow-sm">
                 <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium text-center max-w-4xl mx-auto">
                   Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that 
-                  <span className="text-primary font-semibold"> work and look good doing it</span>.
+                  <span className="text-primary font-semibold"> work and look good doing it</span><span className="text-gray-800">.</span>
                 </p>
               </div>
             </div>
