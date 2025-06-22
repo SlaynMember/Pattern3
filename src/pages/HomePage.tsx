@@ -112,7 +112,7 @@ const HomePage = () => {
                     <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
                       Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
                     </p>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-700 leading-relaxed">
                       We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
                     </p>
                   </div>
@@ -137,8 +137,8 @@ const HomePage = () => {
                       <div className="stagger-item opacity-0">
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-gray-700 leading-relaxed">
-                            <span className="font-medium">Identifying bottlenecks</span> in outdated or inefficient systems
+                          <p className="text-lg text-gray-700 leading-relaxed">
+                            Identifying bottlenecks in outdated or inefficient systems
                           </p>
                         </div>
                       </div>
@@ -146,8 +146,8 @@ const HomePage = () => {
                       <div className="stagger-item opacity-0">
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-gray-700 leading-relaxed">
-                            <span className="font-medium">Delivering fast, functional, and visual-first solutions</span> with tools like GPT, Supabase, Make, and Notion
+                          <p className="text-lg text-gray-700 leading-relaxed">
+                            Delivering fast, functional, and visual-first solutions with tools like GPT, Supabase, Make, and Notion
                           </p>
                         </div>
                       </div>
@@ -155,8 +155,8 @@ const HomePage = () => {
                       <div className="stagger-item opacity-0">
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-gray-700 leading-relaxed">
-                            <span className="font-medium">Wrapping every solution</span> in clear storytelling, branded UX, and videos that actually show what you're getting
+                          <p className="text-lg text-gray-700 leading-relaxed">
+                            Wrapping every solution in clear storytelling, branded UX, and videos that actually show what you're getting
                           </p>
                         </div>
                       </div>
@@ -164,8 +164,8 @@ const HomePage = () => {
                       <div className="stagger-item opacity-0">
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-gray-700 leading-relaxed">
-                            <span className="font-medium">Using this journey as a public record</span> - showing what can be built with curiosity, constraint, and the right automation
+                          <p className="text-lg text-gray-700 leading-relaxed">
+                            Using this journey as a public record - showing what can be built with curiosity, constraint, and the right automation
                           </p>
                         </div>
                       </div>
