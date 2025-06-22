@@ -78,24 +78,39 @@ const AboutPage = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-primary">Mission</h3>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI - without needing a full dev team or enterprise budget.
+                  Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
                 </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">We identify bottlenecks in outdated or inefficient systems</p>
+                <div className="space-y-4">
+                  <div className="mission-point">
+                    <div className="mission-icon">🧠</div>
+                    <h4 className="mission-subheader">Spot inefficiencies</h4>
+                    <p className="mission-description">
+                      Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
+                    </p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">We deliver fast, functional, and visual-first solutions</p>
+                  
+                  <div className="mission-point">
+                    <div className="mission-icon">⚡</div>
+                    <h4 className="mission-subheader">Deliver real solutions, fast</h4>
+                    <p className="mission-description">
+                      Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
+                    </p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">We wrap solutions in clear storytelling and branded UX</p>
+                  
+                  <div className="mission-point">
+                    <div className="mission-icon">🎬</div>
+                    <h4 className="mission-subheader">Show, don't just tell</h4>
+                    <p className="mission-description">
+                      Every solution comes with clean UX, clear branding, and video walkthroughs.
+                    </p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">We use this journey as a public record of what's possible with the right automation</p>
+                  
+                  <div className="mission-point">
+                    <div className="mission-icon">📓</div>
+                    <h4 className="mission-subheader">Build in the open</h4>
+                    <p className="mission-description">
+                      We document everything — showing what can be built with curiosity, clarity, and constraint.
+                    </p>
                   </div>
                 </div>
               </div>

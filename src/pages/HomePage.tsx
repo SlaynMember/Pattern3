@@ -130,42 +130,48 @@ const HomePage = () => {
                   </h3>
                   <div className="space-y-6">
                     <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
-                      Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI - without needing a full dev team or enterprise budget.
+                      Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
                     </p>
                     
-                    <div className="space-y-5">
+                    <div className="space-y-1">
+                      <p className="text-base text-gray-600 mb-6 font-medium">We help you:</p>
+                      
                       <div className="stagger-item opacity-0">
-                        <div className="flex items-start gap-4 group">
-                          <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-lg text-gray-700 leading-relaxed">
-                            We identify bottlenecks in outdated or inefficient systems
+                        <div className="mission-point">
+                          <div className="mission-icon">🧠</div>
+                          <h4 className="mission-subheader">Spot inefficiencies</h4>
+                          <p className="mission-description">
+                            Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
                           </p>
                         </div>
                       </div>
                       
                       <div className="stagger-item opacity-0">
-                        <div className="flex items-start gap-4 group">
-                          <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-lg text-gray-700 leading-relaxed">
-                            We deliver fast, functional, and visual-first solutions with tools like GPT, Supabase, Make, and Notion
+                        <div className="mission-point">
+                          <div className="mission-icon">⚡</div>
+                          <h4 className="mission-subheader">Deliver real solutions, fast</h4>
+                          <p className="mission-description">
+                            Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
                           </p>
                         </div>
                       </div>
                       
                       <div className="stagger-item opacity-0">
-                        <div className="flex items-start gap-4 group">
-                          <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-lg text-gray-700 leading-relaxed">
-                            We wrap every solution in clear storytelling, branded UX, and videos that actually show what you're getting
+                        <div className="mission-point">
+                          <div className="mission-icon">🎬</div>
+                          <h4 className="mission-subheader">Show, don't just tell</h4>
+                          <p className="mission-description">
+                            Every solution comes with clean UX, clear branding, and video walkthroughs.
                           </p>
                         </div>
                       </div>
                       
                       <div className="stagger-item opacity-0">
-                        <div className="flex items-start gap-4 group">
-                          <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
-                          <p className="text-lg text-gray-700 leading-relaxed">
-                            We use this journey as a public record - showing what can be built with curiosity, constraint, and the right automation
+                        <div className="mission-point">
+                          <div className="mission-icon">📓</div>
+                          <h4 className="mission-subheader">Build in the open</h4>
+                          <p className="mission-description">
+                            We document everything — showing what can be built with curiosity, clarity, and constraint.
                           </p>
                         </div>
                       </div>
