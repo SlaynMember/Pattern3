@@ -95,6 +95,7 @@ const HomePage = () => {
             <div className="text-center mb-16 animate-on-scroll" data-animate-id="vision-mission-header">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Vision & Mission</h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+              <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Discover how Pattern3 bridges the gap between complex technology and real-world solutions
               </p>
@@ -130,7 +131,7 @@ const HomePage = () => {
                   </h3>
                   <div className="space-y-6">
                     <p className="vision-mission-intro">
-                      Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
+                      Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI - no dev team or enterprise budget required.
                     </p>
                     
                     <div className="mission-points-container">
@@ -179,7 +180,7 @@ const HomePage = () => {
                             <div className="mission-content">
                               <h4 className="mission-subheader">Build in the open</h4>
                               <p className="mission-description">
-                                We document everything — showing what can be built with curiosity, clarity, and constraint.
+                                We document everything - showing what can be built with curiosity, clarity, and constraint.
                               </p>
                             </div>
                           </div>
@@ -196,7 +197,7 @@ const HomePage = () => {
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 md:p-12 rounded-2xl border border-gray-200 shadow-sm">
                 <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium text-center max-w-4xl mx-auto">
                   Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that 
-                  <span className="text-primary font-semibold"> work and look good doing it.</span>
+                  <span className="text-primary font-semibold"> work and look good doing it</span>
                 </p>
               </div>
             </div>
