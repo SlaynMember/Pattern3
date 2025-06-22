@@ -119,7 +119,7 @@ const HomePage = () => {
                     <p className="text-gray-700">Using this journey as a public record - showing what can be built with curiosity, constraint, and the right automation</p>
                   </div>
                 </div>
-                <p className="text-lg text-gray-700 mt-6 leading-relaxed font-medium">
+                <p className="text-lg text-gray-700 mt-6 leading-relaxed font-medium text-center">
                   Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that work and look good doing it.
                 </p>
               </div>
