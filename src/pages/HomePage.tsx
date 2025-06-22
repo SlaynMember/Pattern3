@@ -101,18 +101,18 @@ const HomePage = () => {
             </div>
             
             {/* Vision & Mission Grid */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start animate-on-scroll" data-animate-id="vision-mission-content">
+            <div className="vision-mission-container animate-on-scroll" data-animate-id="vision-mission-content">
               {/* Vision Column */}
-              <div className="space-y-6">
+              <div className="vision-mission-column">
                 <div className="stagger-item opacity-0">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 vision-mission-header cursor-default">
+                  <h3 className="vision-mission-header cursor-default">
                     Vision
                   </h3>
                   <div className="space-y-6">
-                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
+                    <p className="vision-mission-intro">
                       Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
                     </p>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="vision-mission-description">
                       We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
                     </p>
                   </div>
@@ -120,59 +120,69 @@ const HomePage = () => {
               </div>
               
               {/* Mobile Divider */}
-              <div className="mobile-divider lg:hidden"></div>
+              <div className="mobile-divider"></div>
               
               {/* Mission Column */}
-              <div className="space-y-6">
+              <div className="vision-mission-column">
                 <div className="stagger-item opacity-0">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 vision-mission-header cursor-default">
+                  <h3 className="vision-mission-header cursor-default">
                     Mission
                   </h3>
                   <div className="space-y-6">
-                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
+                    <p className="vision-mission-intro">
                       Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
                     </p>
                     
-                    <div className="space-y-1">
-                      <p className="text-base text-gray-600 mb-6 font-medium">We help you:</p>
+                    <div className="mission-points-container">
+                      <p className="mission-points-intro">We help you:</p>
                       
-                      <div className="stagger-item opacity-0">
-                        <div className="mission-point">
-                          <div className="mission-icon">🧠</div>
-                          <h4 className="mission-subheader">Spot inefficiencies</h4>
-                          <p className="mission-description">
-                            Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
-                          </p>
+                      <div className="mission-points-grid">
+                        <div className="stagger-item opacity-0">
+                          <div className="mission-point">
+                            <div className="mission-icon">🧠</div>
+                            <div className="mission-content">
+                              <h4 className="mission-subheader">Spot inefficiencies</h4>
+                              <p className="mission-description">
+                                Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      
-                      <div className="stagger-item opacity-0">
-                        <div className="mission-point">
-                          <div className="mission-icon">⚡</div>
-                          <h4 className="mission-subheader">Deliver real solutions, fast</h4>
-                          <p className="mission-description">
-                            Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
-                          </p>
+                        
+                        <div className="stagger-item opacity-0">
+                          <div className="mission-point">
+                            <div className="mission-icon">⚡</div>
+                            <div className="mission-content">
+                              <h4 className="mission-subheader">Deliver real solutions, fast</h4>
+                              <p className="mission-description">
+                                Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      
-                      <div className="stagger-item opacity-0">
-                        <div className="mission-point">
-                          <div className="mission-icon">🎬</div>
-                          <h4 className="mission-subheader">Show, don't just tell</h4>
-                          <p className="mission-description">
-                            Every solution comes with clean UX, clear branding, and video walkthroughs.
-                          </p>
+                        
+                        <div className="stagger-item opacity-0">
+                          <div className="mission-point">
+                            <div className="mission-icon">🎬</div>
+                            <div className="mission-content">
+                              <h4 className="mission-subheader">Show, don't just tell</h4>
+                              <p className="mission-description">
+                                Every solution comes with clean UX, clear branding, and video walkthroughs.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      
-                      <div className="stagger-item opacity-0">
-                        <div className="mission-point">
-                          <div className="mission-icon">📓</div>
-                          <h4 className="mission-subheader">Build in the open</h4>
-                          <p className="mission-description">
-                            We document everything — showing what can be built with curiosity, clarity, and constraint.
-                          </p>
+                        
+                        <div className="stagger-item opacity-0">
+                          <div className="mission-point">
+                            <div className="mission-icon">📓</div>
+                            <div className="mission-content">
+                              <h4 className="mission-subheader">Build in the open</h4>
+                              <p className="mission-description">
+                                We document everything — showing what can be built with curiosity, clarity, and constraint.
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

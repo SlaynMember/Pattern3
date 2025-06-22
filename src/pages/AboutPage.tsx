@@ -62,61 +62,80 @@ const AboutPage = () => {
           
           {/* Pattern3 Section */}
           <div className="animate-on-scroll">
-            <h2 className="text-3xl font-semibold mb-6">About Pattern3</h2>
+            <h2 className="text-3xl font-semibold mb-8">About Pattern3</h2>
             
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-primary">Vision</h3>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
-                </p>
+            <div className="vision-mission-container">
+              <div className="vision-mission-column">
+                <h3 className="vision-mission-header">Vision</h3>
+                <div className="space-y-6">
+                  <p className="vision-mission-intro">
+                    Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
+                  </p>
+                  <p className="vision-mission-description">
+                    We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
+                  </p>
+                </div>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-primary">Mission</h3>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
-                </p>
-                <div className="space-y-4">
-                  <div className="mission-point">
-                    <div className="mission-icon">🧠</div>
-                    <h4 className="mission-subheader">Spot inefficiencies</h4>
-                    <p className="mission-description">
-                      Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
-                    </p>
-                  </div>
+              <div className="mobile-divider"></div>
+              
+              <div className="vision-mission-column">
+                <h3 className="vision-mission-header">Mission</h3>
+                <div className="space-y-6">
+                  <p className="vision-mission-intro">
+                    Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
+                  </p>
                   
-                  <div className="mission-point">
-                    <div className="mission-icon">⚡</div>
-                    <h4 className="mission-subheader">Deliver real solutions, fast</h4>
-                    <p className="mission-description">
-                      Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
-                    </p>
-                  </div>
-                  
-                  <div className="mission-point">
-                    <div className="mission-icon">🎬</div>
-                    <h4 className="mission-subheader">Show, don't just tell</h4>
-                    <p className="mission-description">
-                      Every solution comes with clean UX, clear branding, and video walkthroughs.
-                    </p>
-                  </div>
-                  
-                  <div className="mission-point">
-                    <div className="mission-icon">📓</div>
-                    <h4 className="mission-subheader">Build in the open</h4>
-                    <p className="mission-description">
-                      We document everything — showing what can be built with curiosity, clarity, and constraint.
-                    </p>
+                  <div className="mission-points-container">
+                    <p className="mission-points-intro">We help you:</p>
+                    
+                    <div className="mission-points-grid">
+                      <div className="mission-point">
+                        <div className="mission-icon">🧠</div>
+                        <div className="mission-content">
+                          <h4 className="mission-subheader">Spot inefficiencies</h4>
+                          <p className="mission-description">
+                            Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="mission-point">
+                        <div className="mission-icon">⚡</div>
+                        <div className="mission-content">
+                          <h4 className="mission-subheader">Deliver real solutions, fast</h4>
+                          <p className="mission-description">
+                            Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="mission-point">
+                        <div className="mission-icon">🎬</div>
+                        <div className="mission-content">
+                          <h4 className="mission-subheader">Show, don't just tell</h4>
+                          <p className="mission-description">
+                            Every solution comes with clean UX, clear branding, and video walkthroughs.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="mission-point">
+                        <div className="mission-icon">📓</div>
+                        <div className="mission-content">
+                          <h4 className="mission-subheader">Build in the open</h4>
+                          <p className="mission-description">
+                            We document everything — showing what can be built with curiosity, clarity, and constraint.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="mt-12 bg-gray-50 p-8 rounded-lg">
               <p className="text-lg text-gray-700 leading-relaxed font-medium text-center">
                 Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that work and look good doing it.
               </p>
