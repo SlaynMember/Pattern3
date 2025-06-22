@@ -15,7 +15,7 @@ const Footer = () => {
               className="h-12 mb-4 mx-auto md:mx-0"
             />
             <p className="text-gray-400 text-sm leading-relaxed">
-              Bridging design, tech and human connection to create AI-powered solutions for you.
+              Empowering small businesses, solo founders, and creative teams to modernize through AI - without needing a full dev team or enterprise budget.
             </p>
           </div>
 

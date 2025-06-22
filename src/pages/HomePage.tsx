@@ -79,20 +79,51 @@ const HomePage = () => {
       {/* Pattern3 Vision Section */}
       <section ref={bioRef} className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="max-w-3xl mx-auto text-center animate-on-scroll">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Vision</h2>
-            <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              At Pattern3, we believe that exceptional design emerges when we discover the critical 
-              third element that others overlook. While most solutions focus on aesthetics and 
-              functionality, we integrate human connection as the essential bridge that transforms 
-              good design into extraordinary experiences.
-            </p>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              Through AI innovation and human-centered design, we create digital solutions that don't 
-              just meet technical requirements—they resonate deeply with the people they serve, 
-              creating meaningful connections in our increasingly digital world.
-            </p>
+          <div className="max-w-4xl mx-auto animate-on-scroll">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Vision</h2>
+              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div>
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Vision</h3>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Mission</h3>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI - without needing a full dev team or enterprise budget.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-gray-700">Identifying bottlenecks in outdated or inefficient systems</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-gray-700">Delivering fast, functional, and visual-first solutions with tools like GPT, Supabase, Make, and Notion</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-gray-700">Wrapping every solution in clear storytelling, branded UX, and videos that actually show what you're getting</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-gray-700">Using this journey as a public record - showing what can be built with curiosity, constraint, and the right automation</p>
+                  </div>
+                </div>
+                <p className="text-lg text-gray-700 mt-6 leading-relaxed font-medium">
+                  Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that work and look good doing it.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
