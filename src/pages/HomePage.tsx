@@ -138,7 +138,7 @@ const HomePage = () => {
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
                           <p className="text-lg text-gray-700 leading-relaxed">
-                            Identifying bottlenecks in outdated or inefficient systems
+                            We identify bottlenecks in outdated or inefficient systems
                           </p>
                         </div>
                       </div>
@@ -147,7 +147,7 @@ const HomePage = () => {
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
                           <p className="text-lg text-gray-700 leading-relaxed">
-                            Delivering fast, functional, and visual-first solutions with tools like GPT, Supabase, Make, and Notion
+                            We deliver fast, functional, and visual-first solutions with tools like GPT, Supabase, Make, and Notion
                           </p>
                         </div>
                       </div>
@@ -156,7 +156,7 @@ const HomePage = () => {
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
                           <p className="text-lg text-gray-700 leading-relaxed">
-                            Wrapping every solution in clear storytelling, branded UX, and videos that actually show what you're getting
+                            We wrap every solution in clear storytelling, branded UX, and videos that actually show what you're getting
                           </p>
                         </div>
                       </div>
@@ -165,7 +165,7 @@ const HomePage = () => {
                         <div className="flex items-start gap-4 group">
                           <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2.5 flex-shrink-0 group-hover:scale-110 transition-transform"></div>
                           <p className="text-lg text-gray-700 leading-relaxed">
-                            Using this journey as a public record - showing what can be built with curiosity, constraint, and the right automation
+                            We use this journey as a public record - showing what can be built with curiosity, constraint, and the right automation
                           </p>
                         </div>
                       </div>

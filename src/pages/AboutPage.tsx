@@ -83,19 +83,19 @@ const AboutPage = () => {
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">Identifying bottlenecks in outdated or inefficient systems</p>
+                    <p className="text-gray-700">We identify bottlenecks in outdated or inefficient systems</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">Delivering fast, functional, and visual-first solutions</p>
+                    <p className="text-gray-700">We deliver fast, functional, and visual-first solutions</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">Wrapping solutions in clear storytelling and branded UX</p>
+                    <p className="text-gray-700">We wrap solutions in clear storytelling and branded UX</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                    <p className="text-gray-700">Creating a public record of what's possible with the right automation</p>
+                    <p className="text-gray-700">We use this journey as a public record of what's possible with the right automation</p>
                   </div>
                 </div>
               </div>
