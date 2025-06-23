@@ -23,7 +23,8 @@ const WorkPage = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">My Work</h1>
-          <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             A comprehensive collection of my projects, showcasing my skills,
             creativity, and problem-solving approach.

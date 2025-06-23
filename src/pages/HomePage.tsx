@@ -210,7 +210,8 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12 animate-on-scroll" data-animate-id="featured-work-header">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Featured Work</h2>
-            <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Explore our latest projects where we've successfully bridged design, technology, 
               and human connection to create impactful solutions.

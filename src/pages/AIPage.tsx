@@ -59,6 +59,8 @@ const AIPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               AI + Automation Work by Will Patterson
             </h1>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 mb-8">
               Hands-on builds, zero-code stacks, and my current learning path
             </p>
@@ -85,7 +87,11 @@ const AIPage = () => {
       {/* Project Highlights */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">Project Highlights</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">Project Highlights</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {aiProjects.map((project, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-colors">
@@ -115,7 +121,11 @@ const AIPage = () => {
       {/* Currently Learning */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">Currently Learning</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">Currently Learning</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
+          </div>
           <div className="flex flex-wrap justify-center gap-4">
             {certifications.map((cert, index) => (
               <div
@@ -133,7 +143,11 @@ const AIPage = () => {
       {/* Skills & Tools */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">Skills & Tools</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
+            <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
+          </div>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill, index) => (
               <span
