@@ -17,16 +17,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-lg shadow-md transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-xl">
+      <div className="relative overflow-hidden rounded-lg shadow-md transition-all duration-300 transform md:group-hover:-translate-y-1 md:group-hover:shadow-xl">
         <div className="relative h-64 overflow-hidden">
           <img
             src={project.coverImage}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 ease-in-out md:group-hover:scale-105"
           />
           <div
             className={`absolute inset-0 bg-gradient-to-b from-transparent to-black/70 transition-opacity duration-300 ${
-              isHovered ? 'opacity-100' : 'opacity-70'
+              isHovered ? 'md:opacity-100 opacity-70' : 'opacity-70'
             }`}
           ></div>
         </div>
@@ -50,7 +50,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
           <div
             className={`flex items-center gap-1 text-primary transition-all duration-300 ${
-              isHovered ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
+              isHovered ? 'md:translate-x-0 md:opacity-100 translate-x-0 opacity-100' : 'md:-translate-x-4 md:opacity-0 translate-x-0 opacity-100'
             }`}
           >
             <span className="text-sm font-medium">View Project</span>
