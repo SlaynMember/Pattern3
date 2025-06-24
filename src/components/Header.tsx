@@ -31,15 +31,15 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-2 md:py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <Link to="/" className="h-24">
+        <Link to="/" className="h-12 md:h-16">
           <img 
             src="/images/logos/pattern3black.png" 
             alt="Pattern3 Logo" 
-            className="h-full w-auto"
+            className="h-full w-auto object-contain"
           />
         </Link>
 
