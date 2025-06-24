@@ -24,11 +24,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 ease-in-out md:group-hover:scale-105"
           />
-          <div
-            className={`absolute inset-0 bg-gradient-to-b from-transparent to-black/70 transition-opacity duration-300 ${
-              isHovered ? 'md:opacity-100 opacity-70' : 'opacity-70'
-            }`}
-          ></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-70"></div>
         </div>
         
         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -48,11 +44,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               </span>
             )}
           </div>
-          <div
-            className={`flex items-center gap-1 text-primary transition-all duration-300 ${
-              isHovered ? 'md:translate-x-0 md:opacity-100 translate-x-0 opacity-100' : 'md:-translate-x-4 md:opacity-0 translate-x-0 opacity-100'
-            }`}
-          >
+          <div className="flex items-center gap-1 text-primary opacity-100 translate-x-0 md:opacity-0 md:-translate-x-4 md:group-hover:translate-x-0 md:group-hover:opacity-100 transition-all duration-300">
             <span className="text-sm font-medium">View Project</span>
             <ArrowRight size={16} />
           </div>
