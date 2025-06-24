@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
@@ -8,44 +8,12 @@ const HomePage = () => {
   const bioRef = useRef<HTMLDivElement>(null);
   const { projects } = useProjectContext();
   
-  // Get specific projects for featured work
+  // Get specific projects for featured work - exactly like WorkPage gets all projects
   const featuredProjects = [
     projects.find(p => p.id === 'd32-text-rewriter'),
     projects.find(p => p.id === 'echo'),
     projects.find(p => p.id === 'ai-automation')
   ].filter(Boolean);
-
-  const [animatedElements, setAnimatedElements] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      
-      elements.forEach((el, index) => {
-        const rect = el.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8;
-        const elementId = el.getAttribute('data-animate-id') || `element-${index}`;
-        
-        if (isVisible && !animatedElements.has(elementId)) {
-          el.classList.add('fade-in');
-          setAnimatedElements(prev => new Set(prev).add(elementId));
-          
-          // Stagger animation for child elements
-          const staggerElements = el.querySelectorAll('.stagger-item');
-          staggerElements.forEach((child, childIndex) => {
-            setTimeout(() => {
-              child.classList.add('stagger-fade-in');
-            }, childIndex * 150);
-          });
-        }
-      });
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [animatedElements]);
 
   const scrollToBio = () => {
     bioRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -99,7 +67,7 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-16 animate-on-scroll" data-animate-id="vision-mission-header">
+            <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Vision & Mission</h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
               <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
@@ -109,10 +77,10 @@ const HomePage = () => {
             </div>
             
             {/* Vision & Mission Grid */}
-            <div className="vision-mission-container animate-on-scroll" data-animate-id="vision-mission-content">
+            <div className="vision-mission-container">
               {/* Vision Column */}
               <div className="vision-mission-column">
-                <div className="stagger-item opacity-0">
+                <div>
                   <h3 className="vision-mission-header cursor-default">
                     Vision
                   </h3>
@@ -132,7 +100,7 @@ const HomePage = () => {
               
               {/* Mission Column */}
               <div className="vision-mission-column">
-                <div className="stagger-item opacity-0">
+                <div>
                   <h3 className="vision-mission-header cursor-default">
                     Mission
                   </h3>
@@ -145,7 +113,7 @@ const HomePage = () => {
                       <p className="mission-points-intro">We help you:</p>
                       
                       <div className="mission-points-grid">
-                        <div className="stagger-item opacity-0">
+                        <div>
                           <div className="mission-point">
                             <div className="mission-icon">🧠</div>
                             <div className="mission-content">
@@ -157,7 +125,7 @@ const HomePage = () => {
                           </div>
                         </div>
                         
-                        <div className="stagger-item opacity-0">
+                        <div>
                           <div className="mission-point">
                             <div className="mission-icon">⚡</div>
                             <div className="mission-content">
@@ -169,7 +137,7 @@ const HomePage = () => {
                           </div>
                         </div>
                         
-                        <div className="stagger-item opacity-0">
+                        <div>
                           <div className="mission-point">
                             <div className="mission-icon">🎬</div>
                             <div className="mission-content">
@@ -181,7 +149,7 @@ const HomePage = () => {
                           </div>
                         </div>
                         
-                        <div className="stagger-item opacity-0">
+                        <div>
                           <div className="mission-point">
                             <div className="mission-icon">📓</div>
                             <div className="mission-content">
@@ -200,7 +168,7 @@ const HomePage = () => {
             </div>
             
             {/* Closing Statement */}
-            <div className="mt-16 animate-on-scroll" data-animate-id="closing-statement">
+            <div className="mt-16">
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 md:p-12 rounded-2xl border border-gray-200 shadow-sm">
                 <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium text-center max-w-4xl mx-auto">
                   Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that 
@@ -215,7 +183,7 @@ const HomePage = () => {
       {/* Featured Work Section */}
       <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-12 animate-on-scroll" data-animate-id="featured-work-header">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Featured Work</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
             <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
@@ -225,20 +193,16 @@ const HomePage = () => {
             </p>
           </div>
           
-          {/* Project Grid - All visible at once */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredProjects.map((project, index) => (
-              <div
-                key={project?.id}
-                className="animate-on-scroll opacity-0"
-                data-animate-id={`featured-project-${index}`}
-              >
-                <ProjectCard project={project!} />
+          {/* Project Grid - Copied exactly from WorkPage */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.map((project) => (
+              <div key={project.id}>
+                <ProjectCard project={project} />
               </div>
             ))}
           </div>
           
-          <div className="text-center animate-on-scroll" data-animate-id="view-all-projects">
+          <div className="text-center mt-12">
             <Link
               to="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md transition hover:bg-gray-800"
