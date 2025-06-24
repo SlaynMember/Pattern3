@@ -25,8 +25,10 @@ const AboutPage = () => {
     <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">About Me</h1>
-          <div className="w-16 h-1 bg-primary mx-auto mb-12"></div>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+            <div className="w-16 h-1 bg-primary mx-auto mb-12"></div>
+          </div>
           
           {/* Personal Story Section */}
           <div className="mb-16 animate-on-scroll">
@@ -46,7 +48,7 @@ const AboutPage = () => {
             
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                As the founder of Pattern3 and an AI specialist, my journey has been shaped by a unique perspective forged across cultures, disciplines, and technologies. Raised in the artistic landscapes of Italy, I developed an eye for beauty and craftsmanship that continues to influence my approach to design and AI innovation. When I moved to New York City in my final year of middle school, I was thrust into a world that demanded independence and courage—qualities that have become foundational to my approach to technological advancement and human-centered design.
+                As the founder of Pattern3 LLC and an AI specialist, my journey has been shaped by a unique perspective forged across cultures, disciplines, and technologies. Raised in the artistic landscapes of Italy, I developed an eye for beauty and craftsmanship that continues to influence my approach to design and AI innovation. When I moved to New York City in my final year of middle school, I was thrust into a world that demanded independence and courage—qualities that have become foundational to my approach to technological advancement and human-centered design.
               </p>
               <p>
                 My academic path began in medicine at Baylor University, where I developed a rigorous analytical mindset essential for AI development and a deep appreciation for human-centered solutions. It was at this intersection of technology, design, and human understanding that I discovered my true calling—a space where data-driven precision meets creative innovation, and where AI thrives by discovering meaningful patterns in seemingly disparate elements.
@@ -62,14 +64,16 @@ const AboutPage = () => {
           
           {/* Pattern3 Section */}
           <div className="animate-on-scroll">
-            <h2 className="text-3xl font-semibold mb-8">About Pattern3</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-semibold mb-8">About Pattern3 LLC</h2>
+            </div>
             
             <div className="vision-mission-container">
               <div className="vision-mission-column">
                 <h3 className="vision-mission-header">Vision</h3>
                 <div className="space-y-6">
                   <p className="vision-mission-intro">
-                    Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
+                    Pattern3 LLC is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
                   </p>
                   <p className="vision-mission-description">
                     We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
@@ -83,7 +87,7 @@ const AboutPage = () => {
                 <h3 className="vision-mission-header">Mission</h3>
                 <div className="space-y-6">
                   <p className="vision-mission-intro">
-                    Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
+                    Pattern3 LLC empowers small businesses, solo founders, and creative teams to modernize through AI — no dev team or enterprise budget required.
                   </p>
                   
                   <div className="mission-points-container">
@@ -137,7 +141,7 @@ const AboutPage = () => {
             
             <div className="mt-12 bg-gray-50 p-8 rounded-lg">
               <p className="text-lg text-gray-700 leading-relaxed font-medium text-center">
-                Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that work and look good doing it.
+                Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 LLC is the home for systems that work and look good doing it.
               </p>
             </div>
           </div>

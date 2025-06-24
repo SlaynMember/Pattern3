@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, ArrowRight, Plus, Shield } from 'lucide-react';
+import { ChevronLeft, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, ArrowRight, Plus, Shield, Video } from 'lucide-react';
 import RoadmapBookingModal from '../components/RoadmapBookingModal';
 
 const StartPage = () => {
@@ -81,7 +81,7 @@ const StartPage = () => {
             onClick={openModal}
             className="px-4 py-2 bg-[#6ba1a3] text-white rounded-md hover:bg-[#4f8385] transition-colors text-sm font-medium"
           >
-            Book AI Roadmap
+            Book Free Consultation
           </button>
         </div>
         {/* Scroll Progress Bar */}
@@ -105,13 +105,12 @@ const StartPage = () => {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
-            Start with an AI Roadmap,<br />
+            Start with a Free AI Consultation,<br />
             <span className="text-[#6ba1a3]">Built for Real Businesses</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Not sure where to begin with AI? In 5 days, we'll show you where to automate, 
-            upgrade, and move faster – for just <span className="font-semibold text-gray-900">$399</span>.
+            Not sure where to begin with AI? Pattern3 LLC offers a <span className="font-semibold text-gray-900">free AI roadmap consultation</span> — no payment required upfront.
           </p>
           
           <button
@@ -119,51 +118,61 @@ const StartPage = () => {
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#6ba1a3] text-white rounded-xl hover:bg-[#4f8385] transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
           >
             <ArrowRight className="w-5 h-5" />
-            Book My Roadmap
+            Book Free Consultation
           </button>
           
           <p className="text-sm text-gray-500 mt-4">
-            Includes Loom video walkthrough + custom PDF roadmap
+            Live Google Meet call + personalized PDF roadmap
           </p>
         </div>
 
         {/* What You Get Section */}
         <div className="max-w-5xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            What You Get
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+            After Our Live Google Meet Call, You'll Receive:
           </h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            Whether you upgrade or not, you'll walk away with clarity and momentum.
+          </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <UserCheck className="w-8 h-8 text-[#6ba1a3]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Loom Video Walkthrough</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Personal 15-minute video explaining your custom roadmap, 
-                priority actions, and implementation timeline.
-              </p>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-8 h-8 text-[#6ba1a3]" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">PDF Roadmap with Quick Wins</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Detailed action plan with 30, 60, 90-day milestones and 
-                immediate improvements you can implement today.
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">PDF Roadmap</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Personalized with automation opportunities and quick wins for your specific business.
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <UserCheck className="w-8 h-8 text-[#6ba1a3]" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">System Analysis</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                A walkthrough of your current system bottlenecks and inefficiencies.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Video className="w-8 h-8 text-[#6ba1a3]" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Follow-up Calls</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                1–2 follow-up calls with tailored updates and action plans.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Plus className="w-8 h-8 text-[#6ba1a3]" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Bonus: Curated AI Tools</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Top 5 AI tools specifically chosen for your workflow, 
-                with setup guides and cost breakdowns.
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Visual Breakdown</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                A fully visual breakdown of what your business could look like with modern AI tools.
               </p>
             </div>
           </div>
@@ -240,7 +249,7 @@ const StartPage = () => {
             </div>
             <h2 className="text-2xl font-bold mb-4 text-gray-900">Open Tools, Private Work</h2>
             <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-              At Pattern3, we share ideas, tools, and workflows — never your data.
+              At Pattern3 LLC, we share ideas, tools, and workflows — never your data.
             </p>
             <a
               href="https://www.tiktok.com/@w_patt3"
@@ -262,18 +271,23 @@ const StartPage = () => {
           
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">How fast is it?</h3>
-              <p className="text-gray-600">5-day turnaround from booking to delivery. You'll receive your complete roadmap within one business week.</p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Is this really free?</h3>
+              <p className="text-gray-600">Yes, completely free. No payment required upfront. We believe in providing value first and building relationships based on trust.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">How long is the consultation?</h3>
+              <p className="text-gray-600">The initial Google Meet call typically lasts 45-60 minutes, followed by 1-2 shorter follow-up calls as needed.</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
               <h3 className="text-lg font-semibold mb-2 text-gray-900">Do I need tech skills?</h3>
-              <p className="text-gray-600">Nope – the roadmap is personalized for your current skill level and includes step-by-step guidance for every recommendation.</p>
+              <p className="text-gray-600">Not at all. We'll assess your current skill level and provide recommendations that match your capabilities and comfort zone.</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">What happens after I get my roadmap?</h3>
-              <p className="text-gray-600">You can implement it yourself using our guides, or hire Pattern3 for hands-on implementation. The choice is yours.</p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">What happens after the consultation?</h3>
+              <p className="text-gray-600">You can implement the roadmap yourself using our guidance, or choose to work with Pattern3 LLC for hands-on implementation. The choice is entirely yours.</p>
             </div>
           </div>
         </div>
@@ -282,24 +296,24 @@ const StartPage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-[#6ba1a3] p-8 md:p-12 rounded-2xl text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Still unsure where to start?
+              Ready to discover your AI opportunities?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              The Pattern3 AI Roadmap is the first step to transforming your business with AI.
+              Book your free consultation with Pattern3 LLC and get a clear roadmap for your business.
             </p>
             <button
               onClick={openModal}
               className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#6ba1a3] rounded-xl hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
             >
               <ArrowRight className="w-5 h-5" />
-              Book Now - $399
+              Book Free Consultation
             </button>
           </div>
         </div>
 
         {/* Footer */}
         <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-16">
-          Pattern3 | AI solutions that bridge technology and human connection.
+          Pattern3 LLC | AI solutions that bridge technology and human connection.
         </div>
       </div>
 

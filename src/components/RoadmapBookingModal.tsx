@@ -154,7 +154,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Thanks! Request Received</h3>
               <p className="text-lg text-gray-600 mb-6">
-                I'll review your information and follow up within 48 hours with your custom AI roadmap details.
+                I'll review your information and follow up within 48 hours to schedule your free consultation.
               </p>
               <p className="text-sm text-gray-500 mb-8">
                 Keep an eye on your inbox (and spam folder) for my response.
@@ -170,10 +170,10 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
             <>
               <div className="text-center mb-8">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  Book Your AI Roadmap
+                  Book Your Free AI Consultation
                 </h3>
                 <p className="text-gray-600">
-                  Tell me about your business and I'll create a custom 5-day AI implementation plan for $399.
+                  Tell me about your business and I'll provide a personalized AI roadmap at no cost.
                 </p>
               </div>
 
@@ -422,12 +422,12 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       Submitting...
                     </>
                   ) : (
-                    'Book My AI Roadmap - $399'
+                    'Book Free Consultation'
                   )}
                 </button>
 
                 <p className="text-sm text-gray-500 text-center">
-                  Secure submission • 5-day delivery • Custom PDF + Loom walkthrough
+                  Secure submission • Free consultation • No payment required
                 </p>
               </form>
             </>

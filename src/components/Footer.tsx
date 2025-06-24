@@ -58,7 +58,7 @@ const Footer = () => {
         {/* Bottom Row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            © Pattern3. All rights reserved.
+            © Pattern3 LLC. All rights reserved.
           </p>
           <Link
             to="/start"
