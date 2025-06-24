@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Project } from '../types/Project';
@@ -8,14 +7,10 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  
   return (
     <Link
       to={`/project/${project.id}`}
       className="block group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden rounded-lg shadow-md transition-all duration-300 transform md:group-hover:-translate-y-1 md:group-hover:shadow-xl">
         <div className="relative h-64 overflow-hidden">

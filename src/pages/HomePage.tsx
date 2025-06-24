@@ -225,14 +225,23 @@ const HomePage = () => {
             </p>
           </div>
           
-          {/* Project Grid - All visible at once */}
+          {/* Project Grid - All visible at once, no fade animations on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {featuredProjects.map((project, index) => (
               <div
                 key={project?.id}
-                className="animate-on-scroll opacity-0"
+                className="hidden md:block md:animate-on-scroll md:opacity-0 block opacity-100"
                 data-animate-id={`featured-project-${index}`}
                 style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <ProjectCard project={project!} />
+              </div>
+            ))}
+            {/* Mobile version - no animations */}
+            {featuredProjects.map((project, index) => (
+              <div
+                key={`mobile-${project?.id}`}
+                className="block md:hidden"
               >
                 <ProjectCard project={project!} />
               </div>
