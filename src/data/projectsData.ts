@@ -169,7 +169,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 'stripe-toolkit',
-    title: 'P3 Starter Kit Funnel',
+    title: 'Pattern3 Starter Kit Funnel',
     description: 'A free product offering built with Stripe + Supabase + Bolt.',
     longDescription: 'Developed a streamlined product delivery system that combines Stripe\'s payment processing with Supabase\'s database capabilities and Bolt\'s automation features. The toolkit includes branded prompt templates, an agent setup guide, and an automated delivery system. This project serves as both a lead generation tool and a proof of concept for our automated checkout and fulfillment capabilities.',
     coverImage: '/images/projects/Stripe/cover.png',
@@ -181,4 +181,3 @@ export const projectsData: Project[] = [
     services: ['Payment Integration', 'Automation Development', 'Product Strategy']
   }
 ];
-

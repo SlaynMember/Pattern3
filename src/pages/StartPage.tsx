@@ -72,7 +72,7 @@ const StartPage = () => {
           </Link>
           {isScrolled && (
             <img
-              src="/images/logos/patternblack.png"
+              src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
               className="h-8"
             />
@@ -98,7 +98,7 @@ const StartPage = () => {
         <div className="max-w-4xl mx-auto text-center mb-20">
           <div className="mb-8">
             <img
-              src="/images/logos/patternblack.png"
+              src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
               className="h-16 mx-auto mb-6"
             />

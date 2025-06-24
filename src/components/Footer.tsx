@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Logo and Tagline */}
           <div className="text-center md:text-left max-w-sm">
             <img 
-              src="/images/logos/patternwhite.png" 
+              src="/images/logos/pattern3white.png" 
               alt="Pattern3" 
               className="h-12 mb-4 mx-auto md:mx-0"
             />

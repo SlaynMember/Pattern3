@@ -37,8 +37,8 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link to="/" className="h-24">
           <img 
-            src="/images/logos/patternblack.png" 
-            alt="Pattern Logo" 
+            src="/images/logos/pattern3black.png" 
+            alt="Pattern3 Logo" 
             className="h-full w-auto"
           />
         </Link>
