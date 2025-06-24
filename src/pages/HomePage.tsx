@@ -1,13 +1,20 @@
 import { useRef, useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import FeaturedProjects from '../components/FeaturedProjects';
+import ProjectCard from '../components/ProjectCard';
 import { useProjectContext } from '../hooks/useProjectContext';
 
 const HomePage = () => {
   const bioRef = useRef<HTMLDivElement>(null);
   const { projects } = useProjectContext();
-  const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
+  
+  // Get specific projects for featured work
+  const featuredProjects = [
+    projects.find(p => p.id === 'd32-text-rewriter'),
+    projects.find(p => p.id === 'echo'),
+    projects.find(p => p.id === 'ai-automation')
+  ].filter(Boolean);
+
   const [animatedElements, setAnimatedElements] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -218,9 +225,21 @@ const HomePage = () => {
             </p>
           </div>
           
-          <FeaturedProjects projects={featuredProjects} />
+          {/* Project Grid - All visible at once */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProjects.map((project, index) => (
+              <div
+                key={project?.id}
+                className="animate-on-scroll opacity-0"
+                data-animate-id={`featured-project-${index}`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <ProjectCard project={project!} />
+              </div>
+            ))}
+          </div>
           
-          <div className="text-center mt-12 animate-on-scroll" data-animate-id="view-all-projects">
+          <div className="text-center animate-on-scroll" data-animate-id="view-all-projects">
             <Link
               to="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md transition hover:bg-gray-800"
