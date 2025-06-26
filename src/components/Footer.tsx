@@ -5,6 +5,9 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4 md:px-8">
+        {/* Subtle line divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-12"></div>
+        
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-12">
           {/* Logo and Tagline */}
@@ -55,8 +58,15 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-800 my-8"></div>
 
+        {/* Trust Message */}
+        <div className="text-center mb-6">
+          <p className="text-gray-400 text-sm">
+            Powered by human-centered AI. Designed with care by Pattern3.
+          </p>
+        </div>
+
         {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4">
           <p className="text-gray-500 text-sm">
             © Pattern3 LLC. All rights reserved.
           </p>
