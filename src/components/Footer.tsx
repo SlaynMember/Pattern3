@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="text-center md:text-left max-w-sm">
             <img 
               src="/images/logos/pattern3white.png" 
-              alt="Pattern3" 
+              alt="Pattern3 LLC" 
               className="h-12 mb-4 mx-auto md:mx-0"
             />
             <p className="text-gray-400 text-sm leading-relaxed">

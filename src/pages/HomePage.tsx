@@ -37,13 +37,11 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row items-center pt-32 md:pt-0">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Hey, I'm <span className="text-primary">Will</span>
-                <br />
-                Founder of Pattern<span className="text-primary">3</span>
+                AI Solutions for the <span className="text-primary">"Little Guys"</span>
               </h1>
               <p className="text-lg text-gray-600 mb-6 max-w-lg">
-                I bridge the gap between design, technology, and human connection. Through Pattern3 LLC, 
-                we create AI-powered solutions that transform how people interact with technology.
+                Pattern3 LLC brings enterprise-level AI to small businesses, solo founders, and creative teams. 
+                No dev team or massive budget required — just smart solutions that work.
               </p>
               <button 
                 onClick={openModal}
@@ -51,11 +49,14 @@ const HomePage = () => {
               >
                 Book Free Consultation <ArrowRight size={16} />
               </button>
+              <p className="text-sm text-gray-500 mt-3">
+                Based in Oklahoma City, serving clients nationwide
+              </p>
             </div>
             <div className="md:w-1/2 rounded-lg overflow-hidden shadow-xl transform md:translate-y-4">
               <img
                 src="/images/profile/headshot.jpg"
-                alt="Will - Founder of Pattern3"
+                alt="Will Patterson - Founder of Pattern3 LLC"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -78,9 +79,12 @@ const HomePage = () => {
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Why Pattern3</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Why Pattern3 LLC</h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
               <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                We don't just implement AI — we craft experiences where AI meets human creativity
+              </p>
             </div>
             
             {/* Two Column Layout */}
@@ -88,14 +92,14 @@ const HomePage = () => {
               {/* Left Column - Content */}
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
-                  AI That's Fast, Friendly, and Built for Real Businesses
+                  Human-Centered, Design-Driven AI Solutions
                 </h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      Tailored solutions for small teams — no dev team needed
+                      <strong>Accessible AI for everyone</strong> — Solutions designed for small teams without enterprise budgets or IT departments
                     </p>
                   </div>
                   
@@ -104,7 +108,7 @@ const HomePage = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      Human-first automations that match your voice
+                      <strong>Design meets technology</strong> — Beautiful, intuitive systems that feel like creative partners, not just automation tools
                     </p>
                   </div>
                   
@@ -113,7 +117,7 @@ const HomePage = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      Built with real tools like GPT-4, Supabase, Make
+                      <strong>Rapid implementation</strong> — Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
                     </p>
                   </div>
                   
@@ -122,7 +126,7 @@ const HomePage = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      Done-for-you systems in days, not months
+                      <strong>Local expertise, global innovation</strong> — Oklahoma City-based with deep understanding of real business challenges
                     </p>
                   </div>
                   
@@ -131,7 +135,7 @@ const HomePage = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      Designed by someone who's actually worked in the field
+                      <strong>Proven in the field</strong> — Built by someone who's worked directly with healthcare, startups, and creative teams
                     </p>
                   </div>
                 </div>
@@ -286,8 +290,7 @@ const HomePage = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
             <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Explore our latest projects where we've successfully bridged design, technology, 
-              and human connection to create impactful solutions.
+              Real solutions for real businesses — see how we've helped clients bridge technology and human connection.
             </p>
           </div>
           
@@ -304,7 +307,7 @@ const HomePage = () => {
               to="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md transition hover:bg-gray-800"
             >
-              View All Projects <ArrowRight size={16} />
+              View All Case Studies <ArrowRight size={16} />
             </Link>
           </div>
         </div>
