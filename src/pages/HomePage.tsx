@@ -1,14 +1,16 @@
-import { useRef, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowRight, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, Video, Plus, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import { useProjectContext } from '../hooks/useProjectContext';
+import RoadmapBookingModal from '../components/RoadmapBookingModal';
 
 const HomePage = () => {
   const bioRef = useRef<HTMLDivElement>(null);
   const { projects } = useProjectContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
-  // Get specific projects for featured work - exactly like WorkPage gets all projects
+  // Get specific projects for featured work
   const featuredProjects = [
     projects.find(p => p.id === 'd32-text-rewriter'),
     projects.find(p => p.id === 'echo'),
@@ -17,6 +19,14 @@ const HomePage = () => {
 
   const scrollToBio = () => {
     bioRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -32,15 +42,15 @@ const HomePage = () => {
                 Founder of Pattern<span className="text-primary">3</span>
               </h1>
               <p className="text-lg text-gray-600 mb-6 max-w-lg">
-                I bridge the gap between design, technology, and human connection. Through Pattern3, 
+                I bridge the gap between design, technology, and human connection. Through Pattern3 LLC, 
                 we create AI-powered solutions that transform how people interact with technology.
               </p>
-              <Link 
-                to="/work" 
+              <button 
+                onClick={openModal}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md transition hover:bg-gray-800"
               >
-                View Work <ArrowRight size={16} />
-              </Link>
+                Book Free Consultation <ArrowRight size={16} />
+              </button>
             </div>
             <div className="md:w-1/2 rounded-lg overflow-hidden shadow-xl transform md:translate-y-4">
               <img
@@ -62,117 +72,205 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Pattern3 Vision & Mission Section */}
+      {/* Why Pattern3 Section */}
       <section ref={bioRef} className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Vision & Mission</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Why Pattern3</h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
               <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Discover how Pattern3 bridges the gap between complex technology and real-world solutions
-              </p>
             </div>
             
-            {/* Vision & Mission Grid */}
-            <div className="vision-mission-container">
-              {/* Vision Column */}
-              <div className="vision-mission-column">
-                <div>
-                  <h3 className="vision-mission-header cursor-default">
-                    Vision
-                  </h3>
-                  <div className="space-y-6">
-                    <p className="vision-mission-intro">
-                      Pattern3 is both a platform and personal lab — built to explore, document, and deliver beautiful, human-centered AI systems.
+            {/* Two Column Layout */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Content */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
+                  AI That's Fast, Friendly, and Built for Real Businesses
+                </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Tailored solutions for small teams — no dev team needed
                     </p>
-                    <p className="vision-mission-description">
-                      We believe AI should feel like a creative partner, not just an automation tool. Our vision is to bridge the gap between complex technology and the real-world problems it can solve - with clarity, empathy, and design.
+                  </div>
+                  
+                  <div className="h-px bg-gray-200 mx-4"></div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Human-first automations that match your voice
+                    </p>
+                  </div>
+                  
+                  <div className="h-px bg-gray-200 mx-4"></div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Built with real tools like GPT-4, Supabase, Make
+                    </p>
+                  </div>
+                  
+                  <div className="h-px bg-gray-200 mx-4"></div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Done-for-you systems in days, not months
+                    </p>
+                  </div>
+                  
+                  <div className="h-px bg-gray-200 mx-4"></div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Designed by someone who's actually worked in the field
                     </p>
                   </div>
                 </div>
               </div>
               
-              {/* Mobile Divider */}
-              <div className="mobile-divider"></div>
-              
-              {/* Mission Column */}
-              <div className="vision-mission-column">
-                <div>
-                  <h3 className="vision-mission-header cursor-default">
-                    Mission
-                  </h3>
-                  <div className="space-y-6">
-                    <p className="vision-mission-intro">
-                      Pattern3 empowers small businesses, solo founders, and creative teams to modernize through AI - no dev team or enterprise budget required.
-                    </p>
-                    
-                    <div className="mission-points-container">
-                      <p className="mission-points-intro">We help you:</p>
-                      
-                      <div className="mission-points-grid">
-                        <div>
-                          <div className="mission-point">
-                            <div className="mission-icon">🧠</div>
-                            <div className="mission-content">
-                              <h4 className="mission-subheader">Spot inefficiencies</h4>
-                              <p className="mission-description">
-                                Outdated tools or clunky workflows? We zero in on the bottlenecks holding you back.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="mission-point">
-                            <div className="mission-icon">⚡</div>
-                            <div className="mission-content">
-                              <h4 className="mission-subheader">Deliver real solutions, fast</h4>
-                              <p className="mission-description">
-                                Beautiful, visual-first automations using GPT, Supabase, Make, Notion, and more.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="mission-point">
-                            <div className="mission-icon">🎬</div>
-                            <div className="mission-content">
-                              <h4 className="mission-subheader">Show, don't just tell</h4>
-                              <p className="mission-description">
-                                Every solution comes with clean UX, clear branding, and video walkthroughs.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="mission-point">
-                            <div className="mission-icon">📓</div>
-                            <div className="mission-content">
-                              <h4 className="mission-subheader">Build in the open</h4>
-                              <p className="mission-description">
-                                We document everything - showing what can be built with curiosity, clarity, and constraint.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              {/* Right Column - Visual */}
+              <div className="relative">
+                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-96 flex items-center justify-center">
+                  <div className="grid grid-cols-3 gap-6 opacity-20">
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Users className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Building className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Stethoscope className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <UserCheck className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <FileText className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Video className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Plus className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-white" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What You Get Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+              After Our Live Google Meet Call, You'll Receive:
+            </h2>
+            <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              Whether you upgrade or not, you'll walk away with clarity and momentum.
+            </p>
             
-            {/* Closing Statement */}
-            <div className="mt-16">
-              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-8 md:p-12 rounded-2xl border border-gray-200 shadow-sm">
-                <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium text-center max-w-4xl mx-auto">
-                  Whether it's a car dealership, dental clinic, or your own startup idea - Pattern3 is the home for systems that 
-                  <span className="text-primary font-semibold"> work and look good doing it</span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="w-8 h-8 text-[#6ba1a3]" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">PDF Roadmap</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Personalized with automation opportunities and quick wins for your specific business.
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <UserCheck className="w-8 h-8 text-[#6ba1a3]" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">System Analysis</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  A walkthrough of your current system bottlenecks and inefficiencies.
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Video className="w-8 h-8 text-[#6ba1a3]" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">Follow-up Calls</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  1–2 follow-up calls with tailored updates and action plans.
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Plus className="w-8 h-8 text-[#6ba1a3]" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">Visual Breakdown</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  A fully visual breakdown of what your business could look like with modern AI tools.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who It's For Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+              Who It's For
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl text-center">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Stethoscope className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Healthcare Clinics</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Drowning in paperwork and manual processes? 
+                  We'll show you where AI can save hours daily.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl text-center">
+                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Solo Founders</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Overwhelmed by AI tool options? We'll cut through 
+                  the noise and focus on what actually moves your business.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl text-center">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Building className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Local Businesses</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Running on outdated systems? Discover simple AI upgrades 
+                  that don't require a tech team.
                 </p>
               </div>
             </div>
@@ -193,7 +291,6 @@ const HomePage = () => {
             </p>
           </div>
           
-          {/* Project Grid - Copied exactly from WorkPage */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
               <div key={project.id}>
@@ -212,6 +309,33 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-primary">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+              Ready to discover your AI opportunities?
+            </h2>
+            <p className="text-xl mb-8 text-white/90">
+              Book your free consultation with Pattern3 LLC and get a clear roadmap for your business.
+            </p>
+            <button
+              onClick={openModal}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary rounded-xl hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
+            >
+              <ArrowRight className="w-5 h-5" />
+              Book Free Consultation
+            </button>
+            <p className="text-sm text-white/80 mt-4">
+              Live Google Meet call + personalized PDF roadmap
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Modal */}
+      <RoadmapBookingModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

@@ -43,8 +43,8 @@ const Header = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-8">
+        {/* Desktop Menu - Right Aligned */}
+        <nav className="hidden md:flex gap-8 ml-auto">
           <Link
             to="/"
             className={`transition-colors duration-300 hover:text-primary ${
@@ -62,12 +62,12 @@ const Header = () => {
             Work
           </Link>
           <Link
-            to="/ai"
+            to="/start"
             className={`transition-colors duration-300 hover:text-primary ${
-              isActive('/ai') ? 'text-primary font-medium' : 'text-gray-800'
+              isActive('/start') ? 'text-primary font-medium' : 'text-gray-800'
             }`}
           >
-            AI
+            Start
           </Link>
           <Link
             to="/about"
@@ -76,14 +76,6 @@ const Header = () => {
             }`}
           >
             About
-          </Link>
-          <Link
-            to="/start"
-            className={`transition-colors duration-300 hover:text-primary ${
-              isActive('/start') ? 'text-primary font-medium' : 'text-gray-800'
-            }`}
-          >
-            Start Here
           </Link>
         </nav>
 
@@ -120,13 +112,13 @@ const Header = () => {
               Work
             </Link>
             <Link
-              to="/ai"
+              to="/start"
               className={`py-2 px-4 ${
-                isActive('/ai') ? 'text-primary font-medium' : 'text-gray-800'
+                isActive('/start') ? 'text-primary font-medium' : 'text-gray-800'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              AI
+              Start
             </Link>
             <Link
               to="/about"
@@ -136,15 +128,6 @@ const Header = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               About
-            </Link>
-            <Link
-              to="/start"
-              className={`py-2 px-4 ${
-                isActive('/start') ? 'text-primary font-medium' : 'text-gray-800'
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Start Here
             </Link>
           </div>
         </div>
