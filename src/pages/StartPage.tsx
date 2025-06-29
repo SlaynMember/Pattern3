@@ -20,19 +20,40 @@ const StartPage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#6ba1a3] to-transparent animate-pulse"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
         <div className="absolute w-full h-full">
           {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-[#6ba1a3] opacity-20 animate-float"
+              className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-20 animate-pulse"
               style={{
                 width: Math.random() * 4 + 2 + 'px',
                 height: Math.random() * 4 + 2 + 'px',
@@ -49,13 +70,13 @@ const StartPage = () => {
       {/* Navigation Bar */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/80 backdrop-blur-sm shadow-md' : ''
+          isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : ''
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link
             to="/"
-            className="inline-flex items-center text-gray-600 hover:text-[#6ba1a3] transition-colors"
+            className="inline-flex items-center text-gray-600 hover:text-primary transition-colors font-medium"
           >
             <ChevronLeft className="w-5 h-5" />
             <span>Back to Home</span>
@@ -69,15 +90,15 @@ const StartPage = () => {
           )}
           <a
             href="mailto:william.n.patterson@gmail.com"
-            className="px-4 py-2 bg-[#6ba1a3] text-white rounded-md hover:bg-[#4f8385] transition-colors text-sm font-medium"
+            className="btn-primary text-sm px-6 py-3"
           >
             Contact Us
           </a>
         </div>
         {/* Scroll Progress Bar */}
-        <div className="h-0.5 bg-gray-100">
+        <div className="h-1 bg-gray-100">
           <div
-            className="h-full bg-[#6ba1a3] transition-all duration-200"
+            className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-200"
             style={{ width: `${scrollProgress}%` }}
           ></div>
         </div>
@@ -85,123 +106,141 @@ const StartPage = () => {
 
       <div className="container mx-auto px-4 pt-24 pb-16 relative z-10">
         {/* Hero Section */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <div className="max-w-5xl mx-auto text-center mb-24">
           <div className="mb-8">
             <img
               src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
-              className="h-16 mx-auto mb-6"
+              className="h-20 mx-auto mb-8 fade-in-up"
             />
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
+          <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 text-gray-900" style={{ animationDelay: '0.1s' }}>
             Let's Talk About Your<br />
-            <span className="text-[#6ba1a3]">AI Journey</span>
+            <span className="text-gradient">AI Journey</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="fade-in-up text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Ready to explore how AI can transform your business? Let's start a conversation about your goals, challenges, and opportunities.
           </p>
           
           <a
             href="mailto:william.n.patterson@gmail.com"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#6ba1a3] text-white rounded-xl hover:bg-[#4f8385] transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
+            className="scale-in btn-primary inline-flex items-center gap-3 text-xl px-10 py-5 shadow-glow"
+            style={{ animationDelay: '0.3s' }}
           >
-            <Mail className="w-5 h-5" />
+            <Mail className="w-6 h-6" />
             Get in Touch
           </a>
           
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="fade-in-up text-sm text-gray-500 mt-6" style={{ animationDelay: '0.4s' }}>
             william.n.patterson@gmail.com
           </p>
         </div>
 
         {/* Contact Methods */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+        <div className="max-w-5xl mx-auto mb-24">
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-16 text-gray-900">
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Mail className="w-8 h-8 text-[#6ba1a3]" />
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: Mail,
+                title: "Email",
+                description: "Send us a detailed message about your project or questions.",
+                link: "mailto:william.n.patterson@gmail.com",
+                linkText: "william.n.patterson@gmail.com",
+                delay: "0s"
+              },
+              {
+                icon: FileText,
+                title: "Resume",
+                description: "Download my resume to learn more about my background and experience.",
+                link: "/images/profile/Will_Patterson_Resume_June2025.docx",
+                linkText: "Download Resume",
+                delay: "0.1s"
+              },
+              {
+                icon: MessageCircle,
+                title: "Social",
+                description: "Follow my work and insights on social media platforms.",
+                link: "https://www.tiktok.com/@w_patt3",
+                linkText: "@w_patt3 on TikTok",
+                delay: "0.2s"
+              }
+            ].map((item, index) => (
+              <div key={index} className={`stagger-fade-in card text-center shadow-glow`} style={{ animationDelay: item.delay }}>
+                <div className="card-icon mx-auto">
+                  <item.icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{item.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {item.description}
+                </p>
+                <a
+                  href={item.link}
+                  target={item.link.startsWith('http') ? "_blank" : undefined}
+                  rel={item.link.startsWith('http') ? "noopener noreferrer" : undefined}
+                  className="text-primary hover:text-accent font-semibold transition-colors"
+                >
+                  {item.linkText}
+                </a>
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Email</h3>
-              <p className="text-gray-600 mb-4">
-                Send us a detailed message about your project or questions.
-              </p>
-              <a
-                href="mailto:william.n.patterson@gmail.com"
-                className="text-[#6ba1a3] hover:text-[#4f8385] font-medium"
-              >
-                william.n.patterson@gmail.com
-              </a>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FileText className="w-8 h-8 text-[#6ba1a3]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Resume</h3>
-              <p className="text-gray-600 mb-4">
-                Download my resume to learn more about my background and experience.
-              </p>
-              <a
-                href="/images/profile/Will_Patterson_Resume_June2025.docx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#6ba1a3] hover:text-[#4f8385] font-medium"
-              >
-                Download Resume
-              </a>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-              <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="w-8 h-8 text-[#6ba1a3]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Social</h3>
-              <p className="text-gray-600 mb-4">
-                Follow my work and insights on social media platforms.
-              </p>
-              <a
-                href="https://www.tiktok.com/@w_patt3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#6ba1a3] hover:text-[#4f8385] font-medium"
-              >
-                @w_patt3 on TikTok
-              </a>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* What to Include */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+        <div className="max-w-5xl mx-auto mb-24">
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-16 text-gray-900">
             What to Include in Your Message
           </h2>
           
-          <div className="bg-gradient-to-r from-[#6ba1a3]/10 to-[#6ba1a3]/5 p-8 rounded-2xl">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">About Your Business</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• What industry you're in</li>
-                  <li>• Size of your team</li>
-                  <li>• Current challenges you're facing</li>
-                  <li>• What you hope to achieve</li>
+          <div className="card bg-gradient-to-br from-primary/5 to-accent/5 border-gradient">
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="slide-in-left">
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">About Your Business</h3>
+                <ul className="space-y-3 text-lg text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    What industry you're in
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    Size of your team
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    Current challenges you're facing
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    What you hope to achieve
+                  </li>
                 </ul>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">About Your Project</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Timeline for implementation</li>
-                  <li>• Budget considerations</li>
-                  <li>• Any specific AI tools you're interested in</li>
-                  <li>• Questions about our process</li>
+              <div className="slide-in-right">
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">About Your Project</h3>
+                <ul className="space-y-3 text-lg text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
+                    Timeline for implementation
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
+                    Budget considerations
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
+                    Any specific AI tools you're interested in
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
+                    Questions about our process
+                  </li>
                 </ul>
               </div>
             </div>
@@ -209,55 +248,64 @@ const StartPage = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+        <div className="max-w-4xl mx-auto mb-24">
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-16 text-gray-900">
             Frequently Asked Questions
           </h2>
           
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">How quickly do you respond?</h3>
-              <p className="text-gray-600">I typically respond to emails within 24-48 hours during business days.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">Do you offer free consultations?</h3>
-              <p className="text-gray-600">Yes! I offer free initial consultations to understand your needs and see if we're a good fit.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">What types of projects do you work on?</h3>
-              <p className="text-gray-600">I specialize in AI automation, custom tools, and systems integration for small to medium businesses.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">Do you work with businesses outside healthcare?</h3>
-              <p className="text-gray-600">Absolutely! While I have experience in healthcare, I work with businesses across many industries.</p>
-            </div>
+            {[
+              {
+                question: "How quickly do you respond?",
+                answer: "I typically respond to emails within 24-48 hours during business days.",
+                delay: "0s"
+              },
+              {
+                question: "Do you offer free consultations?",
+                answer: "Yes! I offer free initial consultations to understand your needs and see if we're a good fit.",
+                delay: "0.1s"
+              },
+              {
+                question: "What types of projects do you work on?",
+                answer: "I specialize in AI automation, custom tools, and systems integration for small to medium businesses.",
+                delay: "0.2s"
+              },
+              {
+                question: "Do you work with businesses outside healthcare?",
+                answer: "Absolutely! While I have experience in healthcare, I work with businesses across many industries.",
+                delay: "0.3s"
+              }
+            ].map((item, index) => (
+              <div key={index} className={`stagger-fade-in card border-gradient`} style={{ animationDelay: item.delay }}>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{item.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Footer CTA */}
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-[#6ba1a3] p-8 md:p-12 rounded-2xl text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="card bg-gradient-to-br from-primary to-accent text-white shadow-glow">
+            <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">
               Ready to start the conversation?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="fade-in-up text-xl mb-10 opacity-90" style={{ animationDelay: '0.1s' }}>
               Reach out today and let's discuss how Pattern3 LLC can help transform your business with AI.
             </p>
             <a
               href="mailto:william.n.patterson@gmail.com"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#6ba1a3] rounded-xl hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
+              className="scale-in inline-flex items-center gap-3 px-10 py-5 bg-white text-primary rounded-2xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 text-xl font-bold shadow-lg"
+              style={{ animationDelay: '0.2s' }}
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-6 h-6" />
               Send Email
             </a>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-16">
+        <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-20">
           Pattern3 LLC | AI solutions that bridge technology and human connection.
         </div>
       </div>

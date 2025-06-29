@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-2 md:py-4'
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent py-2 md:py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
@@ -44,35 +44,35 @@ const Header = () => {
         </Link>
 
         {/* Desktop Menu - Right Aligned */}
-        <nav className="hidden md:flex gap-8 ml-auto">
+        <nav className="hidden md:flex gap-10 ml-auto">
           <Link
             to="/"
-            className={`transition-colors duration-300 hover:text-primary ${
-              isActive('/') ? 'text-primary font-medium' : 'text-gray-800'
+            className={`transition-all duration-300 font-medium text-lg hover:text-primary ${
+              isActive('/') ? 'text-primary font-semibold' : 'text-gray-800'
             }`}
           >
             Home
           </Link>
           <Link
             to="/work"
-            className={`transition-colors duration-300 hover:text-primary ${
-              isActive('/work') ? 'text-primary font-medium' : 'text-gray-800'
+            className={`transition-all duration-300 font-medium text-lg hover:text-primary ${
+              isActive('/work') ? 'text-primary font-semibold' : 'text-gray-800'
             }`}
           >
             Work
           </Link>
           <Link
             to="/start"
-            className={`transition-colors duration-300 hover:text-primary ${
-              isActive('/start') ? 'text-primary font-medium' : 'text-gray-800'
+            className={`transition-all duration-300 font-medium text-lg hover:text-primary ${
+              isActive('/start') ? 'text-primary font-semibold' : 'text-gray-800'
             }`}
           >
             Start
           </Link>
           <Link
             to="/about"
-            className={`transition-colors duration-300 hover:text-primary ${
-              isActive('/about') ? 'text-primary font-medium' : 'text-gray-800'
+            className={`transition-all duration-300 font-medium text-lg hover:text-primary ${
+              isActive('/about') ? 'text-primary font-semibold' : 'text-gray-800'
             }`}
           >
             About
@@ -81,7 +81,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-800"
+          className="md:hidden text-gray-800 p-2"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -91,12 +91,12 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white absolute top-full left-0 w-full shadow-md">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 w-full shadow-lg border-t border-gray-200">
+          <div className="container mx-auto px-4 py-6 flex flex-col gap-6">
             <Link
               to="/"
-              className={`py-2 px-4 ${
-                isActive('/') ? 'text-primary font-medium' : 'text-gray-800'
+              className={`py-3 px-4 text-lg font-medium transition-colors ${
+                isActive('/') ? 'text-primary font-semibold' : 'text-gray-800'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -104,8 +104,8 @@ const Header = () => {
             </Link>
             <Link
               to="/work"
-              className={`py-2 px-4 ${
-                isActive('/work') ? 'text-primary font-medium' : 'text-gray-800'
+              className={`py-3 px-4 text-lg font-medium transition-colors ${
+                isActive('/work') ? 'text-primary font-semibold' : 'text-gray-800'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -113,8 +113,8 @@ const Header = () => {
             </Link>
             <Link
               to="/start"
-              className={`py-2 px-4 ${
-                isActive('/start') ? 'text-primary font-medium' : 'text-gray-800'
+              className={`py-3 px-4 text-lg font-medium transition-colors ${
+                isActive('/start') ? 'text-primary font-semibold' : 'text-gray-800'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -122,8 +122,8 @@ const Header = () => {
             </Link>
             <Link
               to="/about"
-              className={`py-2 px-4 ${
-                isActive('/about') ? 'text-primary font-medium' : 'text-gray-800'
+              className={`py-3 px-4 text-lg font-medium transition-colors ${
+                isActive('/about') ? 'text-primary font-semibold' : 'text-gray-800'
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >

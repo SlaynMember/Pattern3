@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { ArrowRight, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, Video, Plus, Shield } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { ArrowRight, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, Video, Plus, Shield, Zap, Target, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import { useProjectContext } from '../hooks/useProjectContext';
@@ -29,39 +29,76 @@ const HomePage = () => {
     setIsModalOpen(false);
   };
 
+  // Animation on scroll
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row items-center pt-32 md:pt-0">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                AI Solutions for the <span className="text-primary">"Little Guys"</span>
+      <section className="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Floating Elements */}
+        <div className="floating-element"></div>
+        <div className="floating-element"></div>
+        <div className="floating-element"></div>
+        
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-12">
+            <div className="lg:w-3/5 text-left">
+              <h1 className="slide-in-left text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                AI Solutions for the <span className="text-gradient">"Little Guys"</span>
               </h1>
-              <p className="text-lg text-gray-600 mb-6 max-w-lg">
+              <p className="slide-in-left text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed" style={{ animationDelay: '0.2s' }}>
                 Pattern3 LLC brings enterprise-level AI to small businesses, solo founders, and creative teams. 
                 No dev team or massive budget required — just smart solutions that work.
               </p>
-              <button 
-                onClick={openModal}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md transition hover:bg-gray-800"
-              >
-                Book Free Consultation <ArrowRight size={16} />
-              </button>
-              <p className="text-sm text-gray-500 mt-3">
+              <div className="slide-in-left flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.4s' }}>
+                <button 
+                  onClick={openModal}
+                  className="btn-primary inline-flex items-center gap-3 text-lg"
+                >
+                  Book Free Consultation <ArrowRight size={20} />
+                </button>
+                <Link
+                  to="/work"
+                  className="btn-outline inline-flex items-center gap-3 text-lg"
+                >
+                  View Case Studies
+                </Link>
+              </div>
+              <p className="slide-in-left text-sm text-gray-500 mt-6" style={{ animationDelay: '0.6s' }}>
                 Based in Oklahoma City, serving clients nationwide
               </p>
             </div>
-            <div className="md:w-1/2 rounded-lg overflow-hidden shadow-xl transform md:translate-y-4">
-              <img
-                src="/images/profile/headshot.jpg"
-                alt="Will Patterson - Founder of Pattern3 LLC"
-                className="w-full h-auto object-cover"
-              />
+            <div className="lg:w-2/5">
+              <div className="scale-in rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                <img
+                  src="/images/profile/headshot.jpg"
+                  alt="Will Patterson - Founder of Pattern3 LLC"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
+        
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
             onClick={scrollToBio}
@@ -74,105 +111,89 @@ const HomePage = () => {
       </section>
 
       {/* Why Pattern3 Section */}
-      <section ref={bioRef} className="py-16 md:py-24 bg-white">
+      <section ref={bioRef} className="section-light">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Why Pattern3 LLC</h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
-              <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <div className="text-center mb-20">
+              <h2 className="fade-in-up text-4xl md:text-5xl lg:text-6xl font-black mb-6">Why Pattern3 LLC</h2>
+              <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
+              <p className="fade-in-up text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
                 We don't just implement AI — we craft experiences where AI meets human creativity
               </p>
             </div>
             
             {/* Two Column Layout */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left Column - Content */}
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
+              <div className="slide-in-left">
+                <h3 className="text-3xl md:text-4xl font-black mb-10 text-gray-900">
                   Human-Centered, Design-Driven AI Solutions
                 </h3>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      <strong>Accessible AI for everyone</strong> — Solutions designed for small teams without enterprise budgets or IT departments
-                    </p>
+                <div className="space-y-8">
+                  <div className="flex items-start gap-6">
+                    <div className="card-icon">
+                      <Zap className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
+                      <p className="text-lg text-gray-600 leading-relaxed">
+                        Solutions designed for small teams without enterprise budgets or IT departments
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="h-px bg-gray-200 mx-4"></div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      <strong>Design meets technology</strong> — Beautiful, intuitive systems that feel like creative partners, not just automation tools
-                    </p>
+                  <div className="flex items-start gap-6">
+                    <div className="card-icon">
+                      <Sparkles className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
+                      <p className="text-lg text-gray-600 leading-relaxed">
+                        Beautiful, intuitive systems that feel like creative partners, not just automation tools
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="h-px bg-gray-200 mx-4"></div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      <strong>Rapid implementation</strong> — Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
-                    </p>
-                  </div>
-                  
-                  <div className="h-px bg-gray-200 mx-4"></div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      <strong>Local expertise, global innovation</strong> — Oklahoma City-based with deep understanding of real business challenges
-                    </p>
-                  </div>
-                  
-                  <div className="h-px bg-gray-200 mx-4"></div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      <strong>Proven in the field</strong> — Built by someone who's worked directly with healthcare, startups, and creative teams
-                    </p>
+                  <div className="flex items-start gap-6">
+                    <div className="card-icon">
+                      <Target className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
+                      <p className="text-lg text-gray-600 leading-relaxed">
+                        Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
               
               {/* Right Column - Visual */}
-              <div className="relative">
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <div className="grid grid-cols-3 gap-6 opacity-20">
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Users className="w-6 h-6 text-white" />
+              <div className="slide-in-right relative">
+                <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-12 h-96 flex items-center justify-center relative overflow-hidden">
+                  <div className="grid grid-cols-3 gap-8 opacity-30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center transform rotate-12">
+                      <Users className="w-8 h-8 text-white" />
                     </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Building className="w-6 h-6 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center transform -rotate-6">
+                      <Building className="w-8 h-8 text-white" />
                     </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Stethoscope className="w-6 h-6 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center transform rotate-3">
+                      <Stethoscope className="w-8 h-8 text-white" />
                     </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <UserCheck className="w-6 h-6 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center transform -rotate-12">
+                      <UserCheck className="w-8 h-8 text-white" />
                     </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <FileText className="w-6 h-6 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center transform rotate-6">
+                      <FileText className="w-8 h-8 text-white" />
                     </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Video className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <MessageCircle className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Plus className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center transform -rotate-3">
+                      <Video className="w-8 h-8 text-white" />
                     </div>
                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse"></div>
                 </div>
               </div>
             </div>
@@ -181,156 +202,161 @@ const HomePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="section-gray">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
-              After Our Live Google Meet Call, You'll Receive:
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-              Whether you upgrade or not, you'll walk away with clarity and momentum.
-            </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-4xl md:text-5xl font-black mb-6 text-gray-900">
+                After Our Live Google Meet Call, You'll Receive:
+              </h2>
+              <p className="fade-in-up text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.1s' }}>
+                Whether you upgrade or not, you'll walk away with clarity and momentum.
+              </p>
+            </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-8 h-8 text-[#6ba1a3]" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  icon: FileText,
+                  title: "PDF Roadmap",
+                  description: "Personalized with automation opportunities and quick wins for your specific business.",
+                  delay: "0s"
+                },
+                {
+                  icon: UserCheck,
+                  title: "System Analysis",
+                  description: "A walkthrough of your current system bottlenecks and inefficiencies.",
+                  delay: "0.1s"
+                },
+                {
+                  icon: Video,
+                  title: "Follow-up Calls",
+                  description: "1–2 follow-up calls with tailored updates and action plans.",
+                  delay: "0.2s"
+                },
+                {
+                  icon: Plus,
+                  title: "Visual Breakdown",
+                  description: "A fully visual breakdown of what your business could look like with modern AI tools.",
+                  delay: "0.3s"
+                }
+              ].map((item, index) => (
+                <div key={index} className="stagger-fade-in card text-center" style={{ animationDelay: item.delay }}>
+                  <div className="card-icon mx-auto">
+                    <item.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">PDF Roadmap</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Personalized with automation opportunities and quick wins for your specific business.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <UserCheck className="w-8 h-8 text-[#6ba1a3]" />
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">System Analysis</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  A walkthrough of your current system bottlenecks and inefficiencies.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Video className="w-8 h-8 text-[#6ba1a3]" />
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">Follow-up Calls</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  1–2 follow-up calls with tailored updates and action plans.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
-                <div className="w-16 h-16 bg-[#6ba1a3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Plus className="w-8 h-8 text-[#6ba1a3]" />
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">Visual Breakdown</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  A fully visual breakdown of what your business could look like with modern AI tools.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Who It's For Section */}
-      <section className="py-20 bg-white">
+      <section className="section-light">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-              Who It's For
-            </h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-4xl md:text-5xl font-black mb-6 text-gray-900">
+                Who It's For
+              </h2>
+            </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl text-center">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Stethoscope className="w-8 h-8 text-white" />
+            <div className="grid md:grid-cols-3 gap-10">
+              {[
+                {
+                  icon: Stethoscope,
+                  title: "Healthcare Clinics",
+                  description: "Drowning in paperwork and manual processes? We'll show you where AI can save hours daily.",
+                  gradient: "from-blue-500 to-blue-600",
+                  bgGradient: "from-blue-50 to-blue-100",
+                  delay: "0s"
+                },
+                {
+                  icon: Users,
+                  title: "Solo Founders",
+                  description: "Overwhelmed by AI tool options? We'll cut through the noise and focus on what actually moves your business.",
+                  gradient: "from-purple-500 to-purple-600",
+                  bgGradient: "from-purple-50 to-purple-100",
+                  delay: "0.1s"
+                },
+                {
+                  icon: Building,
+                  title: "Local Businesses",
+                  description: "Running on outdated systems? Discover simple AI upgrades that don't require a tech team.",
+                  gradient: "from-green-500 to-green-600",
+                  bgGradient: "from-green-50 to-green-100",
+                  delay: "0.2s"
+                }
+              ].map((item, index) => (
+                <div key={index} className={`stagger-fade-in bg-gradient-to-br ${item.bgGradient} p-10 rounded-3xl text-center card`} style={{ animationDelay: item.delay }}>
+                  <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg`}>
+                    <item.icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-6 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Healthcare Clinics</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Drowning in paperwork and manual processes? 
-                  We'll show you where AI can save hours daily.
-                </p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl text-center">
-                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Solo Founders</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Overwhelmed by AI tool options? We'll cut through 
-                  the noise and focus on what actually moves your business.
-                </p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Building className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Local Businesses</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Running on outdated systems? Discover simple AI upgrades 
-                  that don't require a tech team.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Work Section */}
-      <section className="py-20 bg-gray-100">
+      <section className="section-gray">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Featured Work</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8"></div>
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="fade-in-up text-4xl md:text-5xl font-black mb-6">Featured Work</h2>
+            <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
+            <p className="fade-in-up text-xl text-gray-700 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
               Real solutions for real businesses — see how we've helped clients bridge technology and human connection.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
-              <div key={project.id}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {featuredProjects.map((project, index) => (
+              <div key={project.id} className="stagger-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <ProjectCard project={project} />
               </div>
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md transition hover:bg-gray-800"
+              className="btn-primary inline-flex items-center gap-3 text-lg"
             >
-              View All Case Studies <ArrowRight size={16} />
+              View All Case Studies <ArrowRight size={20} />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-primary">
+      <section className="section-dark">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6 text-white">
               Ready to discover your AI opportunities?
             </h2>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="fade-in-up text-xl mb-10 text-gray-300" style={{ animationDelay: '0.1s' }}>
               Book your free consultation with Pattern3 LLC and get a clear roadmap for your business.
             </p>
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary rounded-xl hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 text-lg font-semibold shadow-lg"
+              className="scale-in btn-accent inline-flex items-center gap-3 text-xl px-10 py-5" 
+              style={{ animationDelay: '0.2s' }}
             >
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-6 h-6" />
               Book Free Consultation
             </button>
-            <p className="text-sm text-white/80 mt-4">
+            <p className="fade-in-up text-sm text-gray-400 mt-6" style={{ animationDelay: '0.3s' }}>
               Live Google Meet call + personalized PDF roadmap
             </p>
           </div>

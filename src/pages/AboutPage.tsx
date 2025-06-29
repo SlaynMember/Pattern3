@@ -1,88 +1,78 @@
 import { useEffect } from 'react';
-import { FileText, Mail, ArrowRight } from 'lucide-react';
+import { FileText, Mail, ArrowRight, Zap, Target, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
   useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8;
-        
-        if (isVisible) {
-          el.classList.add('fade-in');
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
         }
       });
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on initial load
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   const skills = [
-    'Claude',
-    'Bolt',
-    'Supabase',
-    'Stripe',
-    'GPT-4',
-    'Gemini',
-    'Make',
-    'Google Cloud',
-    'LangChain',
-    'JavaScript',
-    'APIs',
-    'No-Code',
-    'AI Agents'
+    'Claude', 'Bolt', 'Supabase', 'Stripe', 'GPT-4', 'Gemini', 'Make',
+    'Google Cloud', 'LangChain', 'JavaScript', 'APIs', 'No-Code', 'AI Agents'
   ];
 
   const certifications = [
     {
       title: 'Google Cloud ML Engineer',
       status: 'In Progress',
-      className: 'bg-yellow-100 text-yellow-800'
+      className: 'bg-yellow-100 text-yellow-800 border border-yellow-200'
     },
     {
       title: 'LangChain Bootcamp',
       status: 'In Progress',
-      className: 'bg-blue-100 text-blue-800'
+      className: 'bg-blue-100 text-blue-800 border border-blue-200'
     },
     {
       title: 'DeepLearning.AI Prompt Engineering',
       status: 'Completed',
-      className: 'bg-green-100 text-green-800'
+      className: 'bg-green-100 text-green-800 border border-green-200'
     }
   ];
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Pattern3 LLC</h1>
-            <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-20">
+            <h1 className="fade-in-up text-4xl md:text-5xl lg:text-6xl font-black mb-6">About Pattern3 LLC</h1>
+            <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
+            <p className="fade-in-up text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
               AI strategy, automation, and design-forward tools that bridge technology and human connection
             </p>
           </div>
 
           {/* What Pattern3 Does */}
-          <div className="mb-20 animate-on-scroll">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">What We Do</h2>
-              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="mb-24 fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-black mb-6">What We Do</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
             </div>
             
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <div className="card bg-gradient-to-br from-gray-50 to-white border-gradient">
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                 Pattern3 LLC specializes in making advanced AI accessible to small businesses, solo entrepreneurs, and creative teams. 
                 We don't just implement technology — we craft human-centered experiences where AI becomes a creative partner, not just an automation tool.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                 Our approach combines cutting-edge AI capabilities with thoughtful design and rapid implementation, 
                 delivering solutions that feel intuitive and resonate with your users while solving real business challenges.
               </p>
@@ -90,25 +80,25 @@ const AboutPage = () => {
           </div>
 
           {/* Will's Story */}
-          <div className="mb-20 animate-on-scroll">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Meet Will Patterson</h2>
-              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Meet Will Patterson</h2>
+              <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="bg-gray-100 p-6 rounded-lg overflow-hidden mb-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="slide-in-left">
+                <div className="card p-0 overflow-hidden">
                   <img
                     src="/images/profile/headshot.jpg"
                     alt="Will Patterson - Founder of Pattern3 LLC"
-                    className="w-full h-auto rounded-lg shadow-lg"
+                    className="w-full h-auto rounded-xl"
                     loading="lazy"
                   />
                 </div>
               </div>
               
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <div className="slide-in-right space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
                 <p>
                   As the founder of Pattern3 LLC, my journey has been shaped by a unique perspective forged across cultures, disciplines, and technologies. 
                   Raised in the artistic landscapes of Italy, I developed an eye for beauty and craftsmanship that continues to influence my approach to AI innovation.
@@ -127,105 +117,109 @@ const AboutPage = () => {
           </div>
 
           {/* The Pattern3 Way */}
-          <div className="mb-20 animate-on-scroll">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">The Pattern3 Way</h2>
-              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">The Pattern3 Way</h2>
+              <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
+              <p className="fade-in-up text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
                 Our methodology emphasizes narrative-driven, visual-first, no-code enabled builds
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl text-center">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">1</span>
+            <div className="grid md:grid-cols-3 gap-10">
+              {[
+                {
+                  icon: Target,
+                  title: "Narrative-Driven",
+                  description: "Every solution starts with understanding your story, your challenges, and your vision for the future.",
+                  gradient: "from-blue-500 to-blue-600",
+                  bgGradient: "from-blue-50 to-blue-100",
+                  delay: "0s"
+                },
+                {
+                  icon: Zap,
+                  title: "Visual-First",
+                  description: "Beautiful, intuitive interfaces that make AI feel like a natural extension of your workflow.",
+                  gradient: "from-purple-500 to-purple-600",
+                  bgGradient: "from-purple-50 to-purple-100",
+                  delay: "0.1s"
+                },
+                {
+                  icon: Users,
+                  title: "No-Code Enabled",
+                  description: "Rapid prototyping and implementation using modern no-code tools for faster results.",
+                  gradient: "from-green-500 to-green-600",
+                  bgGradient: "from-green-50 to-green-100",
+                  delay: "0.2s"
+                }
+              ].map((item, index) => (
+                <div key={index} className={`stagger-fade-in bg-gradient-to-br ${item.bgGradient} card text-center`} style={{ animationDelay: item.delay }}>
+                  <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg`}>
+                    <item.icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Narrative-Driven</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Every solution starts with understanding your story, your challenges, and your vision for the future.
-                </p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl text-center">
-                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">2</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Visual-First</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Beautiful, intuitive interfaces that make AI feel like a natural extension of your workflow.
-                </p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">3</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">No-Code Enabled</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Rapid prototyping and implementation using modern no-code tools for faster results.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* 3-Step Process */}
-          <div className="mb-20 animate-on-scroll">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Our Process</h2>
-              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Our Process</h2>
+              <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
             </div>
             
             <div className="space-y-8">
-              <div className="flex items-start gap-6 p-6 bg-gray-50 rounded-xl">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold">1</span>
+              {[
+                {
+                  step: "1",
+                  title: "Discovery",
+                  description: "We start with understanding your business, challenges, and goals through detailed consultation and analysis.",
+                  delay: "0s"
+                },
+                {
+                  step: "2",
+                  title: "Audit",
+                  description: "We examine your current systems and workflows to identify automation opportunities and efficiency gains.",
+                  delay: "0.1s"
+                },
+                {
+                  step: "3",
+                  title: "Build",
+                  description: "We create and implement your custom AI solution with ongoing support and optimization.",
+                  delay: "0.2s"
+                }
+              ].map((item, index) => (
+                <div key={index} className={`stagger-fade-in card flex items-start gap-8 bg-gradient-to-r from-gray-50 to-white border-gradient`} style={{ animationDelay: item.delay }}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-content-center flex-shrink-0 shadow-lg">
+                    <span className="text-white font-black text-xl">{item.step}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">{item.title}</h3>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Discovery</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    We start with understanding your business, challenges, and goals through detailed consultation and analysis.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-6 p-6 bg-gray-50 rounded-xl">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold">2</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Audit</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    We examine your current systems and workflows to identify automation opportunities and efficiency gains.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-6 p-6 bg-gray-50 rounded-xl">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold">3</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Build</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    We create and implement your custom AI solution with ongoing support and optimization.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Skills & Tools */}
-          <div className="mb-20 animate-on-scroll">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
-              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Skills & Tools</h2>
+              <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
             </div>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="fade-in-up flex flex-wrap justify-center gap-4" style={{ animationDelay: '0.2s' }}>
               {skills.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition-colors"
+                  className="px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 rounded-full hover:from-primary hover:to-accent hover:text-white transition-all duration-300 font-medium border border-gray-200 hover:border-transparent shadow-sm hover:shadow-md transform hover:-translate-y-1"
                 >
                   {skill}
                 </span>
@@ -234,49 +228,49 @@ const AboutPage = () => {
           </div>
 
           {/* Currently Learning */}
-          <div className="mb-20 animate-on-scroll">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Currently Learning</h2>
-              <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Currently Learning</h2>
+              <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="fade-in-up flex flex-wrap justify-center gap-6" style={{ animationDelay: '0.2s' }}>
               {certifications.map((cert, index) => (
                 <div
                   key={index}
-                  className={`px-6 py-3 rounded-full ${cert.className} flex items-center gap-2`}
+                  className={`px-8 py-4 rounded-2xl ${cert.className} flex items-center gap-3 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1`}
                 >
-                  <span className="font-medium">{cert.title}</span>
-                  <span className="text-sm">({cert.status})</span>
+                  <span className="font-bold text-lg">{cert.title}</span>
+                  <span className="text-sm opacity-80">({cert.status})</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* CTA Section */}
-          <div className="text-center animate-on-scroll">
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">Ready to Start Your AI Journey?</h2>
-              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+          <div className="text-center fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <div className="card bg-gradient-to-br from-primary/5 to-accent/5 border-gradient text-center">
+              <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">Ready to Start Your AI Journey?</h2>
+              <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Let's discuss how Pattern3 LLC can help transform your business with human-centered AI solutions.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-6">
                 <Link
                   to="/start"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
+                  className="btn-primary inline-flex items-center gap-3 text-lg"
                 >
-                  Get Started <ArrowRight size={16} />
+                  Get Started <ArrowRight size={20} />
                 </Link>
                 <a
                   href="/images/profile/Will_Patterson_Resume_June2025.docx"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+                  className="btn-outline inline-flex items-center gap-3 text-lg"
                 >
                   <FileText size={20} /> View Resume
                 </a>
                 <a
                   href="mailto:william.n.patterson@gmail.com"
-                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-colors"
+                  className="btn-outline inline-flex items-center gap-3 text-lg"
                 >
                   <Mail size={20} /> Contact
                 </a>
