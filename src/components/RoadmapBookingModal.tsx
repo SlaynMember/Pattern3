@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Check, AlertCircle, Loader2, X } from 'lucide-react';
+import { Check, AlertCircle, Loader2, X, Calendar, User, Building, Target } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 
 interface FormData {
-  name: string;
+  fullName: string;
   email: string;
-  company: string;
+  businessName: string;
   industry: string;
-  teamSize: string;
+  helpWith: string[];
   currentChallenges: string;
-  aiExperience: string;
-  timeline: string;
-  budget: string;
-  additionalInfo: string;
+  preferredTime: string;
+  hearAbout: string;
+  sourcePage: string;
 }
 
 interface RoadmapBookingModalProps {
@@ -22,21 +21,49 @@ interface RoadmapBookingModalProps {
 
 const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    fullName: '',
     email: '',
-    company: '',
+    businessName: '',
     industry: '',
-    teamSize: '',
+    helpWith: [],
     currentChallenges: '',
-    aiExperience: '',
-    timeline: '',
-    budget: '',
-    additionalInfo: ''
+    preferredTime: '',
+    hearAbout: '',
+    sourcePage: 'modal'
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const helpOptions = [
+    'Website Development',
+    'AI Automation',
+    'Content & Copy',
+    'Business Strategy',
+    'AI Integration',
+    'Other'
+  ];
+
+  const industries = [
+    'Healthcare',
+    'Dental',
+    'Professional Services',
+    'Retail',
+    'Technology',
+    'Manufacturing',
+    'Education',
+    'Real Estate',
+    'Finance',
+    'Other'
+  ];
+
+  const timeSlots = [
+    'Morning (9 AM - 12 PM)',
+    'Afternoon (12 PM - 5 PM)',
+    'Evening (5 PM - 8 PM)',
+    'Flexible'
+  ];
 
   // Close modal on escape key
   useEffect(() => {
@@ -62,6 +89,15 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleCheckboxChange = (option: string) => {
+    setFormData(prev => ({
+      ...prev,
+      helpWith: prev.helpWith.includes(option)
+        ? prev.helpWith.filter(item => item !== option)
+        : [...prev.helpWith, option]
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -69,21 +105,20 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
     setErrorMessage('');
 
     try {
-      // Insert data into Supabase
+      // Insert data into Supabase consultation_bookings table
       const { error } = await supabase
-        .from('roadmap_bookings')
+        .from('consultation_bookings')
         .insert([
           {
-            name: formData.name,
+            full_name: formData.fullName,
             email: formData.email,
-            company: formData.company,
+            business_name: formData.businessName,
             industry: formData.industry,
-            team_size: formData.teamSize,
+            help_with: formData.helpWith.join(', '),
             current_challenges: formData.currentChallenges,
-            ai_experience: formData.aiExperience,
-            timeline: formData.timeline,
-            budget: formData.budget,
-            additional_info: formData.additionalInfo,
+            preferred_time: formData.preferredTime,
+            hear_about: formData.hearAbout,
+            source_page: formData.sourcePage,
             created_at: new Date().toISOString()
           }
         ]);
@@ -95,21 +130,20 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
       setSubmitStatus('success');
       // Reset form
       setFormData({
-        name: '',
+        fullName: '',
         email: '',
-        company: '',
+        businessName: '',
         industry: '',
-        teamSize: '',
+        helpWith: [],
         currentChallenges: '',
-        aiExperience: '',
-        timeline: '',
-        budget: '',
-        additionalInfo: ''
+        preferredTime: '',
+        hearAbout: '',
+        sourcePage: 'modal'
       });
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
-      setErrorMessage('Failed to submit form. Please try again.');
+      setErrorMessage('Failed to submit form. Please try again or email us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -161,7 +195,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
               </p>
               <button
                 onClick={handleClose}
-                className="px-6 py-3 bg-[#6ba1a3] text-white rounded-xl hover:bg-[#4f8385] transition-colors font-medium"
+                className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors font-medium"
               >
                 Close
               </button>
@@ -169,6 +203,9 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
           ) : (
             <>
               <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-8 h-8 text-white" />
+                </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                   Book Your Free AI Consultation
                 </h3>
@@ -187,17 +224,18 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                      <User className="w-4 h-4 inline mr-2" />
                       Full Name *
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
+                      id="fullName"
+                      name="fullName"
                       required
-                      value={formData.name}
+                      value={formData.fullName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
                       placeholder="Your full name"
                     />
                   </div>
@@ -213,7 +251,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -221,18 +259,18 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Company/Organization *
+                    <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
+                      <Building className="w-4 h-4 inline mr-2" />
+                      Business/Project Name
                     </label>
                     <input
                       type="text"
-                      id="company"
-                      name="company"
-                      required
-                      value={formData.company}
+                      id="businessName"
+                      name="businessName"
+                      value={formData.businessName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white"
-                      placeholder="Your company name"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
+                      placeholder="Your business name"
                     />
                   </div>
 
@@ -246,7 +284,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       required
                       value={formData.industry}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white appearance-none"
                       style={{
                         backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
                         backgroundPosition: 'right 0.75rem center',
@@ -255,72 +293,30 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       }}
                     >
                       <option value="">Select your industry</option>
-                      <option value="healthcare">Healthcare</option>
-                      <option value="dental">Dental</option>
-                      <option value="professional-services">Professional Services</option>
-                      <option value="retail">Retail</option>
-                      <option value="technology">Technology</option>
-                      <option value="manufacturing">Manufacturing</option>
-                      <option value="education">Education</option>
-                      <option value="real-estate">Real Estate</option>
-                      <option value="finance">Finance</option>
-                      <option value="other">Other</option>
+                      {industries.map(industry => (
+                        <option key={industry} value={industry}>{industry}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-2">
-                      Team Size *
-                    </label>
-                    <select
-                      id="teamSize"
-                      name="teamSize"
-                      required
-                      value={formData.teamSize}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-                        backgroundPosition: 'right 0.75rem center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: '1.5em 1.5em'
-                      }}
-                    >
-                      <option value="">Select team size</option>
-                      <option value="solo">Just me</option>
-                      <option value="2-5">2-5 people</option>
-                      <option value="6-15">6-15 people</option>
-                      <option value="16-50">16-50 people</option>
-                      <option value="50+">50+ people</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="aiExperience" className="block text-sm font-medium text-gray-700 mb-2">
-                      AI Experience *
-                    </label>
-                    <select
-                      id="aiExperience"
-                      name="aiExperience"
-                      required
-                      value={formData.aiExperience}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-                        backgroundPosition: 'right 0.75rem center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: '1.5em 1.5em'
-                      }}
-                    >
-                      <option value="">Select experience level</option>
-                      <option value="none">No AI experience</option>
-                      <option value="basic">Basic (ChatGPT, etc.)</option>
-                      <option value="intermediate">Some automation tools</option>
-                      <option value="advanced">Advanced AI user</option>
-                    </select>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-4">
+                    <Target className="w-4 h-4 inline mr-2" />
+                    What do you want help with? (Select all that apply)
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {helpOptions.map(option => (
+                      <label key={option} className="flex items-center space-x-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.helpWith.includes(option)}
+                          onChange={() => handleCheckboxChange(option)}
+                          className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                        />
+                        <span className="text-sm text-gray-700">{option}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 
@@ -335,23 +331,22 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                     rows={4}
                     value={formData.currentChallenges}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors resize-none bg-white"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none bg-white"
                     placeholder="What are your biggest time-consuming tasks or operational challenges?"
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
-                      Implementation Timeline *
+                    <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Meeting Time
                     </label>
                     <select
-                      id="timeline"
-                      name="timeline"
-                      required
-                      value={formData.timeline}
+                      id="preferredTime"
+                      name="preferredTime"
+                      value={formData.preferredTime}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white appearance-none"
                       style={{
                         backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
                         backgroundPosition: 'right 0.75rem center',
@@ -359,62 +354,33 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                         backgroundSize: '1.5em 1.5em'
                       }}
                     >
-                      <option value="">Select timeline</option>
-                      <option value="asap">ASAP (within 30 days)</option>
-                      <option value="1-3-months">1-3 months</option>
-                      <option value="3-6-months">3-6 months</option>
-                      <option value="6-12-months">6-12 months</option>
-                      <option value="exploring">Just exploring</option>
+                      <option value="">Select preferred time</option>
+                      {timeSlots.map(slot => (
+                        <option key={slot} value={slot}>{slot}</option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                      Monthly AI Budget *
+                    <label htmlFor="hearAbout" className="block text-sm font-medium text-gray-700 mb-2">
+                      How did you hear about Pattern3?
                     </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      required
-                      value={formData.budget}
+                    <input
+                      type="text"
+                      id="hearAbout"
+                      name="hearAbout"
+                      value={formData.hearAbout}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors bg-white appearance-none"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-                        backgroundPosition: 'right 0.75rem center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: '1.5em 1.5em'
-                      }}
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="under-500">Under $500/month</option>
-                      <option value="500-1500">$500-$1,500/month</option>
-                      <option value="1500-5000">$1,500-$5,000/month</option>
-                      <option value="5000+">$5,000+/month</option>
-                      <option value="unsure">Not sure yet</option>
-                    </select>
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
+                      placeholder="Referral, search, social media, etc."
+                    />
                   </div>
-                </div>
-
-                <div>
-                  <label htmlFor="additionalInfo" className="block text-sm font-medium text-gray-700 mb-2">
-                    Additional Information
-                  </label>
-                  <textarea
-                    id="additionalInfo"
-                    name="additionalInfo"
-                    rows={3}
-                    value={formData.additionalInfo}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#6ba1a3] focus:border-transparent transition-colors resize-none bg-white"
-                    placeholder="Anything else you'd like me to know about your business or goals?"
-                  />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#6ba1a3] text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-[#4f8385] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full bg-primary text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                 >
                   {isSubmitting ? (
                     <>
