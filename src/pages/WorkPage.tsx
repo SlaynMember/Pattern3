@@ -7,17 +7,63 @@ import ProjectCard from '../components/ProjectCard';
 const WorkPage = () => {
   const { projects } = useProjectContext();
   const [animatedProjects, setAnimatedProjects] = useState<number[]>([]);
+  const [selectedFilter, setSelectedFilter] = useState<string>('All');
+  
+  // Define filter categories
+  const filterCategories = ['All', 'Healthcare', 'AI Tools', 'Creative', 'Automation'];
+  
+  // Filter projects based on selected category
+  const filteredProjects = projects.filter(project => {
+    if (selectedFilter === 'All') return true;
+    
+    const projectTags = project.tags.map(tag => tag.toLowerCase());
+    
+    switch (selectedFilter) {
+      case 'Healthcare':
+        return projectTags.some(tag => 
+          tag.includes('healthcare') || 
+          tag.includes('dental') || 
+          tag.includes('medical') ||
+          project.client.toLowerCase().includes('dental')
+        );
+      case 'AI Tools':
+        return projectTags.some(tag => 
+          tag.includes('ai') || 
+          tag.includes('automation') || 
+          tag.includes('gemini') || 
+          tag.includes('gpt') ||
+          tag.includes('openai')
+        );
+      case 'Creative':
+        return projectTags.some(tag => 
+          tag.includes('video') || 
+          tag.includes('photography') || 
+          tag.includes('branding') ||
+          tag.includes('content')
+        );
+      case 'Automation':
+        return projectTags.some(tag => 
+          tag.includes('automation') || 
+          tag.includes('no-code') ||
+          tag.includes('workflow')
+        );
+      default:
+        return true;
+    }
+  });
   
   useEffect(() => {
     const animateProjects = () => {
-      projects.forEach((_, index) => {
+      filteredProjects.forEach((_, index) => {
         setTimeout(() => {
           setAnimatedProjects(prev => [...prev, index]);
-        }, 150 * index);
+        }, 100 * index);
       });
     };
     
-    animateProjects();
+    // Reset animations when filter changes
+    setAnimatedProjects([]);
+    setTimeout(animateProjects, 100);
 
     // Animation on scroll
     const observerOptions = {
@@ -37,7 +83,7 @@ const WorkPage = () => {
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [projects]);
+  }, [filteredProjects, selectedFilter]);
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white">
@@ -50,8 +96,26 @@ const WorkPage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, index) => (
+        {/* Filter Tags */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {filterCategories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedFilter(category)}
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
+                selectedFilter === category
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid - 2 Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          {filteredProjects.map((project, index) => (
             <div 
               key={project.id} 
               className={`transform transition-all duration-700 ${
@@ -64,6 +128,19 @@ const WorkPage = () => {
             </div>
           ))}
         </div>
+
+        {/* No Results Message */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-xl text-gray-500">No projects found for "{selectedFilter}" category.</p>
+            <button
+              onClick={() => setSelectedFilter('All')}
+              className="mt-4 text-primary hover:text-accent font-semibold"
+            >
+              View All Projects
+            </button>
+          </div>
+        )}
 
         {/* CTA Section */}
         <div className="text-center mt-20 pt-16 border-t border-gray-200">

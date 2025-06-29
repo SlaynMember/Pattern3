@@ -29,24 +29,6 @@ const AboutPage = () => {
     'Google Cloud', 'LangChain', 'JavaScript', 'APIs', 'No-Code', 'AI Agents'
   ];
 
-  const certifications = [
-    {
-      title: 'Google Cloud ML Engineer',
-      status: 'In Progress',
-      className: 'bg-yellow-100 text-yellow-800 border border-yellow-200'
-    },
-    {
-      title: 'LangChain Bootcamp',
-      status: 'In Progress',
-      className: 'bg-blue-100 text-blue-800 border border-blue-200'
-    },
-    {
-      title: 'DeepLearning.AI Prompt Engineering',
-      status: 'Completed',
-      className: 'bg-green-100 text-green-800 border border-green-200'
-    }
-  ];
-
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="container mx-auto px-4 md:px-8">
@@ -166,44 +148,42 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* 3-Step Process */}
+          {/* Our Process - Simplified */}
           <div className="mb-24">
             <div className="text-center mb-16">
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Our Process</h2>
               <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
             </div>
             
-            <div className="space-y-8">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
               {[
                 {
-                  step: "1",
+                  icon: Target,
                   title: "Discovery",
-                  description: "We start with understanding your business, challenges, and goals through detailed consultation and analysis.",
+                  description: "Understanding your business, challenges, and goals",
                   delay: "0s"
                 },
                 {
-                  step: "2",
+                  icon: Zap,
                   title: "Audit",
-                  description: "We examine your current systems and workflows to identify automation opportunities and efficiency gains.",
+                  description: "Examining systems to identify automation opportunities",
                   delay: "0.1s"
                 },
                 {
-                  step: "3",
+                  icon: Users,
                   title: "Build",
-                  description: "We create and implement your custom AI solution with ongoing support and optimization.",
+                  description: "Creating and implementing your custom AI solution",
                   delay: "0.2s"
                 }
               ].map((item, index) => (
-                <div key={index} className={`stagger-fade-in card flex items-start gap-8 bg-gradient-to-r from-gray-50 to-white border-gradient`} style={{ animationDelay: item.delay }}>
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-content-center flex-shrink-0 shadow-lg">
-                    <span className="text-white font-black text-xl">{item.step}</span>
+                <div key={index} className={`stagger-fade-in text-center max-w-xs`} style={{ animationDelay: item.delay }}>
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <item.icon className="w-10 h-10 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900">{item.title}</h3>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -223,25 +203,6 @@ const AboutPage = () => {
                 >
                   {skill}
                 </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Currently Learning */}
-          <div className="mb-24">
-            <div className="text-center mb-16">
-              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Currently Learning</h2>
-              <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
-            </div>
-            <div className="fade-in-up flex flex-wrap justify-center gap-6" style={{ animationDelay: '0.2s' }}>
-              {certifications.map((cert, index) => (
-                <div
-                  key={index}
-                  className={`px-8 py-4 rounded-2xl ${cert.className} flex items-center gap-3 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1`}
-                >
-                  <span className="font-bold text-lg">{cert.title}</span>
-                  <span className="text-sm opacity-80">({cert.status})</span>
-                </div>
               ))}
             </div>
           </div>

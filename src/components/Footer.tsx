@@ -1,82 +1,54 @@
-import { FileText, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-8">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Subtle line divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-12"></div>
-        
         {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-12">
-          {/* Logo and Tagline */}
-          <div className="text-center md:text-left max-w-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Logo and Company Info */}
+          <div className="text-center md:text-left">
             <img 
               src="/images/logos/pattern3white.png" 
               alt="Pattern3 LLC" 
-              className="h-12 mb-4 mx-auto md:mx-0"
+              className="h-10 mb-3 mx-auto md:mx-0"
             />
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Empowering small businesses, solo founders, and creative teams to modernize through AI - without needing a full dev team or enterprise budget.
+            <p className="text-gray-300 text-sm">
+              Pattern3 LLC | AI solutions for real businesses
+            </p>
+            <p className="text-gray-400 text-sm">
+              Powered by human-centered design. Serving clients nationwide.
             </p>
           </div>
 
-          {/* Social Links */}
-          <div className="flex gap-6">
-            <a
-              href="https://linkedin.com/in/will-n-patterson/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-primary transition-colors"
-              aria-label="LinkedIn Profile"
-              title="LinkedIn Profile"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="/images/profile/Will_Patterson_Resume_June2025.docx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-primary transition-colors"
-              aria-label="Download Resume"
-              title="Download Resume"
-            >
-              <FileText size={20} />
-            </a>
+          {/* Contact and CTA */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
               href="mailto:william.n.patterson@gmail.com"
-              className="text-gray-400 hover:text-primary transition-colors"
+              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
               aria-label="Send Email"
               title="Send Email"
             >
-              <Mail size={20} />
+              <Mail size={18} />
+              <span className="text-sm">william.n.patterson@gmail.com</span>
             </a>
+            
+            <Link
+              to="/start"
+              className="group inline-flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors"
+            >
+              Ready to start?
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 my-8"></div>
-
-        {/* Trust Message */}
-        <div className="text-center mb-6">
-          <p className="text-gray-400 text-sm">
-            Powered by human-centered AI. Designed with care by Pattern3.
-          </p>
-        </div>
-
         {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4">
+        <div className="border-t border-gray-800 mt-6 pt-6 text-center">
           <p className="text-gray-500 text-sm">
-            © Pattern3 LLC. All rights reserved.
+            © {new Date().getFullYear()} Pattern3 LLC. All rights reserved.
           </p>
-          <Link
-            to="/start"
-            className="group inline-flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors"
-          >
-            Ready to start your AI journey?
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
       </div>
     </footer>

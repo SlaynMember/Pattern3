@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, Mail, FileText, MessageCircle, ArrowRight } from 'lucide-react';
+import BookingForm from '../components/BookingForm';
 
 const StartPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,6 +44,10 @@ const StartPage = () => {
       observer.disconnect();
     };
   }, []);
+
+  const scrollToBooking = () => {
+    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
@@ -106,7 +111,7 @@ const StartPage = () => {
 
       <div className="container mx-auto px-4 pt-24 pb-16 relative z-10">
         {/* Hero Section */}
-        <div className="max-w-5xl mx-auto text-center mb-24">
+        <div className="max-w-5xl mx-auto text-center mb-16">
           <div className="mb-8">
             <img
               src="/images/logos/pattern3black.png"
@@ -124,14 +129,23 @@ const StartPage = () => {
             Ready to explore how AI can transform your business? Let's start a conversation about your goals, challenges, and opportunities.
           </p>
           
-          <a
-            href="mailto:william.n.patterson@gmail.com"
-            className="scale-in btn-primary inline-flex items-center gap-3 text-xl px-10 py-5 shadow-glow"
-            style={{ animationDelay: '0.3s' }}
-          >
-            <Mail className="w-6 h-6" />
-            Get in Touch
-          </a>
+          <div className="fade-in-up flex flex-col sm:flex-row gap-4 justify-center" style={{ animationDelay: '0.3s' }}>
+            <button
+              onClick={scrollToBooking}
+              className="btn-primary inline-flex items-center gap-3 text-xl px-10 py-5 shadow-glow"
+            >
+              <ArrowRight className="w-6 h-6" />
+              Book Free Consultation
+            </button>
+            
+            <a
+              href="mailto:william.n.patterson@gmail.com"
+              className="btn-outline inline-flex items-center gap-3 text-xl px-10 py-5"
+            >
+              <Mail className="w-6 h-6" />
+              Send Email
+            </a>
+          </div>
           
           <p className="fade-in-up text-sm text-gray-500 mt-6" style={{ animationDelay: '0.4s' }}>
             william.n.patterson@gmail.com
@@ -191,6 +205,11 @@ const StartPage = () => {
             ))}
           </div>
         </div>
+
+        {/* Booking Form Section */}
+        <section id="booking" className="max-w-4xl mx-auto mb-24">
+          <BookingForm sourcePage="start" />
+        </section>
 
         {/* What to Include */}
         <div className="max-w-5xl mx-auto mb-24">
@@ -284,24 +303,14 @@ const StartPage = () => {
           </div>
         </div>
 
-        {/* Footer CTA */}
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="card bg-gradient-to-br from-primary to-accent text-white shadow-glow">
-            <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">
-              Ready to start the conversation?
-            </h2>
-            <p className="fade-in-up text-xl mb-10 opacity-90" style={{ animationDelay: '0.1s' }}>
-              Reach out today and let's discuss how Pattern3 LLC can help transform your business with AI.
-            </p>
-            <a
-              href="mailto:william.n.patterson@gmail.com"
-              className="scale-in inline-flex items-center gap-3 px-10 py-5 bg-white text-primary rounded-2xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 text-xl font-bold shadow-lg"
-              style={{ animationDelay: '0.2s' }}
-            >
-              <Mail className="w-6 h-6" />
-              Send Email
-            </a>
-          </div>
+        {/* Sticky Mobile Button */}
+        <div className="fixed bottom-6 left-4 right-4 z-40 md:hidden">
+          <button
+            onClick={scrollToBooking}
+            className="w-full btn-primary py-4 text-lg shadow-2xl"
+          >
+            Book Free Consultation
+          </button>
         </div>
 
         {/* Footer */}
