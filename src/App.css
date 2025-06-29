@@ -35,8 +35,10 @@
   --gray-900: #0f172a;
 }
 
-* {
-  box-sizing: border-box;
+/* Global overflow fix for mobile */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -47,6 +49,19 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent any element from exceeding viewport width */
+*,
+*::before,
+*::after {
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,6 +70,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--dark);
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -126,6 +144,8 @@ h3 {
   box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.1), 0 2px 4px -1px rgba(8, 145, 178, 0.06);
   font-size: 1rem;
   letter-spacing: -0.01em;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -146,6 +166,8 @@ h3 {
   box-shadow: 0 4px 6px -1px rgba(20, 184, 166, 0.1), 0 2px 4px -1px rgba(20, 184, 166, 0.06);
   font-size: 1rem;
   letter-spacing: -0.01em;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .btn-accent:hover {
@@ -165,6 +187,8 @@ h3 {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1rem;
   letter-spacing: -0.01em;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .btn-outline:hover {
@@ -182,6 +206,8 @@ h3 {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   border: 1px solid var(--gray-200);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -201,6 +227,7 @@ h3 {
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
   color: white;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .card:hover .card-icon {
@@ -268,22 +295,30 @@ h3 {
 .section-light {
   background: var(--light);
   padding: 6rem 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .section-dark {
   background: var(--gray-900);
   color: white;
   padding: 6rem 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .section-gray {
   background: var(--gray-50);
   padding: 6rem 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .section-gradient {
   background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
   padding: 6rem 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -300,6 +335,7 @@ h3 {
   background: linear-gradient(135deg, var(--gray-50) 0%, white 50%, var(--gray-50) 100%);
   position: relative;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .hero-bg::before {
@@ -321,6 +357,8 @@ h3 {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   opacity: 0.1;
   animation: float 6s ease-in-out infinite;
+  max-width: 80px;
+  max-height: 80px;
 }
 
 .floating-element:nth-child(1) {
@@ -365,6 +403,8 @@ h3 {
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: start;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
@@ -379,6 +419,8 @@ h3 {
   display: flex;
   flex-direction: column;
   height: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .vision-mission-header {
@@ -389,6 +431,8 @@ h3 {
   margin-bottom: 2rem;
   color: var(--gray-900);
   letter-spacing: -0.025em;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 @media (min-width: 768px) {
@@ -423,6 +467,8 @@ h3 {
   color: var(--gray-800);
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .vision-mission-description {
@@ -430,6 +476,8 @@ h3 {
   color: var(--gray-600);
   line-height: 1.7;
   margin-bottom: 1.5rem;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .vision-mission-description:last-child {
@@ -450,6 +498,8 @@ h3 {
 
 .mission-points-container {
   margin-top: 2rem;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .mission-points-intro {
@@ -458,6 +508,8 @@ h3 {
   font-weight: 500;
   margin-bottom: 2rem;
   text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 @media (min-width: 1024px) {
@@ -469,6 +521,7 @@ h3 {
 .mission-points-grid {
   display: grid;
   gap: 1.5rem;
+  max-width: 100%;
 }
 
 .mission-point {
@@ -478,6 +531,8 @@ h3 {
   padding: 1.25rem 0;
   border-bottom: 1px solid #f1f5f9;
   transition: all 0.3s ease;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .mission-point:last-child {
@@ -517,6 +572,8 @@ h3 {
 .mission-content {
   flex: 1;
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .mission-subheader {
@@ -526,6 +583,8 @@ h3 {
   color: var(--gray-900);
   margin-bottom: 0.5rem;
   line-height: 1.4;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .mission-description {
@@ -534,6 +593,8 @@ h3 {
   color: var(--gray-600);
   line-height: 1.6;
   margin: 0;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 @media (min-width: 768px) {
@@ -573,6 +634,7 @@ h3 {
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   height: 1px;
   margin: 3rem 0;
+  max-width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -605,6 +667,8 @@ h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .border-gradient {
@@ -619,4 +683,68 @@ h3 {
 
 .shadow-glow-accent {
   box-shadow: 0 0 20px rgba(20, 184, 166, 0.15);
+}
+
+/* Container and Grid Fixes for Mobile */
+.container {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Ensure all grid containers don't overflow */
+.grid {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Fix for flex containers */
+.flex {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Ensure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for any absolute positioned elements */
+.absolute {
+  max-width: 100%;
+}
+
+/* Mobile-specific button adjustments */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-accent,
+  .btn-outline {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    white-space: normal;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  /* Ensure button containers don't overflow */
+  .flex.flex-col.sm\\:flex-row,
+  .flex.flex-wrap {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Fix for any transform animations that might go off-screen */
+@media (max-width: 768px) {
+  .slide-in-left,
+  .slide-in-right {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  
+  .slide-in-left.animate,
+  .slide-in-right.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

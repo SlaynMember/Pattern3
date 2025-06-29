@@ -51,49 +51,49 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="hero-bg relative min-h-screen flex items-center justify-center">
         {/* Floating Elements */}
         <div className="floating-element"></div>
         <div className="floating-element"></div>
         <div className="floating-element"></div>
         
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-12">
-            <div className="lg:w-3/5 text-left">
-              <h1 className="slide-in-left text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                <span className="block lg:inline">AI Solutions for the </span>
-                <span className="text-gradient font-black">Little Guys</span>
+        <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
+          <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-8 lg:gap-12 max-w-full">
+            <div className="lg:w-3/5 text-left max-w-full">
+              <h1 className="slide-in-left text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-tight max-w-full">
+                <span className="block">AI Solutions for the </span>
+                <span className="text-gradient font-black whitespace-nowrap">Little Guys</span>
               </h1>
-              <p className="slide-in-left text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              <p className="slide-in-left text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed" style={{ animationDelay: '0.2s' }}>
                 Pattern3 LLC brings enterprise-level AI to small businesses, solo founders, and creative teams. 
                 No dev team or massive budget required — just smart solutions that work.
               </p>
-              <div className="slide-in-left flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.4s' }}>
+              <div className="slide-in-left flex flex-col sm:flex-row gap-4 max-w-full" style={{ animationDelay: '0.4s' }}>
                 <button 
                   onClick={openModal}
-                  className="btn-primary inline-flex items-center gap-3 text-lg"
+                  className="btn-primary inline-flex items-center justify-center gap-3 text-base md:text-lg max-w-full"
                 >
                   Book Free Consultation <ArrowRight size={20} />
                 </button>
                 <Link
                   to="/work"
-                  className="btn-outline inline-flex items-center gap-3 text-lg"
+                  className="btn-outline inline-flex items-center justify-center gap-3 text-base md:text-lg max-w-full"
                 >
                   View Case Studies
                 </Link>
               </div>
-              <p className="slide-in-left text-sm text-gray-500 mt-6" style={{ animationDelay: '0.6s' }}>
+              <p className="slide-in-left text-sm text-gray-500 mt-6 max-w-full" style={{ animationDelay: '0.6s' }}>
                 Based in Oklahoma City, serving clients nationwide
               </p>
             </div>
-            <div className="lg:w-2/5">
-              <div className="scale-in rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="lg:w-2/5 max-w-full">
+              <div className="scale-in rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 max-w-full">
                 <img
                   src="/images/profile/headshot.jpg"
                   alt="Will Patterson - Founder of Pattern3 LLC"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover max-w-full"
                 />
               </div>
             </div>
@@ -112,7 +112,7 @@ const HomePage = () => {
       </section>
 
       {/* Why Pattern3 Section */}
-      <section ref={bioRef} className="section-light relative overflow-hidden">
+      <section ref={bioRef} className="section-light relative">
         {/* Floating Elements for Desktop */}
         <div className="hidden lg:block">
           <div className="floating-element"></div>
@@ -120,79 +120,79 @@ const HomePage = () => {
           <div className="floating-element"></div>
         </div>
         
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-20">
-              <h2 className="fade-in-up text-4xl md:text-5xl lg:text-6xl font-black mb-6">Why Pattern3 LLC</h2>
+            <div className="text-center mb-20 max-w-full">
+              <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6">Why Pattern3 LLC</h2>
               <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
-              <p className="fade-in-up text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              <p className="fade-in-up text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
                 We don't just implement AI — we craft experiences where AI meets human creativity
               </p>
             </div>
             
             {/* Full Width Content */}
             <div className="slide-in-left max-w-5xl mx-auto text-left">
-              <h3 className="text-3xl md:text-4xl font-black mb-10 text-gray-900">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black mb-10 text-gray-900 max-w-full">
                 Human-Centered, Design-Driven AI Solutions
               </h3>
               
-              <div className="space-y-8">
-                <div className="flex items-start gap-6">
-                  <div className="card-icon">
-                    <Zap className="w-6 h-6" />
+              <div className="space-y-8 max-w-full">
+                <div className="flex items-start gap-4 md:gap-6 max-w-full">
+                  <div className="card-icon flex-shrink-0">
+                    <Zap className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                  <div className="max-w-full overflow-hidden">
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Solutions designed for small teams without enterprise budgets or IT departments
                     </p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-6">
-                  <div className="card-icon">
-                    <Sparkles className="w-6 h-6" />
+                <div className="flex items-start gap-4 md:gap-6 max-w-full">
+                  <div className="card-icon flex-shrink-0">
+                    <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                  <div className="max-w-full overflow-hidden">
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Beautiful, intuitive systems that feel like creative partners, not just automation tools
                     </p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-6">
-                  <div className="card-icon">
-                    <Target className="w-6 h-6" />
+                <div className="flex items-start gap-4 md:gap-6 max-w-full">
+                  <div className="card-icon flex-shrink-0">
+                    <Target className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                  <div className="max-w-full overflow-hidden">
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
                     </p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-6">
-                  <div className="card-icon">
-                    <Users className="w-6 h-6" />
+                <div className="flex items-start gap-4 md:gap-6 max-w-full">
+                  <div className="card-icon flex-shrink-0">
+                    <Users className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-3 text-gray-900">Local expertise, global innovation</h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                  <div className="max-w-full overflow-hidden">
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Local expertise, global innovation</h4>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Oklahoma City-based with deep understanding of real business challenges
                     </p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-6">
-                  <div className="card-icon">
-                    <Shield className="w-6 h-6" />
+                <div className="flex items-start gap-4 md:gap-6 max-w-full">
+                  <div className="card-icon flex-shrink-0">
+                    <Shield className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-3 text-gray-900">Proven in the field</h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                  <div className="max-w-full overflow-hidden">
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Proven in the field</h4>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Built by someone who's worked directly with healthcare, startups, and creative teams
                     </p>
                   </div>
@@ -204,19 +204,19 @@ const HomePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-10 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="py-10 md:py-16 bg-gray-50 overflow-x-hidden">
+        <div className="container mx-auto px-4 md:px-8 max-w-full">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="fade-in-up text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <div className="text-center mb-16 max-w-full">
+              <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
                 After Our Live Google Meet Call, You'll Receive:
               </h2>
-              <p className="fade-in-up text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.1s' }}>
+              <p className="fade-in-up text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.1s' }}>
                 Whether you upgrade or not, you'll walk away with clarity and momentum.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-full">
               {[
                 {
                   icon: FileText,
@@ -243,12 +243,12 @@ const HomePage = () => {
                   delay: "0.3s"
                 }
               ].map((item, index) => (
-                <div key={index} className="stagger-fade-in card text-center" style={{ animationDelay: item.delay }}>
+                <div key={index} className="stagger-fade-in card text-center max-w-full" style={{ animationDelay: item.delay }}>
                   <div className="card-icon mx-auto">
-                    <item.icon className="w-8 h-8" />
+                    <item.icon className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h3 className="text-lg md:text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -259,16 +259,16 @@ const HomePage = () => {
       </section>
 
       {/* Who It's For Section */}
-      <section className="section-light">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="section-light overflow-x-hidden">
+        <div className="container mx-auto px-4 md:px-8 max-w-full">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="fade-in-up text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <div className="text-center mb-16 max-w-full">
+              <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
                 Who It's For
               </h2>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-full">
               {[
                 {
                   icon: Stethoscope,
@@ -295,12 +295,12 @@ const HomePage = () => {
                   delay: "0.2s"
                 }
               ].map((item, index) => (
-                <div key={index} className={`stagger-fade-in bg-gradient-to-br ${item.bgGradient} p-10 rounded-3xl text-center card`} style={{ animationDelay: item.delay }}>
-                  <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg`}>
-                    <item.icon className="w-10 h-10 text-white" />
+                <div key={index} className={`stagger-fade-in bg-gradient-to-br ${item.bgGradient} p-8 md:p-10 rounded-3xl text-center card max-w-full`} style={{ animationDelay: item.delay }}>
+                  <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-lg flex-shrink-0`}>
+                    <item.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-700 leading-relaxed text-lg">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                     {item.description}
                   </p>
                 </div>
@@ -311,28 +311,28 @@ const HomePage = () => {
       </section>
 
       {/* Featured Work Section */}
-      <section className="section-gray">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="fade-in-up text-4xl md:text-5xl font-black mb-6">Featured Work</h2>
+      <section className="section-gray overflow-x-hidden">
+        <div className="container mx-auto px-4 md:px-8 max-w-full">
+          <div className="text-center mb-16 max-w-full">
+            <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6">Featured Work</h2>
             <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
-            <p className="fade-in-up text-xl text-gray-700 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
+            <p className="fade-in-up text-lg md:text-xl text-gray-700 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
               Real solutions for real businesses — see how we've helped clients bridge technology and human connection.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-full">
             {featuredProjects.map((project, index) => (
-              <div key={project.id} className="stagger-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div key={project.id} className="stagger-fade-in max-w-full" style={{ animationDelay: `${index * 0.1}s` }}>
                 <ProjectCard project={project} />
               </div>
             ))}
           </div>
           
-          <div className="text-center mt-16">
+          <div className="text-center mt-16 max-w-full">
             <Link
               to="/work"
-              className="btn-primary inline-flex items-center gap-3 text-lg"
+              className="btn-primary inline-flex items-center gap-3 text-base md:text-lg"
             >
               View All Case Studies <ArrowRight size={20} />
             </Link>
@@ -341,21 +341,21 @@ const HomePage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section-dark">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="section-dark overflow-x-hidden">
+        <div className="container mx-auto px-4 md:px-8 max-w-full">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6 text-white">
+            <h2 className="fade-in-up text-2xl md:text-3xl lg:text-4xl font-black mb-6 text-white">
               Ready to discover your AI opportunities?
             </h2>
-            <p className="fade-in-up text-xl mb-10 text-gray-300" style={{ animationDelay: '0.1s' }}>
+            <p className="fade-in-up text-lg md:text-xl mb-10 text-gray-300" style={{ animationDelay: '0.1s' }}>
               Book your free consultation with Pattern3 LLC and get a clear roadmap for your business.
             </p>
             <button
               onClick={openModal}
-              className="scale-in btn-accent inline-flex items-center gap-3 text-xl px-10 py-5" 
+              className="scale-in btn-accent inline-flex items-center gap-3 text-lg md:text-xl px-8 md:px-10 py-4 md:py-5" 
               style={{ animationDelay: '0.2s' }}
             >
-              <ArrowRight className="w-6 h-6" />
+              <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
               Book Free Consultation
             </button>
             <p className="fade-in-up text-sm text-gray-400 mt-6" style={{ animationDelay: '0.3s' }}>
