@@ -63,8 +63,8 @@ const HomePage = () => {
           <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-12">
             <div className="lg:w-3/5 text-left">
               <h1 className="slide-in-left text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                AI Solutions for the{' '}
-                <span className="text-gradient whitespace-nowrap">"Little Guys"</span>
+                <span className="block lg:inline">AI Solutions for the </span>
+                <span className="text-gradient font-black">Little Guys</span>
               </h1>
               <p className="slide-in-left text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed" style={{ animationDelay: '0.2s' }}>
                 Pattern3 LLC brings enterprise-level AI to small businesses, solo founders, and creative teams. 
@@ -112,8 +112,15 @@ const HomePage = () => {
       </section>
 
       {/* Why Pattern3 Section */}
-      <section ref={bioRef} className="section-light">
-        <div className="container mx-auto px-4 md:px-8">
+      <section ref={bioRef} className="section-light relative overflow-hidden">
+        {/* Floating Elements for Desktop */}
+        <div className="hidden lg:block">
+          <div className="floating-element"></div>
+          <div className="floating-element"></div>
+          <div className="floating-element"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-20">
@@ -203,7 +210,7 @@ const HomePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="section-gray">
+      <section className="section-gray py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
