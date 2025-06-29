@@ -62,9 +62,12 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
           <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-8 lg:gap-12 max-w-full">
             <div className="lg:w-3/5 text-left max-w-full">
-              <h1 className="slide-in-left text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-tight max-w-full">
-                <span className="block">AI Solutions for the </span>
-                <span className="text-gradient font-black whitespace-nowrap">Little Guys</span>
+              <h1 className="slide-in-left leading-tight max-w-full mb-6">
+                {/* Mobile: Two lines max */}
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black">
+                  <span className="block sm:inline">AI Solutions for the </span>
+                  <span className="text-gradient font-black block sm:inline whitespace-nowrap">Little Guys</span>
+                </span>
               </h1>
               <p className="slide-in-left text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed" style={{ animationDelay: '0.2s' }}>
                 Pattern3 LLC brings enterprise-level AI to small businesses, solo founders, and creative teams. 
