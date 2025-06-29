@@ -131,77 +131,71 @@ const HomePage = () => {
               </p>
             </div>
             
-            {/* Two Column Layout */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Column - Content */}
-              <div className="slide-in-left">
-                <h3 className="text-3xl md:text-4xl font-black mb-10 text-gray-900">
-                  Human-Centered, Design-Driven AI Solutions
-                </h3>
-                
-                <div className="space-y-8">
-                  <div className="flex items-start gap-6">
-                    <div className="card-icon">
-                      <Zap className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
-                      <p className="text-lg text-gray-600 leading-relaxed">
-                        Solutions designed for small teams without enterprise budgets or IT departments
-                      </p>
-                    </div>
+            {/* Full Width Content */}
+            <div className="slide-in-left max-w-5xl mx-auto text-left">
+              <h3 className="text-3xl md:text-4xl font-black mb-10 text-gray-900">
+                Human-Centered, Design-Driven AI Solutions
+              </h3>
+              
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="card-icon">
+                    <Zap className="w-6 h-6" />
                   </div>
-                  
-                  <div className="flex items-start gap-6">
-                    <div className="card-icon">
-                      <Sparkles className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
-                      <p className="text-lg text-gray-600 leading-relaxed">
-                        Beautiful, intuitive systems that feel like creative partners, not just automation tools
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-6">
-                    <div className="card-icon">
-                      <Target className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
-                      <p className="text-lg text-gray-600 leading-relaxed">
-                        Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
-                      </p>
-                    </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Solutions designed for small teams without enterprise budgets or IT departments
+                    </p>
                   </div>
                 </div>
-              </div>
-              
-              {/* Right Column - Visual */}
-              <div className="slide-in-right relative">
-                <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-12 h-96 flex items-center justify-center relative overflow-hidden">
-                  <div className="grid grid-cols-3 gap-8 opacity-30">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center transform rotate-12">
-                      <Users className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center transform -rotate-6">
-                      <Building className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center transform rotate-3">
-                      <Stethoscope className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center transform -rotate-12">
-                      <UserCheck className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center transform rotate-6">
-                      <FileText className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center transform -rotate-3">
-                      <Video className="w-8 h-8 text-white" />
-                    </div>
+                
+                <div className="flex items-start gap-6">
+                  <div className="card-icon">
+                    <Sparkles className="w-6 h-6" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse"></div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Beautiful, intuitive systems that feel like creative partners, not just automation tools
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-6">
+                  <div className="card-icon">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-6">
+                  <div className="card-icon">
+                    <Users className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-3 text-gray-900">Local expertise, global innovation</h4>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Oklahoma City-based with deep understanding of real business challenges
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-6">
+                  <div className="card-icon">
+                    <Shield className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-3 text-gray-900">Proven in the field</h4>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Built by someone who's worked directly with healthcare, startups, and creative teams
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -210,7 +204,7 @@ const HomePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="section-gray py-16 md:py-20">
+      <section className="py-10 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
