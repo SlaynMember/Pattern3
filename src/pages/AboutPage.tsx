@@ -81,12 +81,15 @@ const AboutPage = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="slide-in-left">
                 <div className="card p-0 overflow-hidden">
-                  <img
-                    src="/images/profile/headshot.webp"
-                    alt="Will Patterson - Founder of Pattern3 LLC"
-                    className="w-full h-auto rounded-xl"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet="/images/profile/headshot.webp" type="image/webp" />
+                    <img
+                      src="/images/profile/headshot.jpg"
+                      alt="Will Patterson - Founder of Pattern3 LLC"
+                      className="w-full h-auto rounded-xl"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
               </div>
               

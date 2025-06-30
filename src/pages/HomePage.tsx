@@ -104,14 +104,17 @@ const HomePage = () => {
             </div>
             <div className="lg:w-2/5 max-w-full">
               <div className="scale-in rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 max-w-full">
-                <img
-                  src="/images/profile/headshot.webp"
-                  alt="Will Patterson - Founder of Pattern3 LLC"
-                  width="600"
-                  height="800"
-                  className="w-full h-auto object-cover max-w-full"
-                  loading="eager"
-                />
+                <picture>
+                  <source srcSet="/images/profile/headshot.webp" type="image/webp" />
+                  <img
+                    src="/images/profile/headshot.jpg"
+                    alt="Will Patterson - Founder of Pattern3 LLC"
+                    width="600"
+                    height="800"
+                    className="w-full h-auto object-cover max-w-full"
+                    loading="eager"
+                  />
+                </picture>
               </div>
             </div>
           </div>
