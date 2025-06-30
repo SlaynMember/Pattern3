@@ -181,14 +181,14 @@ const StartPage = () => {
               </a>
             </div>
 
-            {/* Social Media Section - Now loads immediately */}
+            {/* Social Media Section - Updated Text */}
             <div className="stagger-fade-in card text-center shadow-glow" style={{ animationDelay: '0.1s' }}>
               <div className="card-icon mx-auto">
                 <Instagram className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Social Media</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Follow our work and insights, or send us a DM to get started. Connect with us on Instagram or TikTok for AI tips and behind-the-scenes content.
+                Follow our work and insights, or send us a DM to connect.
               </p>
               <div className="space-y-2">
                 <div>

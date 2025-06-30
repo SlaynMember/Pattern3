@@ -99,7 +99,7 @@ const HomePage = () => {
                 </Link>
               </div>
               <p className="slide-in-left text-sm text-gray-500 mt-6 max-w-full" style={{ animationDelay: '0.6s' }}>
-                Based in Oklahoma City, serving clients nationwide
+                Based in Oklahoma City, serving clients nationwide.
               </p>
             </div>
             <div className="lg:w-2/5 max-w-full">
@@ -150,7 +150,7 @@ const HomePage = () => {
               <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6">Why Pattern3 LLC</h2>
               <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
               <p className="fade-in-up text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
-                We don't just implement AI — we craft experiences where AI meets human creativity
+                We don't just implement AI — we craft experiences where AI meets human creativity.
               </p>
             </div>
             
@@ -168,7 +168,7 @@ const HomePage = () => {
                   <div className="max-w-full overflow-hidden">
                     <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      Solutions designed for small teams without enterprise budgets or IT departments
+                      Solutions designed for small teams without enterprise budgets or IT departments.
                     </p>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ const HomePage = () => {
                   <div className="max-w-full overflow-hidden">
                     <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      Beautiful, intuitive systems that feel like creative partners, not just automation tools
+                      Beautiful, intuitive systems that feel like creative partners, not just automation tools.
                     </p>
                   </div>
                 </div>
@@ -192,7 +192,7 @@ const HomePage = () => {
                   <div className="max-w-full overflow-hidden">
                     <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      Launch your first AI-driven feature in weeks, not months, with zero-code prototypes
+                      Launch your first AI-driven feature in weeks, not months, with zero-code prototypes.
                     </p>
                   </div>
                 </div>
@@ -204,7 +204,7 @@ const HomePage = () => {
                   <div className="max-w-full overflow-hidden">
                     <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Local expertise, global innovation</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      Oklahoma City-based with deep understanding of real business challenges
+                      Oklahoma City-based with deep understanding of real business challenges.
                     </p>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const HomePage = () => {
                   <div className="max-w-full overflow-hidden">
                     <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Proven in the field</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      Built by someone who's worked directly with healthcare, startups, and creative teams
+                      Built by someone who's worked directly with healthcare, startups, and creative teams.
                     </p>
                   </div>
                 </div>
@@ -394,7 +394,7 @@ const HomePage = () => {
               Book Free Consultation
             </button>
             <p className="fade-in-up text-sm text-gray-400 mt-6" style={{ animationDelay: '0.3s' }}>
-              Live Google Meet call + personalized PDF roadmap
+              Live Google Meet call + personalized PDF roadmap.
             </p>
           </div>
         </div>
