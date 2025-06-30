@@ -104,7 +104,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* The Pattern3 Way */}
+          {/* The Pattern3 Way - Fixed Heights */}
           <div className="mb-24">
             <div className="text-center mb-16">
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">The Pattern3 Way</h2>
@@ -141,12 +141,12 @@ const AboutPage = () => {
                   delay: "0.2s"
                 }
               ].map((item, index) => (
-                <div key={index} className={`stagger-fade-in bg-gradient-to-br ${item.bgGradient} card text-center`} style={{ animationDelay: item.delay }}>
-                  <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg`}>
+                <div key={index} className={`stagger-fade-in bg-gradient-to-br ${item.bgGradient} card text-center h-full flex flex-col`} style={{ animationDelay: item.delay }}>
+                  <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg flex-shrink-0`}>
                     <item.icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 flex-shrink-0">{item.title}</h3>
+                  <p className="text-gray-700 leading-relaxed flex-grow">
                     {item.description}
                   </p>
                 </div>
