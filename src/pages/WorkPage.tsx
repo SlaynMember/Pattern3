@@ -17,35 +17,39 @@ const WorkPage = () => {
     if (selectedFilter === 'All') return true;
     
     const projectTags = project.tags.map(tag => tag.toLowerCase());
+    const clientLower = project.client.toLowerCase();
+    const titleLower = project.title.toLowerCase();
     
     switch (selectedFilter) {
       case 'Healthcare':
         return projectTags.some(tag => 
           tag.includes('healthcare') || 
           tag.includes('dental') || 
-          tag.includes('medical') ||
-          project.client.toLowerCase().includes('dental')
-        );
+          tag.includes('medical')
+        ) || clientLower.includes('dental') || titleLower.includes('dental');
       case 'AI Tools':
         return projectTags.some(tag => 
           tag.includes('ai') || 
           tag.includes('automation') || 
           tag.includes('gemini') || 
           tag.includes('gpt') ||
-          tag.includes('openai')
-        );
+          tag.includes('openai') ||
+          tag.includes('sora')
+        ) || titleLower.includes('ai');
       case 'Creative':
         return projectTags.some(tag => 
           tag.includes('video') || 
           tag.includes('photography') || 
           tag.includes('branding') ||
-          tag.includes('content')
+          tag.includes('content') ||
+          tag.includes('design')
         );
       case 'Automation':
         return projectTags.some(tag => 
           tag.includes('automation') || 
           tag.includes('no-code') ||
-          tag.includes('workflow')
+          tag.includes('workflow') ||
+          tag.includes('ai automation')
         );
       default:
         return true;
@@ -85,6 +89,12 @@ const WorkPage = () => {
     return () => observer.disconnect();
   }, [filteredProjects, selectedFilter]);
 
+  // Debug logging
+  console.log('Total projects:', projects.length);
+  console.log('Filtered projects:', filteredProjects.length);
+  console.log('Selected filter:', selectedFilter);
+  console.log('Projects data:', projects);
+
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="container mx-auto px-4 md:px-8">
@@ -93,6 +103,13 @@ const WorkPage = () => {
           <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
           <p className="fade-in-up text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Recent builds and client outcomes showcasing real AI solutions for real businesses.
+          </p>
+        </div>
+
+        {/* Debug Info - Remove this after testing */}
+        <div className="mb-8 p-4 bg-gray-100 rounded-lg">
+          <p className="text-sm text-gray-600">
+            Debug: Total projects: {projects.length}, Filtered: {filteredProjects.length}, Filter: {selectedFilter}
           </p>
         </div>
 
@@ -139,6 +156,17 @@ const WorkPage = () => {
             >
               View All Projects
             </button>
+          </div>
+        )}
+
+        {/* Show all projects if no filter matches */}
+        {filteredProjects.length === 0 && selectedFilter === 'All' && projects.length > 0 && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            {projects.map((project, index) => (
+              <div key={project.id} className="transform transition-all duration-700 translate-y-0 opacity-100">
+                <ProjectCard project={project} />
+              </div>
+            ))}
           </div>
         )}
 
