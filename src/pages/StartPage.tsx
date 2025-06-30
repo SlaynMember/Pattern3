@@ -6,7 +6,6 @@ import BookingForm from '../components/BookingForm';
 const StartPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [socialLoaded, setSocialLoaded] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,17 +21,6 @@ const StartPage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Lazy load social media section
-    const loadSocial = () => {
-      setSocialLoaded(true);
-    };
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadSocial);
-    } else {
-      setTimeout(loadSocial, 100);
-    }
 
     // Animation on scroll
     const observerOptions = {
@@ -193,40 +181,38 @@ const StartPage = () => {
               </a>
             </div>
 
-            {/* Social Media Section - Lazy Loaded */}
-            {socialLoaded && (
-              <div className="stagger-fade-in card text-center shadow-glow" style={{ animationDelay: '0.1s' }}>
-                <div className="card-icon mx-auto">
-                  <Instagram className="w-8 h-8" />
+            {/* Social Media Section - Now loads immediately */}
+            <div className="stagger-fade-in card text-center shadow-glow" style={{ animationDelay: '0.1s' }}>
+              <div className="card-icon mx-auto">
+                <Instagram className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Social Media</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Follow our work and insights, or send us a DM to get started. Connect with us on Instagram or TikTok for AI tips and behind-the-scenes content.
+              </p>
+              <div className="space-y-2">
+                <div>
+                  <a
+                    href="https://www.instagram.com/pattern3solutions/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-accent font-semibold transition-colors block"
+                  >
+                    @pattern3solutions on Instagram
+                  </a>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Social Media</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Follow our work and insights, or send us a DM to get started. Connect with us on Instagram or TikTok for AI tips and behind-the-scenes content.
-                </p>
-                <div className="space-y-2">
-                  <div>
-                    <a
-                      href="https://www.instagram.com/pattern3solutions/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-accent font-semibold transition-colors block"
-                    >
-                      @pattern3solutions on Instagram
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="https://www.tiktok.com/@w_patt3"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-accent font-semibold transition-colors block"
-                    >
-                      @w_patt3 on TikTok
-                    </a>
-                  </div>
+                <div>
+                  <a
+                    href="https://www.tiktok.com/@w_patt3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-accent font-semibold transition-colors block"
+                  >
+                    @w_patt3 on TikTok
+                  </a>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
 
