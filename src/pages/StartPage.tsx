@@ -90,9 +90,7 @@ const StartPage = () => {
             <img
               src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
-              width="120"
-              height="32"
-              className="h-8"
+              className="h-8 w-auto object-contain"
             />
           )}
           <a
@@ -120,7 +118,7 @@ const StartPage = () => {
               alt="Pattern3 Logo"
               width="240"
               height="80"
-              className="h-20 mx-auto mb-8 fade-in-up"
+              className="h-20 w-auto object-contain mx-auto mb-8 fade-in-up"
             />
           </div>
 
@@ -164,31 +162,25 @@ const StartPage = () => {
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
                 icon: Mail,
                 title: "Email",
-                description: "Send us a detailed message about your project or questions.",
+                description: "Send us a detailed message about your project or questions. We'll get back to you within 24-48 hours with a thoughtful response.",
                 link: "mailto:will@pattern3.com",
                 linkText: "will@pattern3.com",
                 delay: "0s"
               },
               {
                 icon: Instagram,
-                title: "Instagram",
-                description: "Follow our work and insights, or send us a DM to get started.",
-                link: "https://www.instagram.com/pattern3solutions/",
-                linkText: "@pattern3solutions",
+                title: "Social Media",
+                description: "Follow our work and insights, or send us a DM to get started. Connect with us on Instagram or TikTok for AI tips and behind-the-scenes content.",
+                links: [
+                  { url: "https://www.instagram.com/pattern3solutions/", text: "@pattern3solutions on Instagram" },
+                  { url: "https://www.tiktok.com/@w_patt3", text: "@w_patt3 on TikTok" }
+                ],
                 delay: "0.1s"
-              },
-              {
-                icon: MessageCircle,
-                title: "TikTok",
-                description: "Follow my work and insights on TikTok for AI tips and behind-the-scenes content.",
-                link: "https://www.tiktok.com/@w_patt3",
-                linkText: "@w_patt3 on TikTok",
-                delay: "0.2s"
               }
             ].map((item, index) => (
               <div key={index} className={`stagger-fade-in card text-center shadow-glow`} style={{ animationDelay: item.delay }}>
@@ -199,14 +191,29 @@ const StartPage = () => {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   {item.description}
                 </p>
-                <a
-                  href={item.link}
-                  target={item.link.startsWith('http') ? "_blank" : undefined}
-                  rel={item.link.startsWith('http') ? "noopener noreferrer" : undefined}
-                  className="text-primary hover:text-accent font-semibold transition-colors"
-                >
-                  {item.linkText}
-                </a>
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    className="text-primary hover:text-accent font-semibold transition-colors"
+                  >
+                    {item.linkText}
+                  </a>
+                ) : (
+                  <div className="space-y-2">
+                    {item.links?.map((link, linkIndex) => (
+                      <div key={linkIndex}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-accent font-semibold transition-colors block"
+                        >
+                          {link.text}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
