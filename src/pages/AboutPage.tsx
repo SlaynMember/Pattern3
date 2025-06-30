@@ -82,10 +82,29 @@ const AboutPage = () => {
               <div className="slide-in-left">
                 <div className="card p-0 overflow-hidden">
                   <picture>
-                    <source srcSet="/images/profile/headshot.webp" type="image/webp" />
+                    <source 
+                      srcSet="/images/profile/headshot-480.webp 480w,
+                              /images/profile/headshot-768.webp 768w,
+                              /images/profile/headshot.webp 1200w" 
+                      sizes="(max-width: 480px) 480px,
+                             (max-width: 768px) 768px,
+                             1200px"
+                      type="image/webp" 
+                    />
+                    <source 
+                      srcSet="/images/profile/headshot-480.jpg 480w,
+                              /images/profile/headshot-768.jpg 768w,
+                              /images/profile/headshot.jpg 1200w" 
+                      sizes="(max-width: 480px) 480px,
+                             (max-width: 768px) 768px,
+                             1200px"
+                      type="image/jpeg" 
+                    />
                     <img
                       src="/images/profile/headshot.jpg"
                       alt="Will Patterson - Founder of Pattern3 LLC"
+                      width="600"
+                      height="800"
                       className="w-full h-auto rounded-xl"
                       loading="lazy"
                     />
