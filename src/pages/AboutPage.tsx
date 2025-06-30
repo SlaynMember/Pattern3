@@ -38,7 +38,7 @@ const AboutPage = () => {
             <h1 className="fade-in-up text-4xl md:text-5xl lg:text-6xl font-black mb-6">About Pattern3 LLC</h1>
             <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
             <p className="fade-in-up text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
-              AI strategy, automation, and design-forward tools that bridge technology and human connection
+              AI strategy, automation, and design-forward tools that bridge technology and human connection.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ const AboutPage = () => {
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">The Pattern3 Way</h2>
               <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
               <p className="fade-in-up text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
-                Our methodology emphasizes narrative-driven, visual-first, no-code enabled builds
+                Our methodology emphasizes narrative-driven, visual-first, no-code enabled builds.
               </p>
             </div>
             
@@ -160,7 +160,7 @@ const AboutPage = () => {
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Finding the Pattern</h2>
               <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
               <p className="fade-in-up text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
-                At Pattern3, we believe every business challenge has a pattern — a repeatable solution that combines design thinking, cutting-edge technology, and human-centered approach
+                At Pattern3, we believe every business challenge has a pattern — a repeatable solution that combines design thinking, cutting-edge technology, and human-centered approach.
               </p>
             </div>
             
@@ -170,21 +170,21 @@ const AboutPage = () => {
                   number: "1",
                   icon: Search,
                   title: "Discover",
-                  description: "We identify the patterns in your workflow and uncover opportunities for AI enhancement",
+                  description: "We identify the patterns in your workflow and uncover opportunities for AI enhancement.",
                   delay: "0s"
                 },
                 {
                   number: "2",
                   icon: Lightbulb,
                   title: "Design",
-                  description: "We craft human-centered solutions that feel intuitive and align with your business goals",
+                  description: "We craft human-centered solutions that feel intuitive and align with your business goals.",
                   delay: "0.1s"
                 },
                 {
                   number: "3",
                   icon: Rocket,
                   title: "Deploy",
-                  description: "We implement cutting-edge AI tools that integrate seamlessly into your existing systems",
+                  description: "We implement cutting-edge AI tools that integrate seamlessly into your existing systems.",
                   delay: "0.2s"
                 }
               ].map((item, index) => (
