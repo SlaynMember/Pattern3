@@ -6,6 +6,7 @@ import BookingForm from '../components/BookingForm';
 const StartPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [socialLoaded, setSocialLoaded] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,6 +22,17 @@ const StartPage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
+    // Lazy load social media section
+    const loadSocial = () => {
+      setSocialLoaded(true);
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadSocial);
+    } else {
+      setTimeout(loadSocial, 100);
+    }
 
     // Animation on scroll
     const observerOptions = {
@@ -90,6 +102,8 @@ const StartPage = () => {
             <img
               src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
+              width="120"
+              height="40"
               className="h-8 w-auto object-contain"
             />
           )}
@@ -163,59 +177,56 @@ const StartPage = () => {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                icon: Mail,
-                title: "Email",
-                description: "Send us a detailed message about your project or questions. We'll get back to you within 24-48 hours with a thoughtful response.",
-                link: "mailto:will@pattern3.com",
-                linkText: "will@pattern3.com",
-                delay: "0s"
-              },
-              {
-                icon: Instagram,
-                title: "Social Media",
-                description: "Follow our work and insights, or send us a DM to get started. Connect with us on Instagram or TikTok for AI tips and behind-the-scenes content.",
-                links: [
-                  { url: "https://www.instagram.com/pattern3solutions/", text: "@pattern3solutions on Instagram" },
-                  { url: "https://www.tiktok.com/@w_patt3", text: "@w_patt3 on TikTok" }
-                ],
-                delay: "0.1s"
-              }
-            ].map((item, index) => (
-              <div key={index} className={`stagger-fade-in card text-center shadow-glow`} style={{ animationDelay: item.delay }}>
-                <div className="card-icon mx-auto">
-                  <item.icon className="w-8 h-8" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">{item.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {item.description}
-                </p>
-                {item.link ? (
-                  <a
-                    href={item.link}
-                    className="text-primary hover:text-accent font-semibold transition-colors"
-                  >
-                    {item.linkText}
-                  </a>
-                ) : (
-                  <div className="space-y-2">
-                    {item.links?.map((link, linkIndex) => (
-                      <div key={linkIndex}>
-                        <a
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:text-accent font-semibold transition-colors block"
-                        >
-                          {link.text}
-                        </a>
-                      </div>
-                    ))}
-                  </div>
-                )}
+            <div className="stagger-fade-in card text-center shadow-glow" style={{ animationDelay: '0s' }}>
+              <div className="card-icon mx-auto">
+                <Mail className="w-8 h-8" />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Email</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Send us a detailed message about your project or questions. We'll get back to you within 24-48 hours with a thoughtful response.
+              </p>
+              <a
+                href="mailto:will@pattern3.com"
+                className="text-primary hover:text-accent font-semibold transition-colors"
+              >
+                will@pattern3.com
+              </a>
+            </div>
+
+            {/* Social Media Section - Lazy Loaded */}
+            {socialLoaded && (
+              <div className="stagger-fade-in card text-center shadow-glow" style={{ animationDelay: '0.1s' }}>
+                <div className="card-icon mx-auto">
+                  <Instagram className="w-8 h-8" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Social Media</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Follow our work and insights, or send us a DM to get started. Connect with us on Instagram or TikTok for AI tips and behind-the-scenes content.
+                </p>
+                <div className="space-y-2">
+                  <div>
+                    <a
+                      href="https://www.instagram.com/pattern3solutions/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-accent font-semibold transition-colors block"
+                    >
+                      @pattern3solutions on Instagram
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      href="https://www.tiktok.com/@w_patt3"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-accent font-semibold transition-colors block"
+                    >
+                      @w_patt3 on TikTok
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
