@@ -1,4 +1,4 @@
-import { Mail, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -25,13 +25,25 @@ const Footer = () => {
           {/* Contact and CTA */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
-              href="mailto:william.n.patterson@gmail.com"
+              href="mailto:will@pattern3.com"
               className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
               aria-label="Send Email"
               title="Send Email"
             >
               <Mail size={18} />
-              <span className="text-sm">william.n.patterson@gmail.com</span>
+              <span className="text-sm">will@pattern3.com</span>
+            </a>
+            
+            <a
+              href="https://www.instagram.com/pattern3solutions/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+              aria-label="Follow on Instagram"
+              title="Follow on Instagram"
+            >
+              <Instagram size={18} />
+              <span className="text-sm">@pattern3solutions</span>
             </a>
             
             <Link

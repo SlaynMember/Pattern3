@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
-import { FileText, Mail, ArrowRight, Zap, Target, Users } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { FileText, Mail, ArrowRight, Zap, Target, Users, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
+  const [checkedSteps, setCheckedSteps] = useState<number[]>([]);
+
   useEffect(() => {
     // Animation on scroll
     const observerOptions = {
@@ -14,11 +16,19 @@ const AboutPage = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+          
+          // Handle process step checkmarks
+          if (entry.target.classList.contains('process-step')) {
+            const stepIndex = parseInt(entry.target.getAttribute('data-step') || '0');
+            setTimeout(() => {
+              setCheckedSteps(prev => [...prev, stepIndex]);
+            }, 300);
+          }
         }
       });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in');
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in, .process-step');
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -148,7 +158,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Our Process - Simplified */}
+          {/* Our Process - Redesigned with Checkmarks */}
           <div className="mb-24">
             <div className="text-center mb-16">
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Our Process</h2>
@@ -176,12 +186,22 @@ const AboutPage = () => {
                   delay: "0.2s"
                 }
               ].map((item, index) => (
-                <div key={index} className={`stagger-fade-in text-center max-w-xs`} style={{ animationDelay: item.delay }}>
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <item.icon className="w-10 h-10 text-white" />
+                <div key={index} className={`process-step text-center max-w-xs relative`} data-step={index} style={{ animationDelay: item.delay }}>
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-500">
+                      <item.icon className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    {/* Animated Checkmark */}
+                    <div className={`absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center transition-all duration-500 transform ${
+                      checkedSteps.includes(index) ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    }`}>
+                      <Check className="w-5 h-5 text-white" />
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     {item.description}
                   </p>
                 </div>
@@ -222,15 +242,7 @@ const AboutPage = () => {
                   Get Started <ArrowRight size={20} />
                 </Link>
                 <a
-                  href="/images/profile/Will_Patterson_Resume_June2025.docx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline inline-flex items-center gap-3 text-lg"
-                >
-                  <FileText size={20} /> View Resume
-                </a>
-                <a
-                  href="mailto:william.n.patterson@gmail.com"
+                  href="mailto:will@pattern3.com"
                   className="btn-outline inline-flex items-center gap-3 text-lg"
                 >
                   <Mail size={20} /> Contact

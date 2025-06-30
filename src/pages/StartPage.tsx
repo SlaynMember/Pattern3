@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, Mail, FileText, MessageCircle, ArrowRight } from 'lucide-react';
+import { ChevronLeft, Mail, MessageCircle, ArrowRight, Instagram } from 'lucide-react';
 import BookingForm from '../components/BookingForm';
 
 const StartPage = () => {
@@ -94,7 +94,7 @@ const StartPage = () => {
             />
           )}
           <a
-            href="mailto:william.n.patterson@gmail.com"
+            href="mailto:will@pattern3.com"
             className="btn-primary text-sm px-6 py-3"
           >
             Contact Us
@@ -139,7 +139,7 @@ const StartPage = () => {
             </button>
             
             <a
-              href="mailto:william.n.patterson@gmail.com"
+              href="mailto:will@pattern3.com"
               className="btn-outline inline-flex items-center gap-3 text-xl px-10 py-5"
             >
               <Mail className="w-6 h-6" />
@@ -148,7 +148,7 @@ const StartPage = () => {
           </div>
           
           <p className="fade-in-up text-sm text-gray-500 mt-6" style={{ animationDelay: '0.4s' }}>
-            william.n.patterson@gmail.com
+            will@pattern3.com
           </p>
         </div>
 
@@ -158,31 +158,23 @@ const StartPage = () => {
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 gap-10">
             {[
               {
                 icon: Mail,
                 title: "Email",
                 description: "Send us a detailed message about your project or questions.",
-                link: "mailto:william.n.patterson@gmail.com",
-                linkText: "william.n.patterson@gmail.com",
+                link: "mailto:will@pattern3.com",
+                linkText: "will@pattern3.com",
                 delay: "0s"
               },
               {
-                icon: FileText,
-                title: "Resume",
-                description: "Download my resume to learn more about my background and experience.",
-                link: "/images/profile/Will_Patterson_Resume_June2025.docx",
-                linkText: "Download Resume",
+                icon: Instagram,
+                title: "Instagram",
+                description: "Follow our work and insights, or send us a DM to get started.",
+                link: "https://www.instagram.com/pattern3solutions/",
+                linkText: "@pattern3solutions",
                 delay: "0.1s"
-              },
-              {
-                icon: MessageCircle,
-                title: "Social",
-                description: "Follow my work and insights on social media platforms.",
-                link: "https://www.tiktok.com/@w_patt3",
-                linkText: "@w_patt3 on TikTok",
-                delay: "0.2s"
               }
             ].map((item, index) => (
               <div key={index} className={`stagger-fade-in card text-center shadow-glow`} style={{ animationDelay: item.delay }}>
