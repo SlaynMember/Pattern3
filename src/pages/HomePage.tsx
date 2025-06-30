@@ -9,6 +9,7 @@ const HomePage = () => {
   const bioRef = useRef<HTMLDivElement>(null);
   const { projects } = useProjectContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [checkedItems, setCheckedItems] = useState<number[]>([]);
   
   // Get specific projects for featured work
   const featuredProjects = [
@@ -40,11 +41,19 @@ const HomePage = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+          
+          // Handle checkmark animations for "What You Get" section
+          if (entry.target.classList.contains('deliverable-item')) {
+            const itemIndex = parseInt(entry.target.getAttribute('data-item') || '0');
+            setTimeout(() => {
+              setCheckedItems(prev => [...prev, itemIndex]);
+            }, 200 + (itemIndex * 100)); // Staggered animation
+          }
         }
       });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in');
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in, .deliverable-item');
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -215,7 +224,7 @@ const HomePage = () => {
                 After Our Live Google Meet Call, You'll Receive:
               </h2>
               <p className="fade-in-up text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.1s' }}>
-                Whether you upgrade or not, you'll walk away with clarity and momentum.
+                A personalized AI roadmap, no strings attached — even if you don't move forward.
               </p>
             </div>
             
@@ -246,10 +255,20 @@ const HomePage = () => {
                   delay: "0.3s"
                 }
               ].map((item, index) => (
-                <div key={index} className="stagger-fade-in card text-center max-w-full" style={{ animationDelay: item.delay }}>
-                  <div className="card-icon mx-auto">
-                    <item.icon className="w-6 h-6 md:w-8 md:h-8" />
+                <div key={index} className="deliverable-item card text-center max-w-full relative" data-item={index} style={{ animationDelay: item.delay }}>
+                  <div className="relative">
+                    <div className="card-icon mx-auto">
+                      <item.icon className="w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    
+                    {/* Animated Checkmark */}
+                    <div className={`absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center transition-all duration-500 transform ${
+                      checkedItems.includes(index) ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    }`}>
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
                   </div>
+                  
                   <h3 className="text-lg md:text-xl font-bold mb-4 text-gray-900">{item.title}</h3>
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {item.description}

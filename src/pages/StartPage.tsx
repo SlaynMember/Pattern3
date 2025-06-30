@@ -158,7 +158,7 @@ const StartPage = () => {
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-3 gap-10">
             {[
               {
                 icon: Mail,
@@ -175,6 +175,14 @@ const StartPage = () => {
                 link: "https://www.instagram.com/pattern3solutions/",
                 linkText: "@pattern3solutions",
                 delay: "0.1s"
+              },
+              {
+                icon: MessageCircle,
+                title: "TikTok",
+                description: "Follow my work and insights on TikTok for AI tips and behind-the-scenes content.",
+                link: "https://www.tiktok.com/@w_patt3",
+                linkText: "@w_patt3 on TikTok",
+                delay: "0.2s"
               }
             ].map((item, index) => (
               <div key={index} className={`stagger-fade-in card text-center shadow-glow`} style={{ animationDelay: item.delay }}>
