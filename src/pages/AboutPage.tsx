@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { FileText, Mail, ArrowRight, Zap, Target, Users, Search, Lightbulb, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
-  const [animatedSections, setAnimatedSections] = useState<number[]>([]);
-
   useEffect(() => {
     // Simplified animation on scroll
     const observerOptions = {
@@ -16,19 +14,11 @@ const AboutPage = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
-          
-          // Handle process step animations
-          if (entry.target.classList.contains('process-step')) {
-            const stepIndex = parseInt(entry.target.getAttribute('data-step') || '0');
-            setTimeout(() => {
-              setAnimatedSections(prev => [...prev, stepIndex]);
-            }, 200);
-          }
         }
       });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in, .process-step');
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .scale-in, .stagger-fade-in');
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -164,7 +154,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Finding the Pattern - Simplified */}
+          {/* Finding the Pattern - Clean Apple Style */}
           <div className="mb-24">
             <div className="text-center mb-16">
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Finding the Pattern</h2>
@@ -174,41 +164,40 @@ const AboutPage = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
               {[
                 {
+                  number: "1",
                   icon: Search,
                   title: "Discover",
                   description: "We identify the patterns in your workflow and uncover opportunities for AI enhancement",
                   delay: "0s"
                 },
                 {
+                  number: "2",
                   icon: Lightbulb,
                   title: "Design",
                   description: "We craft human-centered solutions that feel intuitive and align with your business goals",
                   delay: "0.1s"
                 },
                 {
+                  number: "3",
                   icon: Rocket,
                   title: "Deploy",
                   description: "We implement cutting-edge AI tools that integrate seamlessly into your existing systems",
                   delay: "0.2s"
                 }
               ].map((item, index) => (
-                <div key={index} className={`process-step text-center`} data-step={index} style={{ animationDelay: item.delay }}>
-                  <div className="relative mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mx-auto shadow-lg">
-                      <item.icon className="w-8 h-8 text-white" />
+                <div key={index} className={`stagger-fade-in text-center`} style={{ animationDelay: item.delay }}>
+                  {/* Clean Apple-style number */}
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <span className="text-2xl font-bold text-gray-900">{item.number}</span>
                     </div>
-                    
-                    {/* Simplified indicator - no overflow */}
-                    {animatedSections.includes(index) && (
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-green-500 rounded-full"></div>
-                    )}
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                     {item.description}
                   </p>
                 </div>
