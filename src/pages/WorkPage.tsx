@@ -6,7 +6,6 @@ import ProjectCard from '../components/ProjectCard';
 
 const WorkPage = () => {
   const { projects } = useProjectContext();
-  const [animatedProjects, setAnimatedProjects] = useState<number[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
   
   // Define filter categories
@@ -57,18 +56,6 @@ const WorkPage = () => {
   });
   
   useEffect(() => {
-    const animateProjects = () => {
-      filteredProjects.forEach((_, index) => {
-        setTimeout(() => {
-          setAnimatedProjects(prev => [...prev, index]);
-        }, 100 * index);
-      });
-    };
-    
-    // Reset animations when filter changes
-    setAnimatedProjects([]);
-    setTimeout(animateProjects, 100);
-
     // Animation on scroll
     const observerOptions = {
       threshold: 0.1,
@@ -87,13 +74,7 @@ const WorkPage = () => {
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [filteredProjects, selectedFilter]);
-
-  // Debug logging
-  console.log('Total projects:', projects.length);
-  console.log('Filtered projects:', filteredProjects.length);
-  console.log('Selected filter:', selectedFilter);
-  console.log('Projects data:', projects);
+  }, []);
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white">
@@ -103,13 +84,6 @@ const WorkPage = () => {
           <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
           <p className="fade-in-up text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Recent builds and client outcomes showcasing real AI solutions for real businesses.
-          </p>
-        </div>
-
-        {/* Debug Info - Remove this after testing */}
-        <div className="mb-8 p-4 bg-gray-100 rounded-lg">
-          <p className="text-sm text-gray-600">
-            Debug: Total projects: {projects.length}, Filtered: {filteredProjects.length}, Filter: {selectedFilter}
           </p>
         </div>
 
@@ -135,11 +109,8 @@ const WorkPage = () => {
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id} 
-              className={`transform transition-all duration-700 ${
-                animatedProjects.includes(index) 
-                  ? 'translate-y-0 opacity-100' 
-                  : 'translate-y-10 opacity-0'
-              }`}
+              className="fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <ProjectCard project={project} />
             </div>
@@ -156,17 +127,6 @@ const WorkPage = () => {
             >
               View All Projects
             </button>
-          </div>
-        )}
-
-        {/* Show all projects if no filter matches */}
-        {filteredProjects.length === 0 && selectedFilter === 'All' && projects.length > 0 && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            {projects.map((project, index) => (
-              <div key={project.id} className="transform transition-all duration-700 translate-y-0 opacity-100">
-                <ProjectCard project={project} />
-              </div>
-            ))}
           </div>
         )}
 
