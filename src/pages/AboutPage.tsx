@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { FileText, Mail, ArrowRight, Zap, Target, Users, Check, Search, Lightbulb, Rocket } from 'lucide-react';
+import { FileText, Mail, ArrowRight, Zap, Target, Users, Search, Lightbulb, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
-  const [checkedSteps, setCheckedSteps] = useState<number[]>([]);
+  const [animatedSections, setAnimatedSections] = useState<number[]>([]);
 
   useEffect(() => {
-    // Animation on scroll
+    // Simplified animation on scroll
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -17,12 +17,12 @@ const AboutPage = () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
           
-          // Handle process step checkmarks
+          // Handle process step animations
           if (entry.target.classList.contains('process-step')) {
             const stepIndex = parseInt(entry.target.getAttribute('data-step') || '0');
             setTimeout(() => {
-              setCheckedSteps(prev => [...prev, stepIndex]);
-            }, 300);
+              setAnimatedSections(prev => [...prev, stepIndex]);
+            }, 200);
           }
         }
       });
@@ -164,7 +164,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Finding the Pattern - Core Mission */}
+          {/* Finding the Pattern - Simplified */}
           <div className="mb-24">
             <div className="text-center mb-16">
               <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Finding the Pattern</h2>
@@ -174,7 +174,7 @@ const AboutPage = () => {
               </p>
             </div>
             
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {[
                 {
                   icon: Search,
@@ -195,18 +195,16 @@ const AboutPage = () => {
                   delay: "0.2s"
                 }
               ].map((item, index) => (
-                <div key={index} className={`process-step text-center max-w-xs relative`} data-step={index} style={{ animationDelay: item.delay }}>
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg transition-all duration-500">
+                <div key={index} className={`process-step text-center`} data-step={index} style={{ animationDelay: item.delay }}>
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mx-auto shadow-lg">
                       <item.icon className="w-8 h-8 text-white" />
                     </div>
                     
-                    {/* Animated Checkmark */}
-                    <div className={`absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center transition-all duration-500 transform ${
-                      checkedSteps.includes(index) ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-                    }`}>
-                      <Check className="w-5 h-5 text-white" />
-                    </div>
+                    {/* Simplified indicator - no overflow */}
+                    {animatedSections.includes(index) && (
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-green-500 rounded-full"></div>
+                    )}
                   </div>
                   
                   <h3 className="text-xl font-bold mb-3 text-gray-900">{item.title}</h3>
