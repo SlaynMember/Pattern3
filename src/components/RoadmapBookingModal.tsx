@@ -36,6 +36,9 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Google Calendar booking URL
+  const GOOGLE_CALENDAR_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ20Vqo2cMGfOWDwybhkY_2j-rtsWeaqdmFsYiFZ5UY8gM8B3caO91sBgSYhvUuH_Hyo98CHSlZD?gv=true';
+
   const helpOptions = [
     'Website Development',
     'AI Automation',
@@ -128,6 +131,7 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
       }
 
       setSubmitStatus('success');
+      
       // Reset form
       setFormData({
         fullName: '',
@@ -140,6 +144,12 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
         hearAbout: '',
         sourcePage: 'modal'
       });
+
+      // Open Google Calendar booking in a new tab after successful submission
+      setTimeout(() => {
+        window.open(GOOGLE_CALENDAR_URL, '_blank', 'noopener,noreferrer');
+      }, 1000); // Small delay to let user see success message
+
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -154,6 +164,10 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
       setSubmitStatus('idle');
     }
     onClose();
+  };
+
+  const openCalendarDirectly = () => {
+    window.open(GOOGLE_CALENDAR_URL, '_blank', 'noopener,noreferrer');
   };
 
   if (!isOpen) return null;
@@ -188,14 +202,24 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Thanks! Request Received</h3>
               <p className="text-lg text-gray-600 mb-6">
-                I'll review your information and follow up within 48 hours to schedule your free consultation.
+                Your consultation request has been submitted successfully. A Google Calendar booking window should have opened automatically.
               </p>
+              <p className="text-base text-gray-600 mb-6">
+                If the calendar didn't open, click the button below to schedule your meeting:
+              </p>
+              <button
+                onClick={openCalendarDirectly}
+                className="btn-primary inline-flex items-center gap-3 mb-6"
+              >
+                <Calendar className="w-5 h-5" />
+                Schedule Your Meeting
+              </button>
               <p className="text-sm text-gray-500 mb-8">
-                Keep an eye on your inbox (and spam folder) for my response.
+                I'll also follow up within 48 hours via email with additional details.
               </p>
               <button
                 onClick={handleClose}
-                className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors font-medium"
+                className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-medium"
               >
                 Close
               </button>
@@ -209,15 +233,26 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                   Book Your Free AI Consultation
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 mb-2">
                   Tell me about your business and I'll provide a personalized AI roadmap at no cost.
+                </p>
+                <p className="text-sm text-gray-500">
+                  After submitting, you'll be directed to schedule your meeting time.
                 </p>
               </div>
 
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
-                  <p className="text-red-700">{errorMessage}</p>
+                  <div className="flex-1">
+                    <p className="text-red-700">{errorMessage}</p>
+                    <button
+                      onClick={openCalendarDirectly}
+                      className="text-red-600 hover:text-red-800 underline text-sm mt-1"
+                    >
+                      Or schedule directly via Google Calendar
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -388,14 +423,36 @@ const RoadmapBookingModal = ({ isOpen, onClose }: RoadmapBookingModalProps) => {
                       Submitting...
                     </>
                   ) : (
-                    'Book Free Consultation'
+                    <>
+                      <Calendar className="w-5 h-5" />
+                      Submit & Schedule Meeting
+                    </>
                   )}
                 </button>
 
-                <p className="text-sm text-gray-500 text-center">
-                  Secure submission • Free consultation • No payment required
-                </p>
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-gray-500">
+                    Secure submission • Free consultation • No payment required
+                  </p>
+                  <p className="text-xs text-gray-400">
+                    After submitting, you'll be directed to Google Calendar to choose your meeting time
+                  </p>
+                </div>
               </form>
+
+              {/* Alternative booking option */}
+              <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                <p className="text-sm text-gray-600 mb-3">
+                  Prefer to schedule directly?
+                </p>
+                <button
+                  onClick={openCalendarDirectly}
+                  className="btn-outline inline-flex items-center gap-2 text-sm"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Open Google Calendar
+                </button>
+              </div>
             </>
           )}
         </div>
