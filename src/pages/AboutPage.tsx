@@ -82,7 +82,7 @@ const AboutPage = () => {
               <div className="slide-in-left">
                 <div className="card p-0 overflow-hidden">
                   <img
-                    src="/images/profile/headshot.jpg"
+                    src="/images/profile/headshot.webp"
                     alt="Will Patterson - Founder of Pattern3 LLC"
                     className="w-full h-auto rounded-xl"
                     loading="lazy"
