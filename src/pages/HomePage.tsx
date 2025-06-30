@@ -86,12 +86,14 @@ const HomePage = () => {
                 <button 
                   onClick={openModal}
                   className="btn-primary inline-flex items-center justify-center gap-3 text-base md:text-lg max-w-full"
+                  aria-label="Book Free Consultation"
                 >
                   Book Free Consultation <ArrowRight size={20} />
                 </button>
                 <Link
                   to="/work"
                   className="btn-outline inline-flex items-center justify-center gap-3 text-base md:text-lg max-w-full"
+                  aria-label="View Case Studies"
                 >
                   View Case Studies
                 </Link>
@@ -105,7 +107,10 @@ const HomePage = () => {
                 <img
                   src="/images/profile/headshot.jpg"
                   alt="Will Patterson - Founder of Pattern3 LLC"
+                  width="600"
+                  height="800"
                   className="w-full h-auto object-cover max-w-full"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -115,7 +120,7 @@ const HomePage = () => {
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
             onClick={scrollToBio}
-            aria-label="Scroll down"
+            aria-label="Scroll down to learn more"
             className="text-gray-500 hover:text-primary transition-colors"
           >
             <ArrowRight size={24} className="transform rotate-90" />
@@ -216,10 +221,10 @@ const HomePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-10 md:py-16 bg-gray-50 overflow-x-hidden">
+      <section className="py-12 md:py-16 bg-gray-50 overflow-x-hidden">
         <div className="container mx-auto px-4 md:px-8 max-w-full">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16 max-w-full">
+            <div className="text-center mb-12 max-w-full">
               <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
                 After Our Live Google Meet Call, You'll Receive:
               </h2>
@@ -355,6 +360,7 @@ const HomePage = () => {
             <Link
               to="/work"
               className="btn-primary inline-flex items-center gap-3 text-base md:text-lg"
+              aria-label="View All Case Studies"
             >
               View All Case Studies <ArrowRight size={20} />
             </Link>
@@ -376,6 +382,7 @@ const HomePage = () => {
               onClick={openModal}
               className="scale-in btn-accent inline-flex items-center gap-3 text-lg md:text-xl px-8 md:px-10 py-4 md:py-5" 
               style={{ animationDelay: '0.2s' }}
+              aria-label="Book Free Consultation"
             >
               <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
               Book Free Consultation

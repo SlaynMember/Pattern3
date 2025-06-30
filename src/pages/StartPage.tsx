@@ -90,6 +90,8 @@ const StartPage = () => {
             <img
               src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
+              width="120"
+              height="32"
               className="h-8"
             />
           )}
@@ -109,13 +111,15 @@ const StartPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 pt-24 pb-16 relative z-10">
+      <div className="container mx-auto px-4 pt-24 pb-12 relative z-10">
         {/* Hero Section */}
-        <div className="max-w-5xl mx-auto text-center mb-16">
+        <div className="max-w-5xl mx-auto text-center mb-12">
           <div className="mb-8">
             <img
               src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
+              width="240"
+              height="80"
               className="h-20 mx-auto mb-8 fade-in-up"
             />
           </div>
@@ -125,7 +129,7 @@ const StartPage = () => {
             <span className="text-gradient">AI Journey</span>
           </h1>
           
-          <p className="fade-in-up text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+          <p className="fade-in-up text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Ready to explore how AI can transform your business? Let's start a conversation about your goals, challenges, and opportunities.
           </p>
           
@@ -133,6 +137,7 @@ const StartPage = () => {
             <button
               onClick={scrollToBooking}
               className="btn-primary inline-flex items-center gap-3 text-xl px-10 py-5 shadow-glow"
+              aria-label="Book Free Consultation"
             >
               <ArrowRight className="w-6 h-6" />
               Book Free Consultation
@@ -141,6 +146,7 @@ const StartPage = () => {
             <a
               href="mailto:will@pattern3.com"
               className="btn-outline inline-flex items-center gap-3 text-xl px-10 py-5"
+              aria-label="Send Email"
             >
               <Mail className="w-6 h-6" />
               Send Email
@@ -153,12 +159,12 @@ const StartPage = () => {
         </div>
 
         {/* Contact Methods */}
-        <div className="max-w-5xl mx-auto mb-24">
-          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-16 text-gray-900">
+        <div className="max-w-5xl mx-auto mb-20">
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900">
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 icon: Mail,
@@ -207,13 +213,13 @@ const StartPage = () => {
         </div>
 
         {/* Booking Form Section */}
-        <section id="booking" className="max-w-4xl mx-auto mb-24">
+        <section id="booking" className="max-w-4xl mx-auto mb-20">
           <BookingForm sourcePage="start" />
         </section>
 
         {/* What to Include */}
-        <div className="max-w-5xl mx-auto mb-24">
-          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-16 text-gray-900">
+        <div className="max-w-5xl mx-auto mb-20">
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900">
             What to Include in Your Message
           </h2>
           
@@ -267,8 +273,8 @@ const StartPage = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-4xl mx-auto mb-24">
-          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-16 text-gray-900">
+        <div className="max-w-4xl mx-auto mb-20">
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900">
             Frequently Asked Questions
           </h2>
           
@@ -308,13 +314,14 @@ const StartPage = () => {
           <button
             onClick={scrollToBooking}
             className="w-full btn-primary py-4 text-lg shadow-2xl"
+            aria-label="Book Free Consultation"
           >
             Book Free Consultation
           </button>
         </div>
 
         {/* Footer */}
-        <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-20">
+        <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-16">
           Pattern3 LLC | AI solutions that bridge technology and human connection.
         </div>
       </div>
