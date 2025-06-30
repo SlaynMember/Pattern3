@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FileText, Mail, ArrowRight, Zap, Target, Users, Check } from 'lucide-react';
+import { FileText, Mail, ArrowRight, Zap, Target, Users, Check, Search, Lightbulb, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
@@ -164,31 +164,34 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Our Process - Redesigned with Checkmarks */}
+          {/* Finding the Pattern - Core Mission */}
           <div className="mb-24">
             <div className="text-center mb-16">
-              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Our Process</h2>
+              <h2 className="fade-in-up text-3xl md:text-4xl font-black mb-6">Finding the Pattern</h2>
               <div className="fade-in-up w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
+              <p className="fade-in-up text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
+                At Pattern3, we believe every business challenge has a pattern — a repeatable solution that combines design thinking, cutting-edge technology, and human-centered approach
+              </p>
             </div>
             
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
               {[
                 {
-                  icon: Target,
-                  title: "Discovery",
-                  description: "Understanding your business, challenges, and goals",
+                  icon: Search,
+                  title: "Discover",
+                  description: "We identify the patterns in your workflow and uncover opportunities for AI enhancement",
                   delay: "0s"
                 },
                 {
-                  icon: Zap,
-                  title: "Audit",
-                  description: "Examining systems to identify automation opportunities",
+                  icon: Lightbulb,
+                  title: "Design",
+                  description: "We craft human-centered solutions that feel intuitive and align with your business goals",
                   delay: "0.1s"
                 },
                 {
-                  icon: Users,
-                  title: "Build",
-                  description: "Creating and implementing your custom AI solution",
+                  icon: Rocket,
+                  title: "Deploy",
+                  description: "We implement cutting-edge AI tools that integrate seamlessly into your existing systems",
                   delay: "0.2s"
                 }
               ].map((item, index) => (
