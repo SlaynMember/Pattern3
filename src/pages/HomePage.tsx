@@ -105,28 +105,8 @@ const HomePage = () => {
             <div className="lg:w-2/5 max-w-full">
               <div className="scale-in rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 max-w-full">
                 <picture>
-                  <source 
-                    srcSet="/images/profile/headshot-480.webp 480w,
-                            /images/profile/headshot-768.webp 768w,
-                            /images/profile/headshot-1024.webp 1024w,
-                            /images/profile/headshot.webp 1200w" 
-                    sizes="(max-width: 480px) 480px,
-                           (max-width: 768px) 768px,
-                           (max-width: 1024px) 1024px,
-                           1200px"
-                    type="image/webp" 
-                  />
-                  <source 
-                    srcSet="/images/profile/headshot-480.jpg 480w,
-                            /images/profile/headshot-768.jpg 768w,
-                            /images/profile/headshot-1024.jpg 1024w,
-                            /images/profile/headshot.jpg 1200w" 
-                    sizes="(max-width: 480px) 480px,
-                           (max-width: 768px) 768px,
-                           (max-width: 1024px) 1024px,
-                           1200px"
-                    type="image/jpeg" 
-                  />
+                  <source type="image/avif" srcSet="/images/profile/headshot.avif 1x" />
+                  <source type="image/webp" srcSet="/images/profile/headshot.webp 1x" />
                   <img
                     src="/images/profile/headshot.jpg"
                     alt="Will Patterson - Founder of Pattern3 LLC"

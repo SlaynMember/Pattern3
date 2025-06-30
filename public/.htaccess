@@ -17,6 +17,7 @@
     AddOutputFilterByType DEFLATE font/ttf
     AddOutputFilterByType DEFLATE image/svg+xml
     AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE image/avif
     AddOutputFilterByType DEFLATE text/css
     AddOutputFilterByType DEFLATE text/html
     AddOutputFilterByType DEFLATE text/javascript
@@ -43,6 +44,7 @@
     AddOutputFilterByType BROTLI_COMPRESS application/rss+xml
     AddOutputFilterByType BROTLI_COMPRESS application/atom+xml
     AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+    AddOutputFilterByType BROTLI_COMPRESS image/avif
 </IfModule>
 
 # Cache Control Headers
