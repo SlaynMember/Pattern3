@@ -30,27 +30,6 @@ const HomePage = () => {
     setIsModalOpen(false);
   };
 
-  // Enhanced Bokeh Component with Larger Particles
-  const BokehBackground = ({ particleCount = 30, opacity = 0.4, size = { min: 15, max: 40 } }) => (
-    <div className="bokeh-background">
-      {[...Array(particleCount)].map((_, i) => (
-        <div
-          key={i}
-          className="bokeh-particle"
-          style={{
-            width: Math.random() * (size.max - size.min) + size.min + 'px',
-            height: Math.random() * (size.max - size.min) + size.min + 'px',
-            left: Math.random() * 100 + '%',
-            top: Math.random() * 100 + '%',
-            opacity: opacity,
-            animationDelay: Math.random() * 8 + 's',
-            animationDuration: Math.random() * 6 + 8 + 's',
-          }}
-        />
-      ))}
-    </div>
-  );
-
   // Animation on scroll
   useEffect(() => {
     const observerOptions = {
@@ -82,10 +61,8 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {/* Hero Section with Enhanced Bokeh */}
+      {/* Hero Section */}
       <section className="hero-bg relative min-h-screen flex items-center justify-center">
-        <BokehBackground particleCount={50} opacity={0.6} size={{ min: 20, max: 60 }} />
-        
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
           <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-8 lg:gap-12 max-w-full">
             <div className="lg:w-3/5 text-left max-w-full">
@@ -154,8 +131,6 @@ const HomePage = () => {
 
       {/* Why Pattern3 Section */}
       <section ref={bioRef} className="section-light relative">
-        <BokehBackground particleCount={35} opacity={0.4} size={{ min: 15, max: 45 }} />
-        
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
@@ -241,8 +216,6 @@ const HomePage = () => {
 
       {/* What You Get Section */}
       <section className="py-12 md:py-16 bg-gray-50 overflow-x-hidden relative">
-        <BokehBackground particleCount={30} opacity={0.3} size={{ min: 12, max: 35 }} />
-
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 max-w-full">
@@ -308,8 +281,6 @@ const HomePage = () => {
 
       {/* Who It's For Section */}
       <section className="section-light overflow-x-hidden relative">
-        <BokehBackground particleCount={40} opacity={0.4} size={{ min: 18, max: 50 }} />
-
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 max-w-full">
@@ -362,8 +333,6 @@ const HomePage = () => {
 
       {/* Featured Work Section */}
       <section className="section-gray overflow-x-hidden relative">
-        <BokehBackground particleCount={35} opacity={0.3} size={{ min: 15, max: 40 }} />
-
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="text-center mb-16 max-w-full">
             <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6">Featured Work</h2>
@@ -395,8 +364,6 @@ const HomePage = () => {
 
       {/* Final CTA Section */}
       <section className="section-dark overflow-x-hidden relative">
-        <BokehBackground particleCount={45} opacity={0.5} size={{ min: 20, max: 55 }} />
-
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="fade-in-up text-2xl md:text-3xl lg:text-4xl font-black mb-6 text-white">

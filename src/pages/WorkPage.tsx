@@ -54,27 +54,6 @@ const WorkPage = () => {
         return true;
     }
   });
-
-  // Enhanced Bokeh Component for Work Page
-  const BokehBackground = ({ particleCount = 30, opacity = 0.4, size = { min: 15, max: 40 } }) => (
-    <div className="bokeh-background">
-      {[...Array(particleCount)].map((_, i) => (
-        <div
-          key={i}
-          className="bokeh-particle"
-          style={{
-            width: Math.random() * (size.max - size.min) + size.min + 'px',
-            height: Math.random() * (size.max - size.min) + size.min + 'px',
-            left: Math.random() * 100 + '%',
-            top: Math.random() * 100 + '%',
-            opacity: opacity,
-            animationDelay: Math.random() * 8 + 's',
-            animationDuration: Math.random() * 6 + 8 + 's',
-          }}
-        />
-      ))}
-    </div>
-  );
   
   useEffect(() => {
     // Animation on scroll
@@ -99,10 +78,8 @@ const WorkPage = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white relative overflow-hidden">
-      {/* Hero Section with Bokeh */}
+      {/* Hero Section */}
       <div className="relative">
-        <BokehBackground particleCount={40} opacity={0.5} size={{ min: 20, max: 55 }} />
-        
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-16">
             <h1 className="fade-in-up text-4xl md:text-5xl lg:text-6xl font-black mb-6">Case Studies & Proof of Concept</h1>
@@ -131,10 +108,8 @@ const WorkPage = () => {
         </div>
       </div>
 
-      {/* Projects Section with Bokeh */}
+      {/* Projects Section */}
       <div className="relative">
-        <BokehBackground particleCount={35} opacity={0.3} size={{ min: 15, max: 45 }} />
-        
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           {/* Projects Grid - 2 Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -164,10 +139,8 @@ const WorkPage = () => {
         </div>
       </div>
 
-      {/* CTA Section with Bokeh */}
+      {/* CTA Section */}
       <div className="relative">
-        <BokehBackground particleCount={30} opacity={0.4} size={{ min: 18, max: 50 }} />
-        
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mt-20 pt-16 border-t border-gray-200">
             <div className="fade-in-up max-w-3xl mx-auto">
