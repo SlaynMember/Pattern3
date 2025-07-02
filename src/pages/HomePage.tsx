@@ -30,6 +30,27 @@ const HomePage = () => {
     setIsModalOpen(false);
   };
 
+  // Enhanced Bokeh Component
+  const BokehBackground = ({ particleCount = 30, opacity = 0.4, size = { min: 2, max: 6 } }) => (
+    <div className="bokeh-background">
+      {[...Array(particleCount)].map((_, i) => (
+        <div
+          key={i}
+          className="bokeh-particle"
+          style={{
+            width: Math.random() * (size.max - size.min) + size.min + 'px',
+            height: Math.random() * (size.max - size.min) + size.min + 'px',
+            left: Math.random() * 100 + '%',
+            top: Math.random() * 100 + '%',
+            opacity: opacity,
+            animationDelay: Math.random() * 8 + 's',
+            animationDuration: Math.random() * 4 + 6 + 's',
+          }}
+        />
+      ))}
+    </div>
+  );
+
   // Animation on scroll
   useEffect(() => {
     const observerOptions = {
@@ -61,12 +82,9 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section with Enhanced Bokeh */}
       <section className="hero-bg relative min-h-screen flex items-center justify-center">
-        {/* Floating Elements */}
-        <div className="floating-element"></div>
-        <div className="floating-element"></div>
-        <div className="floating-element"></div>
+        <BokehBackground particleCount={40} opacity={0.3} size={{ min: 3, max: 8 }} />
         
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
           <div className="flex flex-col lg:flex-row items-center pt-32 lg:pt-0 gap-8 lg:gap-12 max-w-full">
@@ -136,26 +154,7 @@ const HomePage = () => {
 
       {/* Why Pattern3 Section */}
       <section ref={bioRef} className="section-light relative">
-        {/* Bokeh Background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
-          <div className="absolute w-full h-full">
-            {[...Array(25)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-20 animate-pulse"
-                style={{
-                  width: Math.random() * 4 + 2 + 'px',
-                  height: Math.random() * 4 + 2 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                  animationDelay: Math.random() * 2 + 's',
-                  animationDuration: Math.random() * 3 + 4 + 's',
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <BokehBackground particleCount={25} opacity={0.2} size={{ min: 2, max: 5 }} />
         
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
           <div className="max-w-7xl mx-auto">
@@ -180,7 +179,7 @@ const HomePage = () => {
                     <Zap className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="max-w-full overflow-hidden">
-                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone</h4>
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Accessible AI for everyone.</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Solutions designed for small teams without enterprise budgets or IT departments.
                     </p>
@@ -192,7 +191,7 @@ const HomePage = () => {
                     <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="max-w-full overflow-hidden">
-                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Design meets technology</h4>
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Design meets technology.</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Beautiful, intuitive systems that feel like creative partners, not just automation tools.
                     </p>
@@ -204,7 +203,7 @@ const HomePage = () => {
                     <Target className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="max-w-full overflow-hidden">
-                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Rapid implementation</h4>
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Rapid implementation.</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Launch your first AI-driven feature in weeks, not months, with zero-code prototypes.
                     </p>
@@ -216,7 +215,7 @@ const HomePage = () => {
                     <Users className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="max-w-full overflow-hidden">
-                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Local expertise, global innovation</h4>
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Local expertise, global innovation.</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Oklahoma City-based with deep understanding of real business challenges.
                     </p>
@@ -228,7 +227,7 @@ const HomePage = () => {
                     <Shield className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="max-w-full overflow-hidden">
-                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Proven in the field</h4>
+                    <h4 className="text-lg md:text-xl font-bold mb-3 text-gray-900">Proven in the field.</h4>
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       Built by someone who's worked directly with healthcare, startups, and creative teams.
                     </p>
@@ -242,26 +241,7 @@ const HomePage = () => {
 
       {/* What You Get Section */}
       <section className="py-12 md:py-16 bg-gray-50 overflow-x-hidden relative">
-        {/* Bokeh Background */}
-        <div className="absolute inset-0 opacity-3">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent to-transparent animate-pulse"></div>
-          <div className="absolute w-full h-full">
-            {[...Array(20)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-15 animate-pulse"
-                style={{
-                  width: Math.random() * 3 + 1.5 + 'px',
-                  height: Math.random() * 3 + 1.5 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                  animationDelay: Math.random() * 2 + 's',
-                  animationDuration: Math.random() * 3 + 5 + 's',
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <BokehBackground particleCount={20} opacity={0.15} size={{ min: 1.5, max: 4 }} />
 
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -328,26 +308,7 @@ const HomePage = () => {
 
       {/* Who It's For Section */}
       <section className="section-light overflow-x-hidden relative">
-        {/* Bokeh Background */}
-        <div className="absolute inset-0 opacity-4">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
-          <div className="absolute w-full h-full">
-            {[...Array(30)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-20 animate-pulse"
-                style={{
-                  width: Math.random() * 5 + 2 + 'px',
-                  height: Math.random() * 5 + 2 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                  animationDelay: Math.random() * 2 + 's',
-                  animationDuration: Math.random() * 3 + 4 + 's',
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <BokehBackground particleCount={30} opacity={0.2} size={{ min: 2, max: 6 }} />
 
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -401,26 +362,7 @@ const HomePage = () => {
 
       {/* Featured Work Section */}
       <section className="section-gray overflow-x-hidden relative">
-        {/* Bokeh Background */}
-        <div className="absolute inset-0 opacity-3">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent to-transparent animate-pulse"></div>
-          <div className="absolute w-full h-full">
-            {[...Array(25)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-15 animate-pulse"
-                style={{
-                  width: Math.random() * 4 + 2 + 'px',
-                  height: Math.random() * 4 + 2 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                  animationDelay: Math.random() * 2 + 's',
-                  animationDuration: Math.random() * 3 + 4 + 's',
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <BokehBackground particleCount={25} opacity={0.15} size={{ min: 2, max: 5 }} />
 
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="text-center mb-16 max-w-full">
@@ -453,26 +395,7 @@ const HomePage = () => {
 
       {/* Final CTA Section */}
       <section className="section-dark overflow-x-hidden relative">
-        {/* Bokeh Background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
-          <div className="absolute w-full h-full">
-            {[...Array(35)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-25 animate-pulse"
-                style={{
-                  width: Math.random() * 6 + 3 + 'px',
-                  height: Math.random() * 6 + 3 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                  animationDelay: Math.random() * 2 + 's',
-                  animationDuration: Math.random() * 3 + 4 + 's',
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <BokehBackground particleCount={35} opacity={0.25} size={{ min: 3, max: 7 }} />
 
         <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-5xl mx-auto text-center">
