@@ -136,11 +136,25 @@ const HomePage = () => {
 
       {/* Why Pattern3 Section */}
       <section ref={bioRef} className="section-light relative">
-        {/* Floating Elements for Desktop */}
-        <div className="hidden lg:block">
-          <div className="floating-element"></div>
-          <div className="floating-element"></div>
-          <div className="floating-element"></div>
+        {/* Bokeh Background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
+          <div className="absolute w-full h-full">
+            {[...Array(25)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-20 animate-pulse"
+                style={{
+                  width: Math.random() * 4 + 2 + 'px',
+                  height: Math.random() * 4 + 2 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animationDelay: Math.random() * 2 + 's',
+                  animationDuration: Math.random() * 3 + 4 + 's',
+                }}
+              ></div>
+            ))}
+          </div>
         </div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-full">
@@ -227,8 +241,29 @@ const HomePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-12 md:py-16 bg-gray-50 overflow-x-hidden">
-        <div className="container mx-auto px-4 md:px-8 max-w-full">
+      <section className="py-12 md:py-16 bg-gray-50 overflow-x-hidden relative">
+        {/* Bokeh Background */}
+        <div className="absolute inset-0 opacity-3">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent to-transparent animate-pulse"></div>
+          <div className="absolute w-full h-full">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-15 animate-pulse"
+                style={{
+                  width: Math.random() * 3 + 1.5 + 'px',
+                  height: Math.random() * 3 + 1.5 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animationDelay: Math.random() * 2 + 's',
+                  animationDuration: Math.random() * 3 + 5 + 's',
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 max-w-full">
               <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
@@ -292,8 +327,29 @@ const HomePage = () => {
       </section>
 
       {/* Who It's For Section */}
-      <section className="section-light overflow-x-hidden">
-        <div className="container mx-auto px-4 md:px-8 max-w-full">
+      <section className="section-light overflow-x-hidden relative">
+        {/* Bokeh Background */}
+        <div className="absolute inset-0 opacity-4">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
+          <div className="absolute w-full h-full">
+            {[...Array(30)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-20 animate-pulse"
+                style={{
+                  width: Math.random() * 5 + 2 + 'px',
+                  height: Math.random() * 5 + 2 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animationDelay: Math.random() * 2 + 's',
+                  animationDuration: Math.random() * 3 + 4 + 's',
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 max-w-full">
               <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
@@ -344,8 +400,29 @@ const HomePage = () => {
       </section>
 
       {/* Featured Work Section */}
-      <section className="section-gray overflow-x-hidden">
-        <div className="container mx-auto px-4 md:px-8 max-w-full">
+      <section className="section-gray overflow-x-hidden relative">
+        {/* Bokeh Background */}
+        <div className="absolute inset-0 opacity-3">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent to-transparent animate-pulse"></div>
+          <div className="absolute w-full h-full">
+            {[...Array(25)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-15 animate-pulse"
+                style={{
+                  width: Math.random() * 4 + 2 + 'px',
+                  height: Math.random() * 4 + 2 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animationDelay: Math.random() * 2 + 's',
+                  animationDuration: Math.random() * 3 + 4 + 's',
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="text-center mb-16 max-w-full">
             <h2 className="fade-in-up text-3xl md:text-4xl lg:text-5xl font-black mb-6">Featured Work</h2>
             <div className="fade-in-up w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" style={{ animationDelay: '0.1s' }}></div>
@@ -375,8 +452,29 @@ const HomePage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section-dark overflow-x-hidden">
-        <div className="container mx-auto px-4 md:px-8 max-w-full">
+      <section className="section-dark overflow-x-hidden relative">
+        {/* Bokeh Background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
+          <div className="absolute w-full h-full">
+            {[...Array(35)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-25 animate-pulse"
+                style={{
+                  width: Math.random() * 6 + 3 + 'px',
+                  height: Math.random() * 6 + 3 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animationDelay: Math.random() * 2 + 's',
+                  animationDuration: Math.random() * 3 + 4 + 's',
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-8 max-w-full relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="fade-in-up text-2xl md:text-3xl lg:text-4xl font-black mb-6 text-white">
               Ready to discover your AI opportunities?

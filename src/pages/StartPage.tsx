@@ -113,8 +113,28 @@ const StartPage = () => {
 
       <div className="container mx-auto px-4 pt-24 pb-12 relative z-10">
         {/* Hero Section */}
-        <div className="max-w-5xl mx-auto text-center mb-12">
-          <div className="mb-8">
+        <div className="max-w-5xl mx-auto text-center mb-12 relative">
+          {/* Additional Bokeh for Hero */}
+          <div className="absolute inset-0 opacity-3">
+            <div className="absolute w-full h-full">
+              {[...Array(15)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-25 animate-pulse"
+                  style={{
+                    width: Math.random() * 3 + 1 + 'px',
+                    height: Math.random() * 3 + 1 + 'px',
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                    animationDelay: Math.random() * 2 + 's',
+                    animationDuration: Math.random() * 3 + 5 + 's',
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-8 relative z-10">
             <img
               src="/images/logos/pattern3black.png"
               alt="Pattern3 Logo"
@@ -124,16 +144,16 @@ const StartPage = () => {
             />
           </div>
 
-          <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 text-gray-900" style={{ animationDelay: '0.1s' }}>
+          <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 text-gray-900 relative z-10" style={{ animationDelay: '0.1s' }}>
             Let's Talk About Your<br />
             <span className="text-gradient">AI Journey</span>
           </h1>
           
-          <p className="fade-in-up text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+          <p className="fade-in-up text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed relative z-10" style={{ animationDelay: '0.2s' }}>
             Ready to explore how AI can transform your business? Let's start a conversation about your goals, challenges, and opportunities.
           </p>
           
-          <div className="fade-in-up flex flex-col sm:flex-row gap-4 justify-center" style={{ animationDelay: '0.3s' }}>
+          <div className="fade-in-up flex flex-col sm:flex-row gap-4 justify-center relative z-10" style={{ animationDelay: '0.3s' }}>
             <button
               onClick={scrollToBooking}
               className="btn-primary inline-flex items-center gap-3 text-xl px-10 py-5 shadow-glow"
@@ -153,18 +173,38 @@ const StartPage = () => {
             </a>
           </div>
           
-          <p className="fade-in-up text-sm text-gray-500 mt-6" style={{ animationDelay: '0.4s' }}>
+          <p className="fade-in-up text-sm text-gray-500 mt-6 relative z-10" style={{ animationDelay: '0.4s' }}>
             will@pattern3.com
           </p>
         </div>
 
         {/* Contact Methods */}
-        <div className="max-w-5xl mx-auto mb-20">
-          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900">
+        <div className="max-w-5xl mx-auto mb-20 relative">
+          {/* Bokeh Background for Contact Section */}
+          <div className="absolute inset-0 opacity-4">
+            <div className="absolute w-full h-full">
+              {[...Array(20)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-15 animate-pulse"
+                  style={{
+                    width: Math.random() * 3 + 1.5 + 'px',
+                    height: Math.random() * 3 + 1.5 + 'px',
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                    animationDelay: Math.random() * 2 + 's',
+                    animationDuration: Math.random() * 3 + 6 + 's',
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900 relative z-10">
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto relative z-10">
             <div className="stagger-fade-in card text-center shadow-glow" style={{ animationDelay: '0s' }}>
               <div className="card-icon mx-auto">
                 <Mail className="w-8 h-8" />
@@ -217,36 +257,77 @@ const StartPage = () => {
         </div>
 
         {/* Booking Form Section */}
-        <section id="booking" className="max-w-4xl mx-auto mb-20">
-          <BookingForm sourcePage="start" />
+        <section id="booking" className="max-w-4xl mx-auto mb-20 relative">
+          {/* Bokeh Background for Booking Form */}
+          <div className="absolute inset-0 opacity-3">
+            <div className="absolute w-full h-full">
+              {[...Array(25)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-20 animate-pulse"
+                  style={{
+                    width: Math.random() * 4 + 2 + 'px',
+                    height: Math.random() * 4 + 2 + 'px',
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                    animationDelay: Math.random() * 2 + 's',
+                    animationDuration: Math.random() * 3 + 5 + 's',
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+          <div className="relative z-10">
+            <BookingForm sourcePage="start" />
+          </div>
         </section>
 
         {/* What to Include */}
-        <div className="max-w-5xl mx-auto mb-20">
-          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900">
+        <div className="max-w-5xl mx-auto mb-20 relative">
+          {/* Bokeh Background for What to Include */}
+          <div className="absolute inset-0 opacity-4">
+            <div className="absolute w-full h-full">
+              {[...Array(18)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-15 animate-pulse"
+                  style={{
+                    width: Math.random() * 3 + 1.5 + 'px',
+                    height: Math.random() * 3 + 1.5 + 'px',
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                    animationDelay: Math.random() * 2 + 's',
+                    animationDuration: Math.random() * 3 + 6 + 's',
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900 relative z-10">
             What to Include in Your Message
           </h2>
           
-          <div className="card bg-gradient-to-br from-primary/5 to-accent/5 border-gradient">
+          <div className="card bg-gradient-to-br from-primary/5 to-accent/5 border-gradient relative z-10">
             <div className="grid md:grid-cols-2 gap-12">
               <div className="slide-in-left">
                 <h3 className="text-2xl font-bold mb-6 text-gray-900">About Your Business</h3>
                 <ul className="space-y-3 text-lg text-gray-700">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    What industry you're in
+                    What industry you're in.
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    Size of your team
+                    Size of your team.
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    Current challenges you're facing
+                    Current challenges you're facing.
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                    What you hope to achieve
+                    What you hope to achieve.
                   </li>
                 </ul>
               </div>
@@ -256,19 +337,19 @@ const StartPage = () => {
                 <ul className="space-y-3 text-lg text-gray-700">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
-                    Timeline for implementation
+                    Timeline for implementation.
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
-                    Budget considerations
+                    Budget considerations.
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
-                    Any specific AI tools you're interested in
+                    Any specific AI tools you're interested in.
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full mt-3 flex-shrink-0"></div>
-                    Questions about our process
+                    Questions about our process.
                   </li>
                 </ul>
               </div>
@@ -277,12 +358,32 @@ const StartPage = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900">
+        <div className="max-w-4xl mx-auto mb-20 relative">
+          {/* Bokeh Background for FAQ */}
+          <div className="absolute inset-0 opacity-3">
+            <div className="absolute w-full h-full">
+              {[...Array(22)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-18 animate-pulse"
+                  style={{
+                    width: Math.random() * 3 + 1.5 + 'px',
+                    height: Math.random() * 3 + 1.5 + 'px',
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                    animationDelay: Math.random() * 2 + 's',
+                    animationDuration: Math.random() * 3 + 5 + 's',
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          <h2 className="fade-in-up text-3xl md:text-4xl font-black text-center mb-12 text-gray-900 relative z-10">
             Frequently Asked Questions
           </h2>
           
-          <div className="space-y-6">
+          <div className="space-y-6 relative z-10">
             {[
               {
                 question: "How quickly do you respond?",
@@ -325,7 +426,7 @@ const StartPage = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-16">
+        <div className="text-center text-gray-500 text-sm border-t border-gray-100 pt-8 mt-16 relative z-10">
           Pattern3 LLC | AI solutions that bridge technology and human connection.
         </div>
       </div>
