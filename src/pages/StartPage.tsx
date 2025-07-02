@@ -51,17 +51,17 @@ const StartPage = () => {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Main Animated Background - Fixed z-index */}
+      <div className="fixed inset-0 z-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent animate-pulse"></div>
         <div className="absolute w-full h-full">
-          {[...Array(30)].map((_, i) => (
+          {[...Array(40)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-20 animate-pulse"
+              className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-30 animate-pulse"
               style={{
-                width: Math.random() * 4 + 2 + 'px',
-                height: Math.random() * 4 + 2 + 'px',
+                width: Math.random() * 6 + 2 + 'px',
+                height: Math.random() * 6 + 2 + 'px',
                 left: Math.random() * 100 + '%',
                 top: Math.random() * 100 + '%',
                 animationDelay: Math.random() * 2 + 's',
@@ -114,16 +114,16 @@ const StartPage = () => {
       <div className="container mx-auto px-4 pt-24 pb-12 relative z-10">
         {/* Hero Section */}
         <div className="max-w-5xl mx-auto text-center mb-12 relative">
-          {/* Additional Bokeh for Hero */}
-          <div className="absolute inset-0 opacity-3">
+          {/* Additional Hero Bokeh */}
+          <div className="absolute inset-0 z-0 opacity-8 pointer-events-none">
             <div className="absolute w-full h-full">
-              {[...Array(15)].map((_, i) => (
+              {[...Array(20)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-25 animate-pulse"
+                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-40 animate-pulse"
                   style={{
-                    width: Math.random() * 3 + 1 + 'px',
-                    height: Math.random() * 3 + 1 + 'px',
+                    width: Math.random() * 4 + 2 + 'px',
+                    height: Math.random() * 4 + 2 + 'px',
                     left: Math.random() * 100 + '%',
                     top: Math.random() * 100 + '%',
                     animationDelay: Math.random() * 2 + 's',
@@ -180,16 +180,16 @@ const StartPage = () => {
 
         {/* Contact Methods */}
         <div className="max-w-5xl mx-auto mb-20 relative">
-          {/* Bokeh Background for Contact Section */}
-          <div className="absolute inset-0 opacity-4">
+          {/* Contact Section Bokeh */}
+          <div className="absolute inset-0 z-0 opacity-6 pointer-events-none">
             <div className="absolute w-full h-full">
-              {[...Array(20)].map((_, i) => (
+              {[...Array(25)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-15 animate-pulse"
+                  className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-25 animate-pulse"
                   style={{
-                    width: Math.random() * 3 + 1.5 + 'px',
-                    height: Math.random() * 3 + 1.5 + 'px',
+                    width: Math.random() * 5 + 2 + 'px',
+                    height: Math.random() * 5 + 2 + 'px',
                     left: Math.random() * 100 + '%',
                     top: Math.random() * 100 + '%',
                     animationDelay: Math.random() * 2 + 's',
@@ -258,13 +258,13 @@ const StartPage = () => {
 
         {/* Booking Form Section */}
         <section id="booking" className="max-w-4xl mx-auto mb-20 relative">
-          {/* Bokeh Background for Booking Form */}
-          <div className="absolute inset-0 opacity-3">
+          {/* Booking Form Bokeh */}
+          <div className="absolute inset-0 z-0 opacity-4 pointer-events-none">
             <div className="absolute w-full h-full">
-              {[...Array(25)].map((_, i) => (
+              {[...Array(30)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-20 animate-pulse"
+                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-30 animate-pulse"
                   style={{
                     width: Math.random() * 4 + 2 + 'px',
                     height: Math.random() * 4 + 2 + 'px',
@@ -284,16 +284,16 @@ const StartPage = () => {
 
         {/* What to Include */}
         <div className="max-w-5xl mx-auto mb-20 relative">
-          {/* Bokeh Background for What to Include */}
-          <div className="absolute inset-0 opacity-4">
+          {/* What to Include Bokeh */}
+          <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
             <div className="absolute w-full h-full">
-              {[...Array(18)].map((_, i) => (
+              {[...Array(22)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-15 animate-pulse"
+                  className="absolute rounded-full bg-gradient-to-r from-primary to-accent opacity-25 animate-pulse"
                   style={{
-                    width: Math.random() * 3 + 1.5 + 'px',
-                    height: Math.random() * 3 + 1.5 + 'px',
+                    width: Math.random() * 4 + 1.5 + 'px',
+                    height: Math.random() * 4 + 1.5 + 'px',
                     left: Math.random() * 100 + '%',
                     top: Math.random() * 100 + '%',
                     animationDelay: Math.random() * 2 + 's',
@@ -359,13 +359,13 @@ const StartPage = () => {
 
         {/* FAQ Section */}
         <div className="max-w-4xl mx-auto mb-20 relative">
-          {/* Bokeh Background for FAQ */}
-          <div className="absolute inset-0 opacity-3">
+          {/* FAQ Bokeh */}
+          <div className="absolute inset-0 z-0 opacity-4 pointer-events-none">
             <div className="absolute w-full h-full">
-              {[...Array(22)].map((_, i) => (
+              {[...Array(25)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-18 animate-pulse"
+                  className="absolute rounded-full bg-gradient-to-r from-accent to-primary opacity-20 animate-pulse"
                   style={{
                     width: Math.random() * 3 + 1.5 + 'px',
                     height: Math.random() * 3 + 1.5 + 'px',
