@@ -1,6 +1,5 @@
-import { Mail, ArrowRight, Instagram } from 'lucide-react'
-import Link from 'next/link'
-import Image from 'next/image'
+import { Mail, ArrowRight, Instagram } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -10,12 +9,10 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Logo and Company Info */}
           <div className="text-center lg:text-left flex-shrink-0">
-            <Image 
+            <img 
               src="/images/logos/pattern3white.png" 
               alt="Pattern3 LLC" 
-              width={240}
-              height={80}
-              className="h-10 w-auto mb-4 mx-auto lg:mx-0"
+              className="h-10 mb-4 mx-auto lg:mx-0"
             />
             <p className="text-gray-300 text-sm mb-2">
               Pattern3 LLC | AI solutions for real businesses
@@ -69,7 +66,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

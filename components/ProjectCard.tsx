@@ -1,26 +1,23 @@
-import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Project } from '@/types/Project'
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { Project } from '../types/Project';
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <Link
-      href={`/work/${project.id}`}
+      href={`/project/${project.id}`}
       className="block group"
     >
       <div className="card relative overflow-hidden transition-all duration-500 transform md:group-hover:-translate-y-2 md:group-hover:shadow-2xl border-0">
         <div className="relative h-64 overflow-hidden rounded-xl mb-6">
-          <Image
+          <img
             src={project.coverImage}
             alt={project.title}
-            fill
-            className="object-cover transition-transform duration-700 ease-in-out md:group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="w-full h-full object-cover transition-transform duration-700 ease-in-out md:group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80"></div>
           
@@ -56,7 +53,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

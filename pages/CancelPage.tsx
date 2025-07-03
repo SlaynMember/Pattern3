@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { XCircle } from 'lucide-react';
 
-export default function SuccessPage() {
+export default function CancelPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -12,14 +12,14 @@ export default function SuccessPage() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-8">
-            <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
+            <XCircle className="w-16 h-16 text-red-500 mx-auto" />
           </div>
-          <h1 className="text-4xl font-bold mb-4">Thank You!</h1>
+          <h1 className="text-4xl font-bold mb-4">Purchase Cancelled</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Your purchase was successful. You'll receive an email with further instructions shortly.
+            Your purchase was cancelled. If you have any questions, please don't hesitate to contact us.
           </p>
           <Link
-            to="/"
+            href="/"
             className="inline-block px-6 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
           >
             Return to Home

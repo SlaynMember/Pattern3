@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useProjectContext } from '../hooks/useProjectContext';
 import ProjectCard from '../components/ProjectCard';
 
@@ -149,7 +149,7 @@ const WorkPage = () => {
                 Ready to transform your business with custom AI solutions? Let's discuss your project.
               </p>
               <Link
-                to="/start"
+                href="/start"
                 className="btn-primary inline-flex items-center gap-3 text-lg"
               >
                 Start Your Project <ArrowRight size={20} />

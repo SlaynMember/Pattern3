@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { FileText, Mail, ArrowRight, Zap, Target, Users, Search, Lightbulb, Rocket } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -270,7 +270,7 @@ const AboutPage = () => {
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <Link
-                    to="/start"
+                    href="/start"
                     className="btn-primary inline-flex items-center gap-3 text-lg"
                   >
                     Get Started <ArrowRight size={20} />

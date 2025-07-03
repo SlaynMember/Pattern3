@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { FileText, Mail, ArrowRight } from 'lucide-react';
 import { useProjectContext } from '../hooks/useProjectContext';
 
@@ -106,7 +106,7 @@ const AIPage = () => {
                   <h3 className="text-xl font-semibold mb-2">{project?.title}</h3>
                   <p className="text-gray-600 mb-4">{project?.description}</p>
                   <Link
-                    to={`/project/${project?.id}`}
+                    href={`/project/${project?.id}`}
                     className="inline-flex items-center text-primary hover:text-primary-dark"
                   >
                     View Project <ArrowRight size={16} className="ml-1" />
