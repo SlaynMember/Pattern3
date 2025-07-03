@@ -1,6 +1,8 @@
+"use client";
+
 import { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Check, Users, Building, Stethoscope, UserCheck, FileText, MessageCircle, Video, Plus, Shield, Zap, Target, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import ProjectCard from '../components/ProjectCard';
 import { useProjectContext } from '../hooks/useProjectContext';
 import RoadmapBookingModal from '../components/RoadmapBookingModal';
@@ -86,7 +88,7 @@ const HomePage = () => {
                   Book Free Consultation <ArrowRight size={20} />
                 </button>
                 <Link
-                  to="/work"
+                  href="/work"
                   className="btn-outline inline-flex items-center justify-center gap-3 text-base md:text-lg max-w-full"
                   aria-label="View Case Studies"
                 >
@@ -352,7 +354,7 @@ const HomePage = () => {
           
           <div className="text-center mt-16 max-w-full">
             <Link
-              to="/work"
+              href="/work"
               className="btn-primary inline-flex items-center gap-3 text-base md:text-lg"
               aria-label="View All Case Studies"
             >

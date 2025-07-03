@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+"use client";
+
+import Link from 'next/link';
 import { ChevronLeft, Mail, MessageCircle, ArrowRight, Instagram } from 'lucide-react';
 import BookingForm from '../components/BookingForm';
 
@@ -80,7 +82,7 @@ const StartPage = () => {
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center text-gray-600 hover:text-primary transition-colors font-medium"
           >
             <ChevronLeft className="w-5 h-5" />
