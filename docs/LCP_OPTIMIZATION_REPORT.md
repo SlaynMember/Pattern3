@@ -25,13 +25,10 @@ This document outlines the comprehensive Largest Contentful Paint (LCP) optimiza
 ### DNS Prefetch & Preconnect:
 ```html
 <!-- DNS Prefetch for External Resources -->
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://tally.so">
 
 <!-- Preconnect for Critical Resources -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 ```
 
 ## 2. Image Compression & Format Optimization

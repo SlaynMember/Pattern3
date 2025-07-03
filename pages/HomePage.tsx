@@ -5,6 +5,7 @@ import ProjectCard from '../components/ProjectCard';
 import { useProjectContext } from '../hooks/useProjectContext';
 import RoadmapBookingModal from '../components/RoadmapBookingModal';
 
+import { Project } from '@/types/Project'
 const HomePage = () => {
   const bioRef = useRef<HTMLDivElement>(null);
   const { projects } = useProjectContext();
@@ -12,11 +13,11 @@ const HomePage = () => {
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
   
   // Get specific projects for featured work
-  const featuredProjects = [
+  const featuredProjects: Project[] = [
     projects.find(p => p.id === 'd32-text-rewriter'),
     projects.find(p => p.id === 'echo'),
     projects.find(p => p.id === 'ai-automation')
-  ].filter(Boolean);
+  ].filter(Boolean) as Project[];
 
   const scrollToBio = () => {
     bioRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -109,7 +110,7 @@ const HomePage = () => {
                     height="800"
                     className="w-full h-auto object-cover max-w-full"
                     loading="eager"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     decoding="sync"
                   />
                 </picture>
