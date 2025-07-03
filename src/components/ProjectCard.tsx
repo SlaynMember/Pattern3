@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Project } from '../types/Project';
 
 interface ProjectCardProps {
@@ -9,7 +9,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <Link
-      to={`/project/${project.id}`}
+      href={`/project/${project.id}`}
       className="block group"
     >
       <div className="card relative overflow-hidden transition-all duration-500 transform md:group-hover:-translate-y-2 md:group-hover:shadow-2xl border-0">

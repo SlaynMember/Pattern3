@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useProjectContext } from '../hooks/useProjectContext';
 import ProjectGallery from '../components/ProjectGallery';
@@ -41,8 +42,8 @@ const ProjectDetailPage = () => {
   return (
     <div className="min-h-screen pt-24 pb-20 bg-white">
       <div className="container mx-auto px-4 md:px-8">
-        <Link 
-          to="/work" 
+        <Link
+          href="/work"
           className="inline-flex items-center gap-2 text-gray-600 hover:text-primary mb-8"
         >
           <ArrowLeft size={16} /> Back to all projects
@@ -119,8 +120,8 @@ const ProjectDetailPage = () => {
           <div className="border-t border-gray-200 pt-8 mt-12">
             <div className="flex justify-between">
               {prevProject ? (
-                <Link 
-                  to={`/project/${prevProject}`}
+                <Link
+                  href={`/project/${prevProject}`}
                   className="inline-flex items-center gap-2 text-gray-700 hover:text-primary"
                 >
                   <ArrowLeft size={16} /> Previous Project
@@ -130,8 +131,8 @@ const ProjectDetailPage = () => {
               )}
               
               {nextProject ? (
-                <Link 
-                  to={`/project/${nextProject}`}
+                <Link
+                  href={`/project/${nextProject}`}
                   className="inline-flex items-center gap-2 text-gray-700 hover:text-primary"
                 >
                   Next Project <ArrowRight size={16} />
