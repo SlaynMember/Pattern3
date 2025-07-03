@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useProjectContext } from '../hooks/useProjectContext';
-import ProjectGallery from '../components/ProjectGallery';
-import ProjectVideo from '../components/ProjectVideo';
-import NotFound from '../components/NotFound';
+import { useProjectContext } from '../../hooks/useProjectContext';
+import ProjectGallery from '../../components/ProjectGallery';
+import ProjectVideo from '../../components/ProjectVideo';
+import NotFound from '../../components/NotFound';
 
 const ProjectDetailPage = () => {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id?: string }>()
+  const id = params?.id
   const { projects } = useProjectContext();
   const [nextProject, setNextProject] = useState<string | null>(null);
   const [prevProject, setPrevProject] = useState<string | null>(null);
   
-  const project = projects.find(p => p.id === id);
+  const project = id ? projects.find(p => p.id === id) : null
   
   useEffect(() => {
     if (project) {
@@ -35,7 +36,7 @@ const ProjectDetailPage = () => {
     window.scrollTo(0, 0);
   }, [id, project, projects]);
 
-  if (!project) {
+  if (!id || !project) {
     return <NotFound />;
   }
 
