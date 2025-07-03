@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { XCircle } from 'lucide-react';
 
 export default function CancelPage() {
@@ -19,7 +21,7 @@ export default function CancelPage() {
             Your purchase was cancelled. If you have any questions, please don't hesitate to contact us.
           </p>
           <Link
-            to="/"
+            href="/"
             className="inline-block px-6 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
           >
             Return to Home

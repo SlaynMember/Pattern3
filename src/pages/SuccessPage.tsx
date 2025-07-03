@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 
 export default function SuccessPage() {
@@ -19,7 +21,7 @@ export default function SuccessPage() {
             Your purchase was successful. You'll receive an email with further instructions shortly.
           </p>
           <Link
-            to="/"
+            href="/"
             className="inline-block px-6 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
           >
             Return to Home

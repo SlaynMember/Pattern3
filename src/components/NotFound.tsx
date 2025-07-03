@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Home } from 'lucide-react';
 
 const NotFound = () => {
@@ -13,7 +13,7 @@ const NotFound = () => {
           or is temporarily unavailable.
         </p>
         <Link
-          to="/"
+          href="/"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-md transition hover:bg-primary-dark"
         >
           <Home size={18} /> Go to Homepage

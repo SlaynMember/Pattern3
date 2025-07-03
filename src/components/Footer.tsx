@@ -1,5 +1,7 @@
+'use client';
+
 import { Mail, ArrowRight, Instagram } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -49,7 +51,7 @@ const Footer = () => {
             </div>
             
             <Link
-              to="/start"
+              href="/start"
               className="group inline-flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors whitespace-nowrap"
             >
               Ready to start?
