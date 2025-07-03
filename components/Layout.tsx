@@ -1,20 +1,18 @@
-'use client'
-
-import { ReactNode, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import Header from './Header'
-import Footer from './Footer'
+import { ReactNode, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Header from './Header';
+import Footer from './Footer';
 
 interface LayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -22,7 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="flex-grow">{children}</main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

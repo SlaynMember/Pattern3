@@ -1,36 +1,33 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setIsScrolled(true)
+        setIsScrolled(true);
       } else {
-        setIsScrolled(false)
+        setIsScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
-  }
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   const isActive = (path: string) => {
-    return pathname === path
-  }
+    return pathname === path;
+  };
 
   return (
     <header
@@ -40,13 +37,10 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link href="/" className="h-12 md:h-16">
-          <Image 
+          <img 
             src="/images/logos/pattern3black.png" 
             alt="Pattern3 Logo" 
-            width={240}
-            height={80}
             className="h-full w-auto object-contain"
-            priority
           />
         </Link>
 
@@ -140,7 +134,7 @@ const Header = () => {
         </div>
       )}
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
