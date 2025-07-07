@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Design System */
+@import './styles/design-system.css';
+
 @font-face {
   font-family: 'Pattern3';
   src: url('/public/fonts/Pattern3-Regular.woff2') format('woff2'),
@@ -21,34 +24,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-:root {
-  --primary: #0891b2;
-  --primary-light: #06b6d4;
-  --primary-dark: #0e7490;
-  --accent: #14b8a6;
-  --accent-light: #5eead4;
-  --accent-dark: #0f766e;
-  --dark: #0f172a;
-  --light: #ffffff;
-  --gray-50: #f8fafc;
-  --gray-100: #f1f5f9;
-  --gray-200: #e2e8f0;
-  --gray-300: #cbd5e1;
-  --gray-400: #94a3b8;
-  --gray-500: #64748b;
-  --gray-600: #475569;
-  --gray-700: #334155;
-  --gray-800: #1e293b;
-  --gray-900: #0f172a;
-}
-
 html {
   overflow-x: hidden;
   max-width: 100%;
 }
 
 body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--dark);
   background-color: var(--light);
   line-height: 1.6;
@@ -65,35 +47,6 @@ body {
 
 *, *:before, *:after {
   max-width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Inter, sans-serif;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--dark);
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-h1 {
-  font-size: 3.5rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-}
-
-h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-h3 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
 }
 
 @media (max-width: 640px) {
@@ -121,6 +74,15 @@ h3 {
   h3 { font-size: 1.5rem; }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-gray-900);
+  max-width: 100%;
+}
+
 /* Custom component styles */
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -129,7 +91,7 @@ h3 {
   padding: 0.875rem 2rem;
   border-radius: 0.75rem;
   border: none;
-  cursor: pointer;
+  cursor: pointer; 
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.1), 0 2px 4px -1px rgba(8, 145, 178, 0.06);
   font-size: 1rem;
@@ -142,7 +104,7 @@ h3 {
   text-decoration: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px -3px rgba(8, 145, 178, 0.3), 0 4px 6px -2px rgba(8, 145, 178, 0.1);
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
@@ -168,7 +130,7 @@ h3 {
   text-decoration: none;
 }
 
-.btn-accent:hover {
+.btn-accent:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px -3px rgba(20, 184, 166, 0.3), 0 4px 6px -2px rgba(20, 184, 166, 0.1);
   background: linear-gradient(135deg, var(--accent-dark), var(--accent));
@@ -193,7 +155,7 @@ h3 {
   text-decoration: none;
 }
 
-.btn-outline:hover {
+.btn-outline:hover:not(:disabled) {
   background: var(--primary);
   color: #fff;
   transform: translateY(-2px);
@@ -203,7 +165,7 @@ h3 {
 .card {
   background: #fff;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: var(--space-8);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   border: 1px solid var(--gray-200);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -211,7 +173,7 @@ h3 {
   overflow: hidden;
 }
 
-.card:hover {
+.card:hover:not(:disabled) {
   transform: translateY(-4px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border-color: var(--gray-300);
@@ -219,12 +181,6 @@ h3 {
 
 .fade-in-up {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-
-.fade-in-up.animate {
-  opacity: 1;
   transform: translateY(0);
 }
 
@@ -235,7 +191,7 @@ h3 {
   max-width: 100%;
 }
 
-.hero-bg:before {
+.hero-bg::before {
   content: "";
   position: absolute;
   top: 0;
@@ -249,12 +205,17 @@ h3 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   max-width: 100%;
   word-wrap: break-word;
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+  will-change: transform;
 }
 
 /* Vision Mission Styles */
@@ -334,7 +295,7 @@ h3 {
 
 .mission-icon {
   width: 2rem;
-  height: 2rem;
+  height: 2rem; 
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
   border-radius: 50%;
@@ -363,6 +324,19 @@ h3 {
   line-height: 1.6;
 }
 
+/* Accessibility improvements */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -377,5 +351,5 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--color-primary);
 }
