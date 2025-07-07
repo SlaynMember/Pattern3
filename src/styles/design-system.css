@@ -1,18 +1,5 @@
 /* Pattern3 Design System */
 
-/* ===== FONT LOADING & OPTIMIZATION ===== */
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/700.css';
-
-/* Font Display Optimization */
-@font-face {
-  font-family: 'Inter';
-  font-display: swap;
-  font-weight: 400 700;
-  src: url('@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2');
-}
-
 /* ===== CSS CUSTOM PROPERTIES ===== */
 :root {
   /* Typography Scale - Fluid Typography */
