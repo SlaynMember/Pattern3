@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import LoadingSpinner from './LoadingSpinner'
 
 interface ButtonProps {
@@ -86,6 +87,19 @@ export default function Button({
     </>
   )
 
+  // Check if href is an internal route (starts with /)
+  if (href && href.startsWith('/')) {
+    return (
+      <Link
+        to={href}
+        className={classes}
+      >
+        {content}
+      </Link>
+    )
+  }
+  
+  // External links
   if (href) {
     return (
       <a

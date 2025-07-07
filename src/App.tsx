@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/ui/Navigation'
+import ScrollToTop from './components/ui/ScrollToTop'
 import HomePage from './components/pages/HomePage'
 import WorkPage from './components/pages/WorkPage'
 import StartPage from './components/pages/StartPage'
@@ -9,6 +10,7 @@ import ProjectDetailPage from './components/pages/ProjectDetailPage'
 function App() {
   return (
     <div className="min-h-screen">
+      <ScrollToTop />
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
