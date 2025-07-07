@@ -4,6 +4,7 @@ import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
+import GrowthJourneySection from '../sections/GrowthJourneySection'
 
 export default function HomePage() {
   return (
@@ -224,6 +225,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Growth Journey Section */}
+      <GrowthJourneySection />
 
       {/* Featured Work Section */}
       <section className="py-20 bg-gray-50">

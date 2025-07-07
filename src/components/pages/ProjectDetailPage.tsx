@@ -6,6 +6,39 @@ export default function ProjectDetailPage() {
 
   // Project data - in a real app this would come from a database or API
   const projects = {
+    'dental32-basketball': {
+      title: "Dental32 Basketball Initiative",
+      category: "Sports Analytics",
+      tags: ["Branding", "Sports", "Community Engagement"],
+      year: "2024",
+      client: "Dental32",
+      services: "Brand Strategy, Logo Design, Community Relations",
+      overview: "Complete rebranding project connecting Dental32's culture team with local basketball.",
+      description: "A comprehensive rebranding initiative that united Dental32's culture team with local basketball, creating a unique community engagement opportunity. This project involved full logo development and brand strategy, effectively bridging corporate culture with community sports to create meaningful connections and strengthen our local presence.",
+      nextProject: 'echo-transcription'
+    },
+    'local-business-perks': {
+      title: "Local Business Perks Program",
+      category: "E-commerce",
+      tags: ["Strategy", "Healthcare", "Community"],
+      year: "2024",
+      client: "Dental32",
+      services: "Program Development, Business Strategy, Community Outreach",
+      overview: "Innovative strategy connecting local businesses with affordable dental care.",
+      description: "Developed and implemented a strategic program that creates mutually beneficial relationships between local small businesses and our dental practice. The initiative provides affordable dental care options while strengthening community business ties, resulting in a win-win situation for both the local business community and healthcare access.",
+      nextProject: 'pattern3-starter-kit'
+    },
+    'pattern3-starter-kit': {
+      title: "Pattern3 Starter Kit Funnel",
+      category: "Product Development",
+      tags: ["Stripe Integration", "Automation", "Product Development"],
+      year: "2024",
+      client: "Internal Project",
+      services: "Payment Integration, Automation Development, Product Strategy",
+      overview: "A free product offering built with Stripe + Supabase + Bolt.",
+      description: "Developed a streamlined product delivery system that combines Stripe's payment processing with Supabase's database capabilities and Bolt's automation features. The toolkit includes branded prompt templates, an agent setup guide, and an automated delivery system. This project serves as both a lead generation tool and a proof of concept for our automated checkout and fulfillment capabilities.",
+      nextProject: 'brand-builder'
+    },
     'brand-builder': {
       title: "AI Automation - Brand Builder",
       category: "Automation",
@@ -31,14 +64,14 @@ export default function ProjectDetailPage() {
       nextProject: 'd32-text-rewriter'
     },
     'd32-text-rewriter': {
-      title: "D32 Text Message Re-Writer",
+      title: "Dental32 Text Message Re-Writer",
       category: "Personal Challenge",
-      tags: ["AI", "Content", "Communication"],
+      tags: ["AI", "Healthcare", "Communication"],
       year: "2024",
-      client: "Darnell32",
-      services: "AI Development, Content Strategy, Communication Tools",
-      overview: "Built a custom chatbot assistant to help Darnell32 turn basic staff communication into professional, branded messaging.",
-      description: "A specialized AI tool designed to transform casual staff communications into professional, brand-consistent messaging that maintains the authentic voice while elevating the presentation.",
+      client: "Dental32",
+      services: "AI Development, Healthcare Solutions, Communication Tools",
+      overview: "Built a custom chatbot assistant to help Dental32 turn basic staff communication into professional, branded messaging.",
+      description: "A specialized AI tool designed to transform casual staff communications into professional, brand-consistent messaging that maintains the authentic voice while elevating the presentation. This solution improved patient communication quality and reduced staff training time for professional correspondence.",
       nextProject: 'echo-transcription'
     },
     'echo-transcription': {

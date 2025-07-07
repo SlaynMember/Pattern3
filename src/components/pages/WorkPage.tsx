@@ -46,10 +46,10 @@ export default function WorkPage() {
       tags: ["Strategy", "Implementation", "AI"]
     },
     {
-      id: 'darnell32-basketball',
-      title: "Darnell32 Basketball Initiative",
+      id: 'dental32-basketball',
+      title: "Dental32 Basketball Initiative",
       category: "Sports Analytics",
-      description: "Complete rebrand and digital transformation for a basketball training program with AI-powered analytics.",
+      description: "Complete rebrand project connecting Dental32's culture team with local basketball.",
       image: "/images/b1.jpg",
       tags: ["Sports", "Analytics", "Branding"]
     },
@@ -78,12 +78,12 @@ export default function WorkPage() {
       tags: ["E-commerce", "Loyalty", "Local Business"]
     },
     {
-      id: 'pattern3-director-kit',
-      title: "Pattern3 Director Kit Funnel",
-      category: "Business Process",
-      description: "A comprehensive business development funnel designed to streamline client acquisition and project management.",
+      id: 'pattern3-starter-kit',
+      title: "Pattern3 Starter Kit Funnel",
+      category: "Product Development",
+      description: "A free product offering built with Stripe + Supabase + Bolt.",
       image: "/images/p1.jpg",
-      tags: ["Business", "Funnel", "Process"]
+      tags: ["Stripe", "Automation", "Product"]
     }
   ]
 
