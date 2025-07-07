@@ -318,22 +318,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection animation="fade-in">
-            <h2 className="heading-2 mb-6 text-white">
-            Ready to discover your AI opportunities?
-          </h2>
-            <p className="body-large text-gray-300 mb-8">
-            Book your free consultation with Pattern3 LLC and get a clear roadmap for your business.
-          </p>
-            <Button variant="secondary" href="/start">
-              Get Started <Icon name="arrow" className="ml-2" />
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
     </div>
   )
 }

@@ -215,20 +215,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your AI Journey?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how Pattern3 LLC can help transform your business with human-centered AI solutions.
-          </p>
-          <Link to="/start" className="btn-accent">
-            Get Started <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
-        </div>
-      </section>
     </div>
   )
 }

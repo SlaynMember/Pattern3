@@ -201,20 +201,6 @@ export default function ProjectDetailPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Want something like this?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Ready to transform your business with custom AI solutions? Let's discuss your project.
-          </p>
-          <Link to="/start" className="btn-accent">
-            Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
-        </div>
-      </section>
     </div>
   )
 }

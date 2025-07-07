@@ -6,6 +6,7 @@ import WorkPage from './components/pages/WorkPage'
 import StartPage from './components/pages/StartPage'
 import AboutPage from './components/pages/AboutPage'
 import ProjectDetailPage from './components/pages/ProjectDetailPage'
+import Footer from './components/ui/Footer'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/work/:projectId" element={<ProjectDetailPage />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
