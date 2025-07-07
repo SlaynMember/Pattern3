@@ -1,19 +1,20 @@
 import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function WorkPage() {
+  const navigate = useNavigate()
+
   const projects = [
     {
-      id: 1,
+      id: 'brand-builder',
       title: "AI Automation - Brand Builder",
       category: "Automation",
       description: "Built a fully automated workflow that takes brand inputs and creates comprehensive brand guidelines, assets, and advanced automations.",
       image: "/images/A2.jpg",
-      tags: ["AI", "Automation", "Branding"],
-      featured: true
+      tags: ["AI", "Automation", "Branding"]
     },
     {
-      id: 2,
+      id: 'golf-canvas',
       title: "Golf Canvas Project",
       category: "AI Video",
       description: "A luxury canvas video production showcasing the intersection of golf and art through AI-enhanced storytelling.",
@@ -21,7 +22,7 @@ export default function WorkPage() {
       tags: ["AI Video", "Creative", "Luxury"]
     },
     {
-      id: 3,
+      id: 'd32-text-rewriter',
       title: "D32 Text Message Re-Writer",
       category: "Personal Challenge",
       description: "Built a custom chatbot assistant to help Darnell32 turn basic staff communication into professional, branded messaging.",
@@ -29,7 +30,7 @@ export default function WorkPage() {
       tags: ["AI", "Content", "Communication"]
     },
     {
-      id: 4,
+      id: 'echo-transcription',
       title: "Echo - AI Transcription",
       category: "Personal Challenge",
       description: "Built an internal AI-powered transcription tool for healthcare professionals using React, Supabase, and advanced AI models.",
@@ -37,7 +38,7 @@ export default function WorkPage() {
       tags: ["Healthcare", "AI", "Transcription"]
     },
     {
-      id: 5,
+      id: 'ai-implementation',
       title: "AI Implementation",
       category: "AI Implementation",
       description: "Comprehensive AI strategy and implementation for small businesses looking to leverage artificial intelligence.",
@@ -45,7 +46,7 @@ export default function WorkPage() {
       tags: ["Strategy", "Implementation", "AI"]
     },
     {
-      id: 6,
+      id: 'darnell32-basketball',
       title: "Darnell32 Basketball Initiative",
       category: "Sports Analytics",
       description: "Complete rebrand and digital transformation for a basketball training program with AI-powered analytics.",
@@ -53,7 +54,7 @@ export default function WorkPage() {
       tags: ["Sports", "Analytics", "Branding"]
     },
     {
-      id: 7,
+      id: 'dna-customer-stories',
       title: "Getting Back to Our DNA",
       category: "Healthcare",
       description: "Comprehensive video production showcasing customer highlights for a healthcare DNA analysis company.",
@@ -61,7 +62,7 @@ export default function WorkPage() {
       tags: ["Healthcare", "Video", "Customer Stories"]
     },
     {
-      id: 8,
+      id: 'new-patient-experience',
       title: "New Patient Experience",
       category: "Healthcare",
       description: "Streamlined patient onboarding and experience optimization for healthcare practices.",
@@ -69,7 +70,7 @@ export default function WorkPage() {
       tags: ["Healthcare", "UX", "Patient Care"]
     },
     {
-      id: 9,
+      id: 'local-business-perks',
       title: "Local Business Perks Program",
       category: "E-commerce",
       description: "Customer loyalty and rewards automation platform for local businesses and e-commerce stores.",
@@ -77,7 +78,7 @@ export default function WorkPage() {
       tags: ["E-commerce", "Loyalty", "Local Business"]
     },
     {
-      id: 10,
+      id: 'pattern3-director-kit',
       title: "Pattern3 Director Kit Funnel",
       category: "Business Process",
       description: "A comprehensive business development funnel designed to streamline client acquisition and project management.",
@@ -86,8 +87,6 @@ export default function WorkPage() {
     }
   ]
 
-  const featuredProjects = projects.filter(p => p.featured)
-  const allProjects = projects.filter(p => !p.featured)
 
   return (
     <div className="pt-16">
@@ -128,63 +127,17 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      {featuredProjects.length > 0 && (
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-12">Featured Work</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {featuredProjects.map((project) => (
-                <div key={project.id} className="card group cursor-pointer">
-                  <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="mb-3">
-                    <span className="text-sm font-medium text-primary bg-blue-50 px-3 py-1 rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-4">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span 
-                        key={tag}
-                        className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <button className="text-primary font-medium hover:text-primary-dark transition-colors">
-                    View Case Study →
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* All Projects Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allProjects.map((project) => (
-              <div key={project.id} className="card group cursor-pointer">
+            {projects.map((project) => (
+              <div 
+                key={project.id} 
+                className="card group cursor-pointer"
+                onClick={() => navigate(`/work/${project.id}`)}
+              >
                 <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                   <img 
                     src={project.image} 
