@@ -8,176 +8,210 @@ export default function AboutPage() {
       <section className="hero-bg py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-black mb-6">
-            About <span className="text-gradient">Pattern3</span>
+            About <span className="text-gradient">Pattern3 LLC</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            We're on a mission to make AI accessible and practical for small businesses. 
-            No buzzwords, no complexity—just solutions that work.
+            AI strategy, automation, and design-forward tools that bridge technology and human connection.
           </p>
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* What We Do Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="vision-mission-container">
-            <div className="vision-mission-column">
-              <h2 className="vision-mission-header">Our Vision</h2>
-              <p className="vision-mission-intro">
-                Democratizing AI for small businesses everywhere
-              </p>
-              <p className="vision-mission-description">
-                We believe that every business, regardless of size, should have access to the transformative power of artificial intelligence. Our vision is a world where small businesses can compete on equal footing with large corporations through intelligent automation and data-driven insights.
-              </p>
-              <p className="vision-mission-description">
-                We're building the bridge between cutting-edge AI technology and practical business applications, making what was once exclusive to tech giants accessible to the local bakery, the family law firm, and the growing e-commerce startup.
-              </p>
-            </div>
-
-            <div className="mobile-divider"></div>
-
-            <div className="vision-mission-column">
-              <h2 className="vision-mission-header">Our Mission</h2>
-              <p className="vision-mission-intro">
-                Delivering AI solutions that actually solve real problems
-              </p>
-              <p className="vision-mission-description">
-                We cut through the AI hype to focus on what matters: solving real business challenges with practical, measurable solutions. Every project we take on must pass one simple test—does it make our client's business measurably better?
-              </p>
-              
-              <div className="mission-points-container">
-                <p className="mission-points-intro">
-                  Our approach is built on three core principles:
-                </p>
-                
-                <div className="mission-points-grid">
-                  <div className="mission-point">
-                    <div className="mission-icon">1</div>
-                    <div className="mission-content">
-                      <h4 className="mission-subheader">Practical First</h4>
-                      <p className="mission-description">
-                        We prioritize solutions that deliver immediate, tangible value over impressive-sounding technology that doesn't move the needle.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="mission-point">
-                    <div className="mission-icon">2</div>
-                    <div className="mission-content">
-                      <h4 className="mission-subheader">Human-Centered</h4>
-                      <p className="mission-description">
-                        AI should enhance human capabilities, not replace them. We design systems that empower your team to do their best work.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="mission-point">
-                    <div className="mission-icon">3</div>
-                    <div className="mission-content">
-                      <h4 className="mission-subheader">Growth Focused</h4>
-                      <p className="mission-description">
-                        Every solution we build is designed to scale with your business, adapting and growing as your needs evolve.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder Section */}
-      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Meet the Founder
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              What We Do
             </h2>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              <div className="lg:w-2/5">
-                <div className="w-64 h-64 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mx-auto flex items-center justify-center">
-                  <span className="text-white text-6xl font-bold">W</span>
-                </div>
-              </div>
-              
-              <div className="lg:w-3/5 text-center lg:text-left">
-                <h3 className="text-2xl font-bold mb-4">Will</h3>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  After years of watching small businesses struggle with technology that promised the world but delivered complexity, I founded Pattern3 to bridge the gap between AI innovation and practical business solutions.
-                </p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  My background spans software development, business operations, and AI implementation across various industries. I've seen firsthand how the right technology can transform a business—and how the wrong approach can waste time and money.
-                </p>
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  At Pattern3, we're not just building AI solutions; we're building partnerships with businesses ready to embrace the future of work.
+          <div className="space-y-8 text-lg leading-relaxed text-gray-700">
+            <p>
+              Pattern3 LLC specializes in making advanced AI accessible to small businesses, solo entrepreneurs, 
+              and creative teams. We don't just implement technology — we craft human-centered experiences 
+              that feel intuitive and natural.
+            </p>
+            
+            <p>
+              Our approach combines cutting-edge AI capabilities with thoughtful design and rapid 
+              implementation, delivering solutions that feel intuitive and resonate with your users while solving real 
+              business challenges.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Will Patterson */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Meet Will Patterson
+            </h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p>
+                  As the founder of Pattern3 LLC, my journey has been shaped by a unique perspective forged 
+                  across cultures, disciplines, and technologies. Raised in the artistic landscapes of Italy, 
+                  I developed an eye for design and beauty that continues to influence my approach to AI 
+                  innovation.
                 </p>
                 
-                <Link to="/start" className="btn-primary">
-                  Let's Work Together <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                <p>
+                  My academic path began in medicine at Baylor University, where I developed the analytical 
+                  and systematic thinking that now drives my approach to solving complex business problems. 
+                  This foundation in scientific rigor, combined with my natural affinity for creative solutions, 
+                  led me to discover where technology, design, and human understanding become my passion.
+                </p>
+                
+                <p>
+                  What sets my approach apart is my passion for storytelling at the bridge between technology and 
+                  humanity. I don't see AI implementation as a purely technical challenge, but as an opportunity to create 
+                  solutions that feel compelling story that resonates on a fundamental human level. Making complex 
+                  technology accessible, meaningful, and impactful.
+                </p>
               </div>
+            </div>
+            
+            <div className="order-1 lg:order-2 text-center">
+              <img 
+                src="/images/headshot.jpg" 
+                alt="Will Patterson - Founder of Pattern3"
+                className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* The Pattern3 Way */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Values
+              The Pattern3 Way
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide every decision we make and every solution we build
+              Our methodology emphasizes narrative-driven, visual-first, no-code enabled builds.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-xl">T</span>
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">N</span>
               </div>
-              <h3 className="text-xl font-bold mb-4">Transparency</h3>
+              <h3 className="text-xl font-bold mb-4">Narrative-Driven</h3>
               <p className="text-gray-600">
-                Clear communication, honest timelines, and no hidden complexities. You'll always know exactly what we're building and why.
+                Every solution starts with understanding your story, your challenges, and your vision for the future.
               </p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-xl">R</span>
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">V</span>
               </div>
-              <h3 className="text-xl font-bold mb-4">Results</h3>
+              <h3 className="text-xl font-bold mb-4">Visual-First</h3>
               <p className="text-gray-600">
-                We measure success by your success. Every solution must deliver measurable improvements to your business operations.
+                Beautiful, intuitive interfaces that make AI feel like a natural extension of your workflow.
               </p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-xl">S</span>
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">N</span>
               </div>
-              <h3 className="text-xl font-bold mb-4">Simplicity</h3>
+              <h3 className="xl font-bold mb-4">No-Code Enabled</h3>
               <p className="text-gray-600">
-                Complex problems don't require complex solutions. We believe in elegant, intuitive systems that just work.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-xl">P</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4">Partnership</h3>
-              <p className="text-gray-600">
-                We're not just vendors; we're partners in your growth. Your success is our success, and we're invested in the long term.
+                Rapid prototyping and implementation using modern no-code tools that integrate seamlessly with your existing systems.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Finding the Pattern */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Finding the Pattern
+            </h2>
+            <p className="text-lg text-gray-600">
+              At Pattern3, we believe that every challenge has a pattern — a repeatable solution that combines design thinking, cutting-edge technology, and human-centered approach.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-2xl">1</span>
+              </div>
+              <h3 className="text-xl font-bold mb-4">Discover</h3>
+              <p className="text-gray-600">
+                We identify the patterns in your workflow and uncover opportunities for AI enhancement.
+              </p>
+            </div>
+            
+            <div>
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-2xl">2</span>
+              </div>
+              <h3 className="text-xl font-bold mb-4">Design</h3>
+              <p className="text-gray-600">
+                We craft human-centered solutions that feel intuitive and align with your business goals.
+              </p>
+            </div>
+            
+            <div>
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-2xl">3</span>
+              </div>
+              <h3 className="text-xl font-bold mb-4">Deploy</h3>
+              <p className="text-gray-600">
+                We implement and deploy AI tools that integrate seamlessly into your existing systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills & Tools */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Skills & Tools
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
+            {[
+              'Claude', 'Bolt', 'Supabase', 'Stripe', 'GPT-4', 'OpenAI', 'Meta', 'Google Cloud',
+              'LangChain', 'JavaScript', 'APIs', 'No-Code', 'AI Agents'
+            ].map((skill) => (
+              <div key={skill} className="bg-gray-100 rounded-lg p-4 hover:bg-gray-200 transition-colors">
+                <span className="text-sm font-medium text-gray-700">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Childhood Photo Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <img 
+            src="/images/childhood.jpg" 
+            alt="Will and his brother as children"
+            className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl mb-8"
+          />
+          <p className="text-lg text-gray-600 italic">
+            "Growing up with my brother taught me that the best solutions come from understanding people first, technology second."
+          </p>
         </div>
       </section>
 
@@ -185,13 +219,13 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
+            Ready to Start Your AI Journey?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let's have a conversation about how AI can transform your business.
+            Let's discuss how Pattern3 LLC can help transform your business with human-centered AI solutions.
           </p>
           <Link to="/start" className="btn-accent">
-            Start the Conversation <ArrowRight className="ml-2 w-5 h-5" />
+            Get Started <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </div>
       </section>

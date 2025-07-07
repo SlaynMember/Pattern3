@@ -14,7 +14,11 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-xl font-black text-gray-900">Pattern3</span>
+            <img 
+              src="/images/pattern3black.png" 
+              alt="Pattern3" 
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

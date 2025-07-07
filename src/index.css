@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Pattern3';
+  src: url('/public/fonts/Pattern3-Regular.woff2') format('woff2'),
+       url('/public/fonts/Comodo Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pattern3-Stamp';
+  src: url('/public/fonts/Pattern3-Stamp.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -119,6 +136,10 @@ h3 {
   letter-spacing: -0.01em;
   max-width: 100%;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -141,6 +162,10 @@ h3 {
   letter-spacing: -0.01em;
   max-width: 100%;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn-accent:hover {
@@ -162,6 +187,10 @@ h3 {
   letter-spacing: -0.01em;
   max-width: 100%;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn-outline:hover {
@@ -226,6 +255,112 @@ h3 {
   background-clip: text;
   max-width: 100%;
   word-wrap: break-word;
+}
+
+/* Vision Mission Styles */
+.vision-mission-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .vision-mission-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.vision-mission-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.vision-mission-header {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.vision-mission-intro {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.vision-mission-description {
+  color: var(--gray-600);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.mobile-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 2rem 0;
+}
+
+@media (min-width: 1024px) {
+  .mobile-divider {
+    display: none;
+  }
+}
+
+.mission-points-container {
+  margin-top: 1.5rem;
+}
+
+.mission-points-intro {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--gray-700);
+}
+
+.mission-points-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mission-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mission-icon {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.mission-content {
+  flex: 1;
+}
+
+.mission-subheader {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.mission-description {
+  color: var(--gray-600);
+  line-height: 1.6;
 }
 
 ::-webkit-scrollbar {
