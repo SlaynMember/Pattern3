@@ -23,10 +23,11 @@ export default function ProjectDetailPage() {
       category: "AI Video",
       tags: ["AI Video", "Creative", "Luxury"],
       year: "2024",
-      client: "Creative Project",
-      services: "Video Production, AI Enhancement, Creative Direction",
-      overview: "A luxury canvas video production showcasing the intersection of golf and art through AI-enhanced storytelling.",
-      description: "This project explores the artistic side of golf through innovative video production techniques and AI-enhanced visual storytelling.",
+      client: "Internal Project",
+      services: "AI Video Generation, Content Creation, Prompt Engineering",
+      overview: "A Spotify Canvas video built with Sora, designed to capture the surreal drama of impact — and destruction — on the green.",
+      description: "This experimental content project explores the intersection of AI video generation and cinematic storytelling. Using Sora (OpenAI) for ultra-realistic video generation, the concept plays on cinematic suspense — imagining a golfer witnessing supernatural interference on the green. Built as a looped Canvas for Spotify, it's intended to feel like a teaser to something bigger, with sci-fi or horror adjacent vibes. The project required careful prompt engineering to achieve realistic textures and handheld camera feel, while timing the blast and reaction to sync with music. This showcases Sora's frame control and scene realism capabilities to avoid typical CGI weirdness, demonstrating advanced AI art-direction workflows.",
+      vimeoEmbed: `<div style="padding:167.47% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1093384622?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Spotify Canvas (Professional-Grade AI Video)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
       nextProject: 'd32-text-rewriter'
     },
     'd32-text-rewriter': {
