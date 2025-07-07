@@ -64,11 +64,9 @@ export default function StartPage() {
       <section className="hero-bg py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
-            <img 
-              src="/images/logos/pattern3black.png" 
-              alt="Pattern3" 
-              className="h-12 mx-auto mb-8"
-            />
+            <div className="h-12 mx-auto mb-8 flex items-center justify-center">
+              <span className="text-2xl font-black text-gray-900">Pattern3</span>
+            </div>
           </div>
           
           <h1 className="text-4xl md:text-6xl font-black mb-6">

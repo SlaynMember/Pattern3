@@ -99,11 +99,9 @@ export default function AboutPage() {
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
             <div className="flex flex-col lg:flex-row items-center gap-8">
               <div className="lg:w-2/5">
-                <img 
-                  src="/images/profile/headshot.jpg" 
-                  alt="Will - Founder of Pattern3"
-                  className="w-64 h-64 object-cover rounded-2xl mx-auto"
-                />
+                <div className="w-64 h-64 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mx-auto flex items-center justify-center">
+                  <span className="text-white text-6xl font-bold">W</span>
+                </div>
               </div>
               
               <div className="lg:w-3/5 text-center lg:text-left">

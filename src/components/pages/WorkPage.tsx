@@ -71,12 +71,8 @@ export default function WorkPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div key={project.id} className="card group cursor-pointer">
-                <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-6 overflow-hidden flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">{project.title.charAt(0)}</span>
                 </div>
                 
                 <div className="mb-3">
