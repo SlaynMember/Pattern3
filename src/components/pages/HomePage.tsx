@@ -1,5 +1,4 @@
-import { ArrowRight, Play, CheckCircle, Users, Zap, Target } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Play } from 'lucide-react'
 import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
