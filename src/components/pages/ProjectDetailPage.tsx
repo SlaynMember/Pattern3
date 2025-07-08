@@ -30,6 +30,30 @@ export default function ProjectDetailPage() {
       description: "A comprehensive rebranding initiative that united Dental32's culture team with local basketball, creating a unique community engagement opportunity. This project involved full logo development and brand strategy, effectively bridging corporate culture with community sports to create meaningful connections and strengthen our local presence.",
       nextProject: 'echo-transcription'
     },
+    'dna-customer-stories': {
+      title: "Getting Back to Our DNA",
+      category: "Healthcare",
+      tags: ["Healthcare", "Video", "Strategy"],
+      year: "2024",
+      client: "Dental32",
+      services: "Strategy Development, Internal Communications, AI Video Generation",
+      overview: "Strategic internal campaign analyzing business performance to create team motivation.",
+      description: "Through careful analysis of our company's past two years of business performance, we developed a powerful internal campaign centered around the concept of \"getting back to our DNA\" and \"finding our DNA.\" The campaign's centerpiece features a stunning DNA strand visual created entirely through generative AI using Kling and Sora. This required extensive prompt engineering and editing expertise to achieve the perfect blend of scientific accuracy and artistic appeal. The result is a compelling narrative that unites our team around core values and strategic goals, demonstrating how cutting-edge AI technology can be leveraged to create impactful internal communications.",
+      vimeoEmbed: `<iframe src="https://player.vimeo.com/video/1075751446?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Dental32 Presents: The DNA Project" style="width: 100%; height: 56.25%; position: absolute; top: 0; left: 0;"></iframe>`,
+      nextProject: 'new-patient-experience'
+    },
+    'new-patient-experience': {
+      title: "New Patient Experience",
+      category: "Healthcare",
+      tags: ["Healthcare", "Video", "Patient Care"],
+      year: "2024",
+      client: "Dental32",
+      services: "Video Production, Content Creation, Patient Communications",
+      overview: "Comprehensive video production showcasing business highlights for new patients.",
+      description: "Wrote, directed, and produced an engaging video presentation for new Dental32 patients. The video effectively communicates our business highlights and core values, creating a welcoming and informative first impression for patients beginning their journey with our practice.",
+      vimeoEmbed: `<div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1044757293?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Your First Visit: The Dental32 Difference"></iframe></div>`,
+      nextProject: 'local-business-perks'
+    },
     'local-business-perks': {
       title: "Local Business Perks Program",
       category: "E-commerce",
@@ -154,7 +178,7 @@ export default function ProjectDetailPage() {
               {/* Video Embed */}
               {project.vimeoEmbed && (
                 <div 
-                  className="mb-8"
+                  className="mb-8 relative"
                   dangerouslySetInnerHTML={{ __html: project.vimeoEmbed }}
                 />
               )}
