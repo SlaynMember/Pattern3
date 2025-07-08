@@ -81,16 +81,18 @@ class AdvancedPerformanceMonitor {
       const [entry] = entries as PerformanceNavigationTiming[]
       this.metrics.ttfb = entry.responseStart - entry.requestStart
       
-      this.customMetrics.domContentLoaded = entry.domContentLoadedEventEnd - entry.navigationStart
-      this.customMetrics.windowLoad = entry.loadEventEnd - entry.navigationStart
-      this.customMetrics.firstByte = entry.responseStart - entry.navigationStart
-      this.customMetrics.domComplete = entry.domComplete - entry.navigationStart
+      // Use fetchStart as the baseline instead of navigationStart (which doesn't exist in PerformanceNavigationTiming)
+      this.customMetrics.domContentLoaded = entry.domContentLoadedEventEnd - entry.fetchStart
+      this.customMetrics.windowLoad = entry.loadEventEnd - entry.fetchStart
+      this.customMetrics.firstByte = entry.responseStart - entry.fetchStart
+      this.customMetrics.domComplete = entry.domComplete - entry.fetchStart
     })
 
     // Resource timing
     this.createObserver(['resource'], (entries) => {
       const totalResourceTime = entries.reduce((total, entry) => {
-        return total + (entry.responseEnd - entry.startTime)
+        const resourceEntry = entry as PerformanceResourceTiming
+        return total + (resourceEntry.responseEnd - resourceEntry.startTime)
       }, 0)
       this.customMetrics.resourceLoadTime = totalResourceTime / entries.length
     })
