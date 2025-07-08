@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,7 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  TooltipItem
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import Button from '../ui/Button'
@@ -143,14 +144,14 @@ export default function GrowthJourneySection() {
         cornerRadius: 8,
         displayColors: true,
         callbacks: {
-          afterBody: function(context: any) {
+          afterBody: function(context: TooltipItem<'line'>[]) {
             const monthIndex = context[0].dataIndex + 1
             if (milestones[monthIndex as keyof typeof milestones]) {
               return [`\n🎯 Milestone: ${milestones[monthIndex as keyof typeof milestones]}`]
             }
             return []
           },
-          label: function(context: any) {
+          label: function(context: TooltipItem<'line'>) {
             const value = context.parsed.y
             return `${context.dataset.label}: $${value.toLocaleString()}`
           }
@@ -161,7 +162,7 @@ export default function GrowthJourneySection() {
       y: {
         beginAtZero: false,
         ticks: {
-          callback: function(value: any) {
+          callback: function(value: string | number) {
             return '$' + value.toLocaleString()
           },
           font: {

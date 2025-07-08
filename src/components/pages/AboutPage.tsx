@@ -1,5 +1,4 @@
-import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import OptimizedImage from '../ui/OptimizedImage'
 
 export default function AboutPage() {
   return (
@@ -77,9 +76,12 @@ export default function AboutPage() {
             </div>
             
             <div className="order-1 lg:order-2 text-center">
-              <img 
+              <OptimizedImage
                 src="/images/headshot.jpg" 
                 alt="Will Patterson - Founder of Pattern3"
+                width={320}
+                height={320}
+                priority={true}
                 className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl"
               />
             </div>
@@ -204,9 +206,11 @@ export default function AboutPage() {
       {/* Childhood Photo Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <img 
+          <OptimizedImage
             src="/images/childhood.jpg" 
             alt="Will and his brother as children"
+            width={320}
+            height={320}
             className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl mb-8"
           />
           <p className="text-lg text-gray-600 italic">

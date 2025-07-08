@@ -1,10 +1,10 @@
-import { ArrowRight, Play, CheckCircle, Users, Zap, Target } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Play } from 'lucide-react'
 import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
 import GrowthJourneySection from '../sections/GrowthJourneySection'
+import OptimizedImage from '../ui/OptimizedImage'
 
 export default function HomePage() {
   return (
@@ -36,9 +36,12 @@ export default function HomePage() {
             </div>
             
             <div className="lg:text-right">
-              <img 
+              <OptimizedImage
                 src="/images/headshot.jpg" 
                 alt="Will Patterson - Founder of Pattern3"
+                width={320}
+                height={320}
+                priority={true}
                 className="w-80 h-80 object-cover rounded-2xl mx-auto lg:ml-auto shadow-2xl"
               />
             </div>
@@ -247,9 +250,11 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={1}>
               <Card hover className="group">
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                <img 
+                <OptimizedImage
                   src="/images/d32cover.png" 
                   alt="D32 Text Message Re-Writer"
+                  width={400}
+                  height={225}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -268,9 +273,11 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={2}>
               <Card hover className="group">
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                <img 
+                <OptimizedImage
                   src="/images/A1.jpg" 
                   alt="Echo - AI Transcription"
+                  width={400}
+                  height={225}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -289,9 +296,11 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={3}>
               <Card hover className="group">
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                <img 
+                <OptimizedImage
                   src="/images/A2.jpg" 
                   alt="AI Automation - Brand Builder"
+                  width={400}
+                  height={225}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>

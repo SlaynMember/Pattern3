@@ -1,8 +1,10 @@
-import { ArrowRight } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import OptimizedImage from '../ui/OptimizedImage'
 
 export default function WorkPage() {
   const navigate = useNavigate()
+  const [activeFilter, setActiveFilter] = useState('All')
 
   const projects = [
     {
@@ -57,24 +59,24 @@ export default function WorkPage() {
       id: 'dna-customer-stories',
       title: "Getting Back to Our DNA",
       category: "Healthcare",
-      description: "Comprehensive video production showcasing customer highlights for a healthcare DNA analysis company.",
-      image: "/images/photogcover.png",
-      tags: ["Healthcare", "Video", "Customer Stories"]
+      description: "Strategic internal campaign analyzing business performance to create team motivation.",
+      image: "/images/D1.jpg",
+      tags: ["Healthcare", "Video", "Strategy"]
     },
     {
       id: 'new-patient-experience',
       title: "New Patient Experience",
       category: "Healthcare",
-      description: "Streamlined patient onboarding and experience optimization for healthcare practices.",
+      description: "Comprehensive video production showcasing business highlights for new patients.",
       image: "/images/newptcover.jpg",
-      tags: ["Healthcare", "UX", "Patient Care"]
+      tags: ["Healthcare", "Video", "Patient Care"]
     },
     {
       id: 'local-business-perks',
       title: "Local Business Perks Program",
       category: "E-commerce",
       description: "Customer loyalty and rewards automation platform for local businesses and e-commerce stores.",
-      image: "/images/stripecover.png",
+      image: "/images/p1.jpg",
       tags: ["E-commerce", "Loyalty", "Local Business"]
     },
     {
@@ -82,11 +84,18 @@ export default function WorkPage() {
       title: "Pattern3 Starter Kit Funnel",
       category: "Product Development",
       description: "A free product offering built with Stripe + Supabase + Bolt.",
-      image: "/images/p1.jpg",
+      image: "/images/stripecover.png",
       tags: ["Stripe", "Automation", "Product"]
     }
   ]
 
+  // Get unique categories for filter buttons
+  const categories = ['All', ...Array.from(new Set(projects.map(project => project.category)))]
+
+  // Filter projects based on active filter
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter)
 
   return (
     <div className="pt-16">
@@ -106,42 +115,41 @@ export default function WorkPage() {
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center">
-            <div className="flex space-x-8">
-              <button className="px-4 py-2 text-primary border-b-2 border-primary font-medium">
-                All
-              </button>
-              <button className="px-4 py-2 text-gray-500 hover:text-primary transition-colors">
-                Healthcare
-              </button>
-              <button className="px-4 py-2 text-gray-500 hover:text-primary transition-colors">
-                AI Tools
-              </button>
-              <button className="px-4 py-2 text-gray-500 hover:text-primary transition-colors">
-                Creative
-              </button>
-              <button className="px-4 py-2 text-gray-500 hover:text-primary transition-colors">
-                Automation
-              </button>
+            <div className="flex flex-wrap justify-center gap-4">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveFilter(category)}
+                  className={`px-4 py-2 font-medium transition-colors ${
+                    activeFilter === category
+                      ? 'text-primary border-b-2 border-primary'
+                      : 'text-gray-500 hover:text-primary'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-
       {/* All Projects Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <div 
                 key={project.id} 
                 className="card group cursor-pointer"
                 onClick={() => navigate(`/work/${project.id}`)}
               >
                 <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                  <img 
+                  <OptimizedImage
                     src={project.image} 
                     alt={project.title}
+                    width={400}
+                    height={225}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -179,7 +187,6 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }
