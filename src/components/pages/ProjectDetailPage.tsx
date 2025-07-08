@@ -11,6 +11,7 @@ interface Project {
   overview: string
   description: string
   vimeoEmbed?: string
+ images?: string[]
   nextProject?: string
 }
 
@@ -108,7 +109,13 @@ export default function ProjectDetailPage() {
       client: "Dental32",
       services: "AI Development, Healthcare Solutions, Communication Tools",
       overview: "Built a custom chatbot assistant to help Dental32 turn basic staff communication into professional, branded messaging.",
-      description: "A specialized AI tool designed to transform casual staff communications into professional, brand-consistent messaging that maintains the authentic voice while elevating the presentation. This solution improved patient communication quality and reduced staff training time for professional correspondence.",
+      description: "A specialized AI tool designed to transform casual staff communications into professional, brand-consistent messaging that maintains the authentic voice while elevating the presentation. This solution improved patient communication quality and reduced staff training time for professional correspondence. The system features an intuitive interface that allows staff members to input their basic messages and receive polished, professional versions that align with Dental32's brand voice and communication standards.",
+      images: [
+        "/images/d32cover.png",
+        "/images/d32one.png", 
+        "/images/d32two.png",
+        "/images/d32three.png"
+      ],
       nextProject: 'echo-transcription'
     },
     'echo-transcription': {
@@ -181,6 +188,24 @@ export default function ProjectDetailPage() {
                   className="mb-8 relative"
                   dangerouslySetInnerHTML={{ __html: project.vimeoEmbed }}
                 />
+              )}
+
+              {/* Project Images Gallery */}
+              {project.images && project.images.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-bold mb-4">Project Gallery</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {project.images.map((image, index) => (
+                      <div key={index} className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                        <img
+                          src={image}
+                          alt={`${project.title} - Image ${index + 1}`}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
 
