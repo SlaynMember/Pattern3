@@ -7,27 +7,6 @@ export default function Footer() {
 
   return (
     <>
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to discover your AI opportunities?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Book your free consultation with Pattern3 LLC and get a clear roadmap for your business.
-          </p>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="btn-accent inline-flex items-center"
-          >
-            Book Free Consultation <ArrowRight className="ml-2 w-5 h-5" />
-          </button>
-          <p className="text-sm text-gray-400 mt-4">
-            Live Google Meet call + personalized PDF roadmap.
-          </p>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
