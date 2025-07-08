@@ -28,7 +28,6 @@ export default function AdvancedOptimizedImage({
 }: AdvancedOptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
-  const [currentSrc, setCurrentSrc] = useState<string>('')
   const imgRef = useRef<HTMLImageElement>(null)
 
   // Generate optimized URLs and srcSets
@@ -51,8 +50,7 @@ export default function AdvancedOptimizedImage({
     if (!img) return
 
     if (priority) {
-      // Load immediately for priority images
-      setCurrentSrc(optimizedSrc)
+      // Load immediately for priority images - no need to set currentSrc
     } else {
       // Set up lazy loading
       img.src = placeholderSrc
@@ -85,8 +83,10 @@ export default function AdvancedOptimizedImage({
   }
 
   // Check browser support for modern formats
-  const supportsAvif = imageOptimizer.constructor.supportsFormat('avif')
-  const supportsWebp = imageOptimizer.constructor.supportsFormat('webp')
+  // Note: Browser format support should be checked differently
+  // For now, we'll assume support and let the browser handle fallbacks
+  const supportsAvif = true
+  const supportsWebp = true
 
   return (
     <picture>
