@@ -1,11 +1,24 @@
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
+interface Project {
+  title: string
+  category: string
+  tags: string[]
+  year: string
+  client: string
+  services: string
+  overview: string
+  description: string
+  vimeoEmbed?: string
+  nextProject?: string
+}
+
 export default function ProjectDetailPage() {
   const { projectId } = useParams()
 
   // Project data - in a real app this would come from a database or API
-  const projects = {
+  const projects: Record<string, Project> = {
     'dental32-basketball': {
       title: "Dental32 Basketball Initiative",
       category: "Sports Analytics",
@@ -87,7 +100,7 @@ export default function ProjectDetailPage() {
     }
   }
 
-  const project = projects[projectId as keyof typeof projects]
+  const project = projects[projectId as string]
 
   if (!project) {
     return (
