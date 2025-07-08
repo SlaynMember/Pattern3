@@ -7,6 +7,7 @@ import StartPage from './components/pages/StartPage'
 import AboutPage from './components/pages/AboutPage'
 import ProjectDetailPage from './components/pages/ProjectDetailPage'
 import Footer from './components/ui/Footer'
+import PerformanceDashboard from './components/ui/PerformanceDashboard'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/work/:projectId" element={<ProjectDetailPage />} />
       </Routes>
       <Footer />
+      <PerformanceDashboard />
     </div>
   )
 }

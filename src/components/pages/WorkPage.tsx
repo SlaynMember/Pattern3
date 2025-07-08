@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import OptimizedImage from '../ui/OptimizedImage'
 
 export default function WorkPage() {
   const navigate = useNavigate()
@@ -144,9 +145,11 @@ export default function WorkPage() {
                 onClick={() => navigate(`/work/${project.id}`)}
               >
                 <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                  <img 
+                  <OptimizedImage
                     src={project.image} 
                     alt={project.title}
+                    width={400}
+                    height={225}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
