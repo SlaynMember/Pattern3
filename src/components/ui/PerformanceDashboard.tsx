@@ -1,4 +1,3 @@
-import React from 'react'
 import { usePerformanceOptimization } from '../../hooks/usePerformanceOptimization'
 import Card from './Card'
 import LoadingSpinner from './LoadingSpinner'

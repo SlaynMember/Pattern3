@@ -19,58 +19,6 @@ export function preloadFonts() {
   })
 }
 
-// Critical CSS inlining
-export function inlineCriticalCSS() {
-  const criticalCSS = `
-    /* Critical above-the-fold styles */
-    body { font-family: 'Inter', sans-serif; }
-    .hero-bg { background: linear-gradient(135deg, #f8fafc 0%, white 50%, #f8fafc 100%); }
-    .text-gradient { 
-      background: linear-gradient(135deg, #0891b2, #14b8a6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  `
-  
-  const style = document.createElement('style')
-  style.textContent = criticalCSS
-  document.head.appendChild(style)
-}
-
-// Intersection Observer for lazy loading
-export function createLazyLoader() {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target as HTMLImageElement
-        img.src = img.dataset.src || ''
-        img.classList.remove('lazy')
-        observer.unobserve(img)
-      }
-    })
-  })
-
-  return imageObserver
-}
-
-// Performance monitoring
-export function measurePerformance() {
-  if ('performance' in window) {
-    window.addEventListener('load', () => {
-      const perfData = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-      
-      console.log('Performance Metrics:', {
-        'DNS Lookup': perfData.domainLookupEnd - perfData.domainLookupStart,
-        'TCP Connection': perfData.connectEnd - perfData.connectStart,
-        'Request': perfData.responseStart - perfData.requestStart,
-        'Response': perfData.responseEnd - perfData.responseStart,
-        'DOM Processing': perfData.domComplete - perfData.domLoading,
-        'Total Load Time': perfData.loadEventEnd - perfData.navigationStart
-      })
-    })
-  }
-}
-
 // Resource hints
 export function addResourceHints() {
   const hints = [
@@ -87,17 +35,20 @@ export function addResourceHints() {
   })
 }
 
-// Service Worker registration
-export function registerServiceWorker() {
-  if ('serviceWorker' in navigator) {
+// Performance monitoring
+export function measurePerformance() {
+  if ('performance' in window) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-          console.log('SW registered: ', registration)
-        })
-        .catch(registrationError => {
-          console.log('SW registration failed: ', registrationError)
-        })
+      const perfData = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
+      
+      console.log('Performance Metrics:', {
+        'DNS Lookup': perfData.domainLookupEnd - perfData.domainLookupStart,
+        'TCP Connection': perfData.connectEnd - perfData.connectStart,
+        'Request': perfData.responseStart - perfData.requestStart,
+        'Response': perfData.responseEnd - perfData.responseStart,
+        'DOM Processing': perfData.domComplete - perfData.domInteractive,
+        'Total Load Time': perfData.loadEventEnd - perfData.fetchStart
+      })
     })
   }
 }

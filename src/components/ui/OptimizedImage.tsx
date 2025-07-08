@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { LazyImageLoader } from '../../utils/imageOptimization'
 
 interface OptimizedImageProps {
@@ -39,8 +39,8 @@ export default function OptimizedImage({
     lazyLoader.observe(img)
 
     return () => {
-      if (img) {
-        lazyLoader.observer?.unobserve(img)
+      if (img && lazyLoader.observer) {
+        lazyLoader.observer.unobserve(img)
       }
     }
   }, [src, priority, placeholder])
