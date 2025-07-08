@@ -13,7 +13,7 @@ export function useIntersectionObserver({
 }: UseIntersectionObserverOptions = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const [hasTriggered, setHasTriggered] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const element = ref.current
@@ -54,7 +54,7 @@ export function useStaggeredIntersectionObserver(
   options?: UseIntersectionObserverOptions
 ) {
   const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(count).fill(false))
-  const refs = useRef<(HTMLElement | null)[]>(new Array(count).fill(null))
+  const refs = useRef<(HTMLDivElement | null)[]>(new Array(count).fill(null))
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
@@ -89,7 +89,7 @@ export function useStaggeredIntersectionObserver(
     }
   }, [count, options])
 
-  const setRef = (index: number) => (element: HTMLElement | null) => {
+  const setRef = (index: number) => (element: HTMLDivElement | null) => {
     refs.current[index] = element
   }
 

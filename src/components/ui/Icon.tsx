@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface IconProps {
   name: string
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'

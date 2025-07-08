@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { X, Calendar } from 'lucide-react'
 import { supabase, type ConsultationBooking } from '../../lib/supabase'
 
@@ -29,12 +29,12 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
       const submissionData: ConsultationBooking = {
         full_name: formData.full_name,
         email: formData.email,
-        business_name: formData.business_name || null,
+        business_name: formData.business_name || undefined,
         industry: formData.industry,
-        help_with: formData.help_with.join(', ') || null,
+        help_with: formData.help_with.join(', ') || undefined,
         current_challenges: formData.current_challenges,
-        preferred_time: formData.preferred_time || null,
-        hear_about: formData.hear_about || null,
+        preferred_time: formData.preferred_time || undefined,
+        hear_about: formData.hear_about || undefined,
         source_page: window.location.pathname
       }
 

@@ -120,7 +120,7 @@ export default function GrowthJourneySection() {
           padding: 20,
           font: {
             size: 14,
-            weight: '500'
+            weight: 500
           }
         }
       },
@@ -129,7 +129,7 @@ export default function GrowthJourneySection() {
         text: 'Your Digital Growth Journey with Pattern3',
         font: {
           size: 20,
-          weight: 'bold'
+          weight: 700
         },
         padding: {
           bottom: 30

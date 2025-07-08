@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Mail, Instagram, ArrowRight } from 'lucide-react'
 import ConsultationModal from './ConsultationModal'
 

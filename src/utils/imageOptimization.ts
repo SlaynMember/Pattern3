@@ -28,7 +28,7 @@ export function createOptimizedImageSrc(
 
 // Lazy loading intersection observer
 export class LazyImageLoader {
-  private observer: IntersectionObserver
+  public observer: IntersectionObserver
   private images: Set<HTMLImageElement> = new Set()
 
   constructor() {
