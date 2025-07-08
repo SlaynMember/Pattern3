@@ -1,26 +1,44 @@
+import { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/ui/Navigation'
 import ScrollToTop from './components/ui/ScrollToTop'
-import HomePage from './components/pages/HomePage'
-import WorkPage from './components/pages/WorkPage'
-import StartPage from './components/pages/StartPage'
-import AboutPage from './components/pages/AboutPage'
-import ProjectDetailPage from './components/pages/ProjectDetailPage'
 import Footer from './components/ui/Footer'
+import LoadingSpinner from './components/ui/LoadingSpinner'
 import PerformanceDashboard from './components/ui/PerformanceDashboard'
+
+// Lazy load all page components for better performance
+import LazyHomePage from './components/pages/LazyHomePage'
+import LazyWorkPage from './components/pages/LazyWorkPage'
+import LazyStartPage from './components/pages/LazyStartPage'
+import LazyAboutPage from './components/pages/LazyAboutPage'
+import LazyProjectDetailPage from './components/pages/LazyProjectDetailPage'
+
+// Loading fallback component
+function PageLoadingFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <LoadingSpinner size="lg" variant="triangles" />
+        <p className="mt-4 text-gray-600">Loading...</p>
+      </div>
+    </div>
+  )
+}
 
 function App() {
   return (
     <div className="min-h-screen">
       <ScrollToTop />
       <Navigation />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/work" element={<WorkPage />} />
-        <Route path="/start" element={<StartPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/work/:projectId" element={<ProjectDetailPage />} />
-      </Routes>
+      <Suspense fallback={<PageLoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<LazyHomePage />} />
+          <Route path="/work" element={<LazyWorkPage />} />
+          <Route path="/start" element={<LazyStartPage />} />
+          <Route path="/about" element={<LazyAboutPage />} />
+          <Route path="/work/:projectId" element={<LazyProjectDetailPage />} />
+        </Routes>
+      </Suspense>
       <Footer />
       <PerformanceDashboard />
     </div>
