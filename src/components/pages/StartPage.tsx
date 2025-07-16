@@ -62,7 +62,7 @@ export default function StartPage() {
     <div className="pt-16">
       {/* Hero Section */}
       <section className="hero-bg py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
           <div className="mb-8">
             <img 
               src="/images/pattern3black.png" 
@@ -81,7 +81,7 @@ export default function StartPage() {
             conversation about your goals, challenges, and opportunities.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4">
             <button 
               onClick={() => document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary"
@@ -102,7 +102,7 @@ export default function StartPage() {
 
       {/* How to Reach Us */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8">
           {/* What is Pattern3 Video */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-8">
@@ -122,7 +122,7 @@ export default function StartPage() {
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
             <div className="card text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mx-auto mb-6">
                 <Mail className="w-8 h-8 text-white" />
@@ -164,7 +164,7 @@ export default function StartPage() {
 
       {/* Consultation Form */}
       <section id="consultation-form" className="py-20 bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto px-6 sm:px-8 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-3xl font-bold text-center mb-8">
               Book Your Free AI Consultation
@@ -348,11 +348,11 @@ export default function StartPage() {
 
             {message && (
               <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-800 text-center">{message}</p>
+                <p className="text-green-800 text-center px-4">{message}</p>
               </div>
             )}
 
-            <div className="mt-8 text-center">
+            <div className="mt-8 text-center px-4">
               <p className="text-sm text-gray-500 mb-4">
                 Prefer a more direct approach? + Free consultation + No payment required
               </p>
@@ -366,12 +366,12 @@ export default function StartPage() {
 
       {/* What to Include Section */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             What to Include in Your Message
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
             <div>
               <h3 className="text-xl font-bold mb-4">About Your Business</h3>
               <ul className="space-y-2 text-gray-600">
@@ -397,12 +397,12 @@ export default function StartPage() {
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             Frequently Asked Questions
           </h2>
           
-          <div className="space-y-6">
+          <div className="space-y-6 px-4 md:px-0">
             <div className="bg-white rounded-lg p-6">
               <h3 className="text-lg font-bold mb-2">How quickly do you respond?</h3>
               <p className="text-gray-600">
