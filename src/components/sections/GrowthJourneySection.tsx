@@ -125,6 +125,19 @@ export default function GrowthJourneySection() {
 
           {/* Mobile: Swipe Carousel */}
           <div className="md:hidden mb-16">
+            {/* Swipe Indicator */}
+            <div className="flex justify-center items-center mb-4 text-gray-400">
+              <div className="flex items-center space-x-2 text-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                <span>Swipe to see the journey</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </div>
+            
             <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide px-4">
               {phases.map((phase, index) => (
                 <div
