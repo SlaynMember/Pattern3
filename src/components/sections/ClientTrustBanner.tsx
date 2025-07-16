@@ -33,10 +33,10 @@ export default function ClientTrustBanner() {
             </p>
           </div>
           
-          <div className="flex justify-center items-center space-x-12 md:space-x-16">
+          <div className="flex justify-center items-center space-x-6 md:space-x-12 lg:space-x-16 px-4">
             {clients.map((client, index) => (
               <AnimatedSection key={client.name} animation="scale" delay={index + 1}>
-                <div className="flex items-center justify-center h-16 w-32 md:h-20 md:w-40">
+                <div className="flex items-center justify-center h-12 w-20 sm:h-16 sm:w-32 md:h-20 md:w-40">
                   <OptimizedImage
                     src={client.logo}
                     alt={client.alt}
