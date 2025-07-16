@@ -252,7 +252,7 @@ export default function HomePage() {
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/d32-text-rewriter'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
-                  src="/images/d32cover.png" 
+                  src="/images/projects/rewriter/cover.png" 
                   alt="D32 Text Message Re-Writer"
                   width={400}
                   height={225}
@@ -275,7 +275,7 @@ export default function HomePage() {
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/echo-transcription'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
-                  src="/images/A1.jpg" 
+                  src="/images/projects/echo/cover.png" 
                   alt="Echo - AI Transcription"
                   width={400}
                   height={225}
@@ -298,7 +298,7 @@ export default function HomePage() {
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/brand-builder'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
-                  src="/images/A2.jpg" 
+                  src="/images/projects/ai automation/cover.png" 
                   alt="AI Automation - Brand Builder"
                   width={400}
                   height={225}

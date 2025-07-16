@@ -12,7 +12,7 @@ export default function WorkPage() {
       title: "AI Automation - Brand Builder",
       category: "Automation",
       description: "Built a fully automated workflow that takes brand inputs and creates comprehensive brand guidelines, assets, and advanced automations.",
-      image: "/images/A2.jpg",
+      image: "/images/projects/ai automation/cover.png",
       tags: ["AI", "Automation", "Branding"]
     },
     {
@@ -20,7 +20,7 @@ export default function WorkPage() {
       title: "Golf Canvas Project",
       category: "AI Video",
       description: "A luxury canvas video production showcasing the intersection of golf and art through AI-enhanced storytelling.",
-      image: "/images/golfcover.png",
+      image: "/images/projects/ai video/cover.png",
       tags: ["AI Video", "Creative", "Luxury"]
     },
     {
@@ -28,7 +28,7 @@ export default function WorkPage() {
       title: "D32 Text Message Re-Writer",
       category: "Personal Challenge",
       description: "Built a custom chatbot assistant to help Darnell32 turn basic staff communication into professional, branded messaging.",
-      image: "/images/d32cover.png",
+      image: "/images/projects/rewriter/cover.png",
       tags: ["AI", "Content", "Communication"]
     },
     {
@@ -36,7 +36,7 @@ export default function WorkPage() {
       title: "Echo - AI Transcription",
       category: "Personal Challenge",
       description: "Built an internal AI-powered transcription tool for healthcare professionals using React, Supabase, and advanced AI models.",
-      image: "/images/A1.jpg",
+      image: "/images/projects/echo/cover.png",
       tags: ["Healthcare", "AI", "Transcription"]
     },
     {
@@ -44,7 +44,7 @@ export default function WorkPage() {
       title: "AI Implementation",
       category: "AI Implementation",
       description: "Comprehensive AI strategy and implementation for small businesses looking to leverage artificial intelligence.",
-      image: "/images/Pattern3Automation.png",
+      image: "/images/projects/ai implementation/cover.jpg",
       tags: ["Strategy", "Implementation", "AI"]
     },
     {
@@ -52,7 +52,7 @@ export default function WorkPage() {
       title: "Dental32 Basketball Initiative",
       category: "Sports Analytics",
       description: "Complete rebrand project connecting Dental32's culture team with local basketball.",
-      image: "/images/b1.jpg",
+      image: "/images/projects/basketball/cover.jpg",
       tags: ["Sports", "Analytics", "Branding"]
     },
     {
@@ -60,7 +60,7 @@ export default function WorkPage() {
       title: "Getting Back to Our DNA",
       category: "Healthcare",
       description: "Strategic internal campaign analyzing business performance to create team motivation.",
-      image: "/images/D1.jpg",
+      image: "/images/projects/dna/cover.jpg",
       tags: ["Healthcare", "Video", "Strategy"]
     },
     {
@@ -68,7 +68,7 @@ export default function WorkPage() {
       title: "New Patient Experience",
       category: "Healthcare",
       description: "Comprehensive video production showcasing business highlights for new patients.",
-      image: "/images/newptcover.jpg",
+      image: "/images/projects/new patient/cover.jpg",
       tags: ["Healthcare", "Video", "Patient Care"]
     },
     {
@@ -76,7 +76,7 @@ export default function WorkPage() {
       title: "Local Business Perks Program",
       category: "E-commerce",
       description: "Customer loyalty and rewards automation platform for local businesses and e-commerce stores.",
-      image: "/images/p1.jpg",
+      image: "/images/projects/perks/cover.jpg",
       tags: ["E-commerce", "Loyalty", "Local Business"]
     },
     {
@@ -84,7 +84,7 @@ export default function WorkPage() {
       title: "Pattern3 Starter Kit Funnel",
       category: "Product Development",
       description: "A free product offering built with Stripe + Supabase + Bolt.",
-      image: "/images/stripecover.png",
+      image: "/images/projects/stripe/cover.png",
       tags: ["Stripe", "Automation", "Product"]
     }
   ]
@@ -96,6 +96,10 @@ export default function WorkPage() {
   const filteredProjects = activeFilter === 'All' 
     ? projects 
     : projects.filter(project => project.category === activeFilter)
+
+  const handleProjectClick = (projectId: string) => {
+    navigate(`/work/${projectId}`)
+  }
 
   return (
     <div className="pt-16">
@@ -142,7 +146,7 @@ export default function WorkPage() {
               <div 
                 key={project.id} 
                 className="card group cursor-pointer"
-                onClick={() => navigate(`/work/${project.id}`)}
+                onClick={() => handleProjectClick(project.id)}
               >
                 <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                   <OptimizedImage
@@ -160,7 +164,13 @@ export default function WorkPage() {
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 
+                  className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleProjectClick(project.id)
+                  }}
+                >
                   {project.title}
                 </h3>
                 
@@ -179,7 +189,13 @@ export default function WorkPage() {
                   ))}
                 </div>
                 
-                <button className="text-primary font-medium hover:text-primary-dark transition-colors">
+                <button 
+                  className="text-primary font-medium hover:text-primary-dark transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleProjectClick(project.id)
+                  }}
+                >
                   View Case Study →
                 </button>
               </div>
