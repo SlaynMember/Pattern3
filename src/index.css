@@ -287,3 +287,13 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: #0891b2;
 }
+
+/* Hide scrollbar for mobile milestone cards */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowRight, Mail } from 'lucide-react'
+import { supabase, type ConsultationBooking } from '../../lib/supabase'
 
 export default function StartPage() {
   const [formData, setFormData] = useState({
@@ -7,7 +8,7 @@ export default function StartPage() {
     email: '',
     business_name: '',
     industry: '',
-    help_with: '',
+    help_with: [] as string[],
     current_challenges: '',
     preferred_time: '',
     hear_about: ''
@@ -20,31 +21,50 @@ export default function StartPage() {
     setIsSubmitting(true)
     
     try {
-      // Add source page tracking
-      const submissionData = {
-        ...formData,
+      const submissionData: ConsultationBooking = {
+        full_name: formData.full_name,
+        email: formData.email,
+        business_name: formData.business_name || undefined,
+        industry: formData.industry,
+        help_with: formData.help_with.join(', ') || undefined,
+        current_challenges: formData.current_challenges,
+        preferred_time: formData.preferred_time || undefined,
+        hear_about: formData.hear_about || undefined,
         source_page: '/start'
       }
 
-      // Here you would integrate with your Supabase client
-      // For now, we'll simulate the submission
-      console.log('Form submission:', submissionData)
+      const { error } = await supabase
+        .from('consultation_bookings')
+        .insert([submissionData])
+
+      if (error) {
+        throw error
+      }
+
+      // Redirect to Google Calendar
+      window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20Vqo2cMGfOWDwybhkY_2j-rtsWeaqdmFsYiFZ5UY8gM8B3caO91sBgSYhvUuH_Hyo98CHSlZD?gv=true', '_blank')
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      setMessage('🎉 Success! Opening calendar to schedule your meeting.')
       
-      setMessage('🎉 Thanks! Check your inbox for next steps.')
+      // Reset form
       setFormData({
         full_name: '',
         email: '',
         business_name: '',
         industry: '',
-        help_with: '',
+        help_with: [],
         current_challenges: '',
         preferred_time: '',
         hear_about: ''
       })
+      
+      // Clear message after short delay
+      setTimeout(() => {
+        setMessage('')
+      }, 3000)
+      
     } catch (error) {
+      console.error('Error submitting form:', error)
       setMessage('Error submitting form. Please try again.')
     } finally {
       setIsSubmitting(false)
@@ -58,11 +78,24 @@ export default function StartPage() {
     }))
   }
 
+  const handleCheckboxChange = (value: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      help_with: checked 
+        ? [...prev.help_with, value]
+        : prev.help_with.filter(item => item !== value)
+    }))
+  }
+
+  const openGoogleCalendar = () => {
+    window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20Vqo2cMGfOWDwybhkY_2j-rtsWeaqdmFsYiFZ5UY8gM8B3caO91sBgSYhvUuH_Hyo98CHSlZD?gv=true', '_blank')
+  }
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
       <section className="hero-bg py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
           <div className="mb-8">
             <img 
               src="/images/pattern3black.png" 
@@ -81,7 +114,7 @@ export default function StartPage() {
             conversation about your goals, challenges, and opportunities.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4">
             <button 
               onClick={() => document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary"
@@ -102,7 +135,7 @@ export default function StartPage() {
 
       {/* How to Reach Us */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8">
           {/* What is Pattern3 Video */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-8">
@@ -122,7 +155,7 @@ export default function StartPage() {
             How to Reach Us
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
             <div className="card text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mx-auto mb-6">
                 <Mail className="w-8 h-8 text-white" />
@@ -164,7 +197,7 @@ export default function StartPage() {
 
       {/* Consultation Form */}
       <section id="consultation-form" className="py-20 bg-gray-50">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto px-6 sm:px-8 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-3xl font-bold text-center mb-8">
               Book Your Free AI Consultation
@@ -256,26 +289,24 @@ export default function StartPage() {
                   What do you want help with? (Select all that apply)
                 </label>
                 <div className="grid grid-cols-2 gap-3 mt-2">
-                  <label className="flex items-center">
-                    <input type="checkbox" className="mr-2" />
-                    <span className="text-sm">Process Development</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input type="checkbox" className="mr-2" />
-                    <span className="text-sm">AI Automation</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input type="checkbox" className="mr-2" />
-                    <span className="text-sm">AI Integration</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input type="checkbox" className="mr-2" />
-                    <span className="text-sm">Content & Copy</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input type="checkbox" className="mr-2" />
-                    <span className="text-sm">Other</span>
-                  </label>
+                  {[
+                    'Website Development',
+                    'AI Automation',
+                    'Business Strategy',
+                    'AI Integration',
+                    'Content & Copy',
+                    'Other'
+                  ].map((option) => (
+                    <label key={option} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 rounded border-gray-300 text-primary focus:ring-primary"
+                        checked={formData.help_with.includes(option)}
+                        onChange={(e) => handleCheckboxChange(option, e.target.checked)}
+                      />
+                      <span className="text-sm text-gray-700">{option}</span>
+                    </label>
+                  ))}
                 </div>
               </div>
 
@@ -319,46 +350,55 @@ export default function StartPage() {
                   <label htmlFor="hear_about" className="block text-sm font-medium text-gray-700 mb-2">
                     How did you hear about Pattern3?
                   </label>
-                  <select
+                  <input
+                    type="text"
                     id="hear_about"
                     name="hear_about"
                     value={formData.hear_about}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  >
-                    <option value="">Select source</option>
-                    <option value="Google Search">Google Search</option>
-                    <option value="Social Media">Social Media</option>
-                    <option value="Referral">Referral</option>
-                    <option value="LinkedIn">LinkedIn</option>
-                    <option value="Other">Other</option>
-                  </select>
+                    placeholder="Referral, search, social media, etc."
+                  />
                 </div>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
+                <ArrowRight className="w-5 h-5 mr-2" />
                 {isSubmitting ? 'Submitting...' : 'Submit & Schedule Meeting'}
-                {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5" />}
               </button>
             </form>
 
             {message && (
-              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-800 text-center">{message}</p>
+              <div className={`mt-6 p-4 rounded-lg text-center ${
+                message.includes('Success') ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
+              }`}>
+                {message}
               </div>
             )}
 
-            <div className="mt-8 text-center">
-              <p className="text-sm text-gray-500 mb-4">
-                Prefer a more direct approach? + Free consultation + No payment required
+            <div className="mt-8 text-center px-4">
+              <p className="text-sm text-gray-500">
+                Secure submission • Free consultation • No payment required
               </p>
-              <button className="text-primary font-medium hover:text-primary-dark transition-colors">
-                📅 Open Google Calendar
-              </button>
+              <p className="text-xs text-gray-400 mt-2">
+                After submitting, you'll be directed to Google Calendar to choose your meeting time
+              </p>
+              
+              <div className="pt-4 border-t border-gray-200 mt-4">
+                <p className="text-sm text-gray-600 mb-3">Prefer to schedule directly?</p>
+                <button
+                  type="button"
+                  onClick={openGoogleCalendar}
+                  className="text-primary hover:text-primary-dark font-medium transition-colors flex items-center justify-center mx-auto"
+                >
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  Open Google Calendar
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -366,12 +406,12 @@ export default function StartPage() {
 
       {/* What to Include Section */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             What to Include in Your Message
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
             <div>
               <h3 className="text-xl font-bold mb-4">About Your Business</h3>
               <ul className="space-y-2 text-gray-600">
@@ -397,12 +437,12 @@ export default function StartPage() {
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             Frequently Asked Questions
           </h2>
           
-          <div className="space-y-6">
+          <div className="space-y-6 px-4 md:px-0">
             <div className="bg-white rounded-lg p-6">
               <h3 className="text-lg font-bold mb-2">How quickly do you respond?</h3>
               <p className="text-gray-600">
