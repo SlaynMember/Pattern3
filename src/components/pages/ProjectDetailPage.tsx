@@ -196,7 +196,24 @@ export default function ProjectDetailPage() {
       overview: "A free product offering built with Stripe + Supabase + Bolt.",
       description: "Developed a streamlined product delivery system that combines Stripe's payment processing with Supabase's database capabilities and Bolt's automation features. The toolkit includes branded prompt templates, an agent setup guide, and an automated delivery system. This project serves as both a lead generation tool and a proof of concept for our automated checkout and fulfillment capabilities.",
       images: ['/images/projects/stripe/cover.png'],
-      nextProject: 'brand-builder'
+      nextProject: 'professional-photography'
+    },
+    'professional-photography': {
+      title: "Professional Photography Portfolio",
+      category: "Photography",
+      tags: ["Product Photography", "Portrait Photography", "Dental Photography"],
+      year: "2024",
+      client: "Various Clients",
+      services: "Professional Photography, Product Photography, Portrait Photography",
+      overview: "Collection of professional headshot photography showcasing technical expertise.",
+      description: "A showcase of professional photography skills demonstrating versatility across product, portrait, and dental photography. This portfolio highlights the ability to capture compelling professional images while maintaining technical excellence and attention to detail across different photography disciplines.",
+      images: [
+        '/images/projects/professional/cover.png',
+        '/images/projects/professional/facetune_08-04-2025-12-53-144.jpg',
+        '/images/projects/professional/facetune_28-03-2025-15-00-044.jpg',
+        '/images/projects/professional/facetune_28-03-2025-15-39-533.jpg'
+      ],
+      nextProject: 'pattern3-starter-kit'
     }
   }
 

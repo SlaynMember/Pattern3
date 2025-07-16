@@ -80,6 +80,14 @@ export default function WorkPage() {
       tags: ["E-commerce", "Loyalty", "Local Business"]
     },
     {
+      id: 'professional-photography',
+      title: "Professional Photography Portfolio",
+      category: "Photography",
+      description: "A showcase of professional photography skills demonstrating versatility across product, portrait, and dental photography.",
+      image: "/images/projects/professional/cover.png",
+      tags: ["Photography", "Product Photography", "Portrait Photography"]
+    },
+    {
       id: 'pattern3-starter-kit',
       title: "Pattern3 Starter Kit Funnel",
       category: "Product Development",
