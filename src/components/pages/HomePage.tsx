@@ -259,10 +259,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 
-                className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
-                onClick={() => window.location.href = '/work/d32-text-rewriter'}
-              >
+              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                 D32 Text Message Re-Writer
               </h3>
               <p className="body-base text-gray-600 mb-4">
@@ -275,7 +272,7 @@ export default function HomePage() {
             </AnimatedSection>
             
             <AnimatedSection animation="scale" delay={2}>
-              <Card hover className="group">
+              <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/echo-transcription'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
                   src="/images/A1.jpg" 
@@ -285,10 +282,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 
-                className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
-                onClick={() => window.location.href = '/work/echo-transcription'}
-              >
+              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                 Echo - AI Transcription
               </h3>
               <p className="body-base text-gray-600 mb-4">
@@ -301,7 +295,7 @@ export default function HomePage() {
             </AnimatedSection>
             
             <AnimatedSection animation="scale" delay={3}>
-              <Card hover className="group">
+              <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/brand-builder'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
                   src="/images/A2.jpg" 
@@ -311,10 +305,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 
-                className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
-                onClick={() => window.location.href = '/work/brand-builder'}
-              >
+              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                 AI Automation - Brand Builder
               </h3>
               <p className="body-base text-gray-600 mb-4">
@@ -327,7 +318,6 @@ export default function HomePage() {
             </AnimatedSection>
           </div>
           
-          {/* Client Trust Banner */}
           <ClientTrustBanner />
           
           <div className="text-center">

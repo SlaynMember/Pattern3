@@ -34,8 +34,8 @@ export default function GrowthJourneySection() {
   const milestones = {
     1: "AI Strategy Assessment & Quick Wins Implementation",
     2: "Process Automation Deployed (60% efficiency gain like Dental32)",
-    3: "Customer Experience AI Integration",
-    4: "Advanced Analytics & Personalization",
+    3: "Customer Experience AI Integration (73% of businesses use AI chatbots)",
+    4: "Advanced Analytics & Personalization (61% email optimization)",
     6: "Full AI Ecosystem Integration (3x ROI achieved)",
     9: "Predictive Analytics & Advanced Automation",
     12: "Market Leadership Position & Scalable Growth"
@@ -57,29 +57,27 @@ export default function GrowthJourneySection() {
     const months = ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 
                    'Month 7', 'Month 8', 'Month 9', 'Month 10', 'Month 11', 'Month 12']
     
-    // Baseline starting point (normalized to 100 for percentage growth)
-    const baseline = 100
-    
-    // Industry average: modest 3-5% monthly growth
+    // Industry average: modest growth trajectory
     const industryGrowth = months.map((_, index) => {
-      return baseline * Math.pow(1.04, index)
+      return 100 + (index * 8) // Linear 8% growth per month
     })
 
     // Pattern3 client potential: accelerated growth with AI implementation
     const pattern3Growth = months.map((_, index) => {
       // Realistic growth curve based on AI implementation phases
-      let growthRate = 1.08 // 8% monthly growth initially
-      if (index >= 2) growthRate = 1.12 // 12% after process automation
-      if (index >= 6) growthRate = 1.15 // 15% after full integration
+      let baseGrowth = 100
+      if (index >= 0) baseGrowth += index * 12 // 12% monthly growth initially
+      if (index >= 2) baseGrowth += (index - 2) * 8 // Additional 8% after process automation
+      if (index >= 6) baseGrowth += (index - 6) * 10 // Additional 10% after full integration
       
-      return baseline * Math.pow(growthRate, index)
+      return baseGrowth
     })
 
     const data = {
       labels: months,
       datasets: [
         {
-          label: 'Industry Average',
+          label: 'Industry Average Growth',
           data: industryGrowth,
           borderColor: '#94a3b8',
           backgroundColor: 'rgba(148, 163, 184, 0.1)',
@@ -87,7 +85,7 @@ export default function GrowthJourneySection() {
           fill: false,
           tension: 0.4,
           pointRadius: 6,
-          pointHoverRadius: 10,
+          pointHoverRadius: 12,
           pointBackgroundColor: '#94a3b8',
           pointBorderColor: '#ffffff',
           pointBorderWidth: 3,
@@ -104,16 +102,18 @@ export default function GrowthJourneySection() {
           fill: '+1',
           tension: 0.4,
           pointRadius: 8,
-          pointHoverRadius: 12,
+          pointHoverRadius: 14,
           pointBackgroundColor: '#0891b2',
           pointBorderColor: '#ffffff',
           pointBorderWidth: 3,
           pointHoverBackgroundColor: '#06b6d4',
           pointHoverBorderColor: '#ffffff',
           pointHoverBorderWidth: 4,
-          // Add gradient effect
+          // Enhanced styling
           borderCapStyle: 'round',
-          borderJoinStyle: 'round'
+          borderJoinStyle: 'round',
+          shadowColor: 'rgba(8, 145, 178, 0.3)',
+          shadowBlur: 10
         }
       ]
     }
@@ -133,7 +133,7 @@ export default function GrowthJourneySection() {
           font: {
             size: 16,
             weight: 600,
-            family: 'Inter'
+            family: 'Inter, sans-serif'
           },
           color: '#1e293b'
         }
@@ -144,7 +144,7 @@ export default function GrowthJourneySection() {
         font: {
           size: 24,
           weight: 700,
-          family: 'Inter'
+          family: 'Inter, sans-serif'
         },
         color: '#1e293b',
         padding: {
@@ -162,11 +162,11 @@ export default function GrowthJourneySection() {
         titleFont: {
           size: 14,
           weight: 600,
-          family: 'Inter'
+          family: 'Inter, sans-serif'
         },
         bodyFont: {
           size: 13,
-          family: 'Inter'
+          family: 'Inter, sans-serif'
         },
         padding: 16,
         callbacks: {
@@ -179,7 +179,7 @@ export default function GrowthJourneySection() {
           },
           label: function(context: TooltipItem<'line'>) {
             const value = context.parsed.y
-            const growth = ((value - 100)).toFixed(0)
+            const growth = (value - 100).toFixed(0)
             return `${context.dataset.label}: ${growth}% growth potential`
           }
         }
@@ -191,12 +191,12 @@ export default function GrowthJourneySection() {
         min: 80,
         ticks: {
           callback: function(value: string | number) {
-            const growth = ((Number(value) - 100)).toFixed(0)
+            const growth = (Number(value) - 100).toFixed(0)
             return `+${growth}%`
           },
           font: {
             size: 12,
-            family: 'Inter',
+            family: 'Inter, sans-serif',
             weight: 500
           },
           color: '#64748b'
@@ -211,7 +211,7 @@ export default function GrowthJourneySection() {
           font: {
             size: 14,
             weight: 600,
-            family: 'Inter'
+            family: 'Inter, sans-serif'
           },
           color: '#475569'
         }
@@ -224,7 +224,7 @@ export default function GrowthJourneySection() {
         ticks: {
           font: {
             size: 12,
-            family: 'Inter',
+            family: 'Inter, sans-serif',
             weight: 500
           },
           color: '#64748b'
@@ -235,7 +235,7 @@ export default function GrowthJourneySection() {
           font: {
             size: 14,
             weight: 600,
-            family: 'Inter'
+            family: 'Inter, sans-serif'
           },
           color: '#475569'
         }
@@ -254,11 +254,11 @@ export default function GrowthJourneySection() {
   }
 
   const calculatePotentialGrowth = () => {
-    const finalGrowth = ((300 - 100)).toFixed(0) // 300% represents 3x growth
+    const finalGrowth = ((400 - 100)).toFixed(0) // 400% represents 4x growth potential
     return { 
       potentialGrowth: `${finalGrowth}%`,
       timeframe: '12 months',
-      roiMultiplier: '3x'
+      roiMultiplier: '4x'
     }
   }
 
@@ -277,7 +277,7 @@ export default function GrowthJourneySection() {
               and industry trends from leading businesses.
             </p>
             
-            {/* Updated Statistics */}
+            {/* Updated Statistics with Context */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
               <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-primary">{businessStats.efficiency}%</div>
@@ -285,15 +285,15 @@ export default function GrowthJourneySection() {
               </div>
               <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-primary">{businessStats.chatbots}%</div>
-                <div className="text-sm text-gray-600">Companies Using AI Chatbots</div>
+                <div className="text-sm text-gray-600">Companies Using AI Chatbots This Year</div>
               </div>
               <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-primary">{businessStats.productivity}%</div>
-                <div className="text-sm text-gray-600">Expect Productivity Gains</div>
+                <div className="text-sm text-gray-600">Companies Expecting Productivity Gains This Year</div>
               </div>
               <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
                 <div className="text-2xl font-bold text-primary">{businessStats.salesGrowth}%</div>
-                <div className="text-sm text-gray-600">Anticipate Sales Growth</div>
+                <div className="text-sm text-gray-600">Companies Anticipating Sales Growth This Year</div>
               </div>
             </div>
           </div>
