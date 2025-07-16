@@ -1,45 +1,51 @@
-import { useState, useEffect } from 'react'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-  TooltipItem
-} from 'chart.js'
-import { Line } from 'react-chartjs-2'
+import { useState, useEffect, useRef } from 'react'
 import Button from '../ui/Button'
 import Card from '../ui/Card'
 import AnimatedSection from '../ui/AnimatedSection'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-)
-
 export default function GrowthJourneySection() {
-  const [chartData, setChartData] = useState<any>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [currentProgress, setCurrentProgress] = useState(0)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
-  // Milestones based on AI roadmap and real client results
-  const milestones = {
-    1: "AI Strategy Assessment & Quick Wins Implementation",
-    2: "Process Automation Deployed (60% efficiency gain like Dental32)",
-    3: "Customer Experience AI Integration (73% of businesses use AI chatbots)",
-    4: "Advanced Analytics & Personalization (61% email optimization)",
-    6: "Full AI Ecosystem Integration (3x ROI achieved)",
-    9: "Predictive Analytics & Advanced Automation",
-    12: "Market Leadership Position & Scalable Growth"
-  }
+  // Enhanced milestones with benefits
+  const milestones = [
+    {
+      month: 1,
+      title: "AI Strategy Assessment",
+      benefit: "Identify quick wins and create your personalized roadmap"
+    },
+    {
+      month: 2,
+      title: "Process Automation",
+      benefit: "Save 6+ hours per week with automated workflows"
+    },
+    {
+      month: 3,
+      title: "Customer Experience AI",
+      benefit: "73% of businesses use AI chatbots for better service"
+    },
+    {
+      month: 4,
+      title: "Advanced Analytics",
+      benefit: "61% improvement in email optimization and targeting"
+    },
+    {
+      month: 6,
+      title: "Full AI Ecosystem",
+      benefit: "Achieve 3x ROI with integrated AI solutions"
+    },
+    {
+      month: 9,
+      title: "Predictive Analytics",
+      benefit: "Anticipate customer needs and market trends"
+    },
+    {
+      month: 12,
+      title: "Market Leadership",
+      benefit: "Establish competitive advantage with AI-first approach"
+    }
+  ]
 
   // Updated statistics with proper context
   const businessStats = {
@@ -50,219 +56,95 @@ export default function GrowthJourneySection() {
   }
 
   useEffect(() => {
-    generateChartData()
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          // Animate progress from 0 to 300% over 2 seconds
+          let progress = 0
+          const interval = setInterval(() => {
+            progress += 5
+            setCurrentProgress(progress)
+            if (progress >= 300) {
+              clearInterval(interval)
+            }
+          }, 33) // ~30fps animation
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
   }, [])
 
-  const generateChartData = () => {
-    const months = ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 
-                   'Month 7', 'Month 8', 'Month 9', 'Month 10', 'Month 11', 'Month 12']
-    
-    // Industry average: modest growth trajectory
-    const industryGrowth = months.map((_, index) => {
-      return 100 + (index * 8) // Linear 8% growth per month
-    })
+  // Circular progress component
+  const CircularProgress = ({ progress }: { progress: number }) => {
+    const radius = 80
+    const circumference = 2 * Math.PI * radius
+    const strokeDashoffset = circumference - (progress / 300) * circumference
 
-    // Pattern3 client potential: accelerated growth with AI implementation
-    const pattern3Growth = months.map((_, index) => {
-      // Realistic growth curve based on AI implementation phases
-      let baseGrowth = 100
-      if (index >= 0) baseGrowth += index * 12 // 12% monthly growth initially
-      if (index >= 2) baseGrowth += (index - 2) * 8 // Additional 8% after process automation
-      if (index >= 6) baseGrowth += (index - 6) * 10 // Additional 10% after full integration
-      
-      return baseGrowth
-    })
-
-    const data = {
-      labels: months,
-      datasets: [
-        {
-          label: 'Industry Average Growth',
-          data: industryGrowth,
-          borderColor: '#94a3b8',
-          backgroundColor: 'rgba(148, 163, 184, 0.1)',
-          borderWidth: 3,
-          fill: false,
-          tension: 0.4,
-          pointRadius: 6,
-          pointHoverRadius: 12,
-          pointBackgroundColor: '#94a3b8',
-          pointBorderColor: '#ffffff',
-          pointBorderWidth: 3,
-          pointHoverBackgroundColor: '#94a3b8',
-          pointHoverBorderColor: '#ffffff',
-          pointHoverBorderWidth: 4
-        },
-        {
-          label: 'Pattern3 Client Potential',
-          data: pattern3Growth,
-          borderColor: '#0891b2',
-          backgroundColor: 'rgba(8, 145, 178, 0.15)',
-          borderWidth: 4,
-          fill: '+1',
-          tension: 0.4,
-          pointRadius: 8,
-          pointHoverRadius: 14,
-          pointBackgroundColor: '#0891b2',
-          pointBorderColor: '#ffffff',
-          pointBorderWidth: 3,
-          pointHoverBackgroundColor: '#06b6d4',
-          pointHoverBorderColor: '#ffffff',
-          pointHoverBorderWidth: 4,
-          // Enhanced styling
-          borderCapStyle: 'round',
-          borderJoinStyle: 'round',
-          shadowColor: 'rgba(8, 145, 178, 0.3)',
-          shadowBlur: 10
-        }
-      ]
-    }
-
-    setChartData(data)
+    return (
+      <div className="relative w-48 h-48 mx-auto">
+        <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
+          {/* Background circle */}
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            stroke="#e5e7eb"
+            strokeWidth="8"
+            fill="transparent"
+          />
+          {/* Progress circle */}
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            stroke="url(#gradient)"
+            strokeWidth="8"
+            fill="transparent"
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+            className="transition-all duration-1000 ease-out"
+          />
+          {/* Gradient definition */}
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0891b2" />
+              <stop offset="100%" stopColor="#14b8a6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        
+        {/* Center text */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-primary mb-1">
+              {Math.round(progress)}%
+            </div>
+            <div className="text-sm text-gray-600 font-medium">
+              Growth Potential
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-        labels: {
-          usePointStyle: true,
-          padding: 25,
-          font: {
-            size: 16,
-            weight: 600,
-            family: 'Inter, sans-serif'
-          },
-          color: '#1e293b'
-        }
-      },
-      title: {
-        display: true,
-        text: 'Digital Growth Potential with AI Implementation',
-        font: {
-          size: 24,
-          weight: 700,
-          family: 'Inter, sans-serif'
-        },
-        color: '#1e293b',
-        padding: {
-          bottom: 40
-        }
-      },
-      tooltip: {
-        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-        titleColor: '#ffffff',
-        bodyColor: '#ffffff',
-        borderColor: '#0891b2',
-        borderWidth: 2,
-        cornerRadius: 12,
-        displayColors: true,
-        titleFont: {
-          size: 14,
-          weight: 600,
-          family: 'Inter, sans-serif'
-        },
-        bodyFont: {
-          size: 13,
-          family: 'Inter, sans-serif'
-        },
-        padding: 16,
-        callbacks: {
-          afterBody: function(context: TooltipItem<'line'>[]) {
-            const monthIndex = context[0].dataIndex + 1
-            if (milestones[monthIndex as keyof typeof milestones]) {
-              return [`\n🎯 Milestone: ${milestones[monthIndex as keyof typeof milestones]}`]
-            }
-            return []
-          },
-          label: function(context: TooltipItem<'line'>) {
-            const value = context.parsed.y
-            const growth = (value - 100).toFixed(0)
-            return `${context.dataset.label}: ${growth}% growth potential`
-          }
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: false,
-        min: 80,
-        ticks: {
-          callback: function(value: string | number) {
-            const growth = (Number(value) - 100).toFixed(0)
-            return `+${growth}%`
-          },
-          font: {
-            size: 12,
-            family: 'Inter, sans-serif',
-            weight: 500
-          },
-          color: '#64748b'
-        },
-        grid: {
-          color: 'rgba(148, 163, 184, 0.15)',
-          lineWidth: 1
-        },
-        title: {
-          display: true,
-          text: 'Growth Percentage',
-          font: {
-            size: 14,
-            weight: 600,
-            family: 'Inter, sans-serif'
-          },
-          color: '#475569'
-        }
-      },
-      x: {
-        grid: {
-          color: 'rgba(148, 163, 184, 0.15)',
-          lineWidth: 1
-        },
-        ticks: {
-          font: {
-            size: 12,
-            family: 'Inter, sans-serif',
-            weight: 500
-          },
-          color: '#64748b'
-        },
-        title: {
-          display: true,
-          text: 'Implementation Timeline',
-          font: {
-            size: 14,
-            weight: 600,
-            family: 'Inter, sans-serif'
-          },
-          color: '#475569'
-        }
-      }
-    },
-    interaction: {
-      intersect: false,
-      mode: 'index' as const
-    },
-    elements: {
-      line: {
-        borderCapStyle: 'round' as const,
-        borderJoinStyle: 'round' as const
-      }
-    }
-  }
-
-  const calculatePotentialGrowth = () => {
-    const finalGrowth = ((400 - 100)).toFixed(0) // 400% represents 4x growth potential
-    return { 
-      potentialGrowth: `${finalGrowth}%`,
-      timeframe: '12 months',
-      roiMultiplier: '4x'
-    }
-  }
-
-  const { potentialGrowth, timeframe, roiMultiplier } = calculatePotentialGrowth()
+  // Mobile stat badges
+  const StatBadge = ({ period, growth, delay }: { period: string; growth: string; delay: number }) => (
+    <AnimatedSection animation="scale" delay={delay}>
+      <div className="bg-gradient-to-r from-primary to-accent text-white rounded-xl p-6 text-center">
+        <div className="text-sm opacity-90 mb-2">{period}</div>
+        <div className="text-3xl font-bold">{growth}</div>
+      </div>
+    </AnimatedSection>
+  )
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
@@ -301,47 +183,82 @@ export default function GrowthJourneySection() {
 
         <AnimatedSection animation="scale" delay={1}>
           <Card variant="elevated" padding="xl" className="mb-12">
-            {/* Enhanced Chart */}
-            <div className="h-96 mb-8 relative">
-              {chartData && (
-                <Line data={chartData} options={options} />
-              )}
-            </div>
+            <div ref={sectionRef}>
+              {/* Desktop: Circular Progress */}
+              <div className="hidden md:block">
+                <h3 className="text-2xl font-bold text-center mb-8">
+                  Typical Growth Curve (12-Month Journey)
+                </h3>
+                <CircularProgress progress={currentProgress} />
+                <div className="text-center mt-6">
+                  <p className="text-gray-600 max-w-2xl mx-auto">
+                    Watch your business transform with strategic AI implementation. 
+                    Our clients typically see exponential growth as systems mature and integrate.
+                  </p>
+                </div>
+              </div>
 
-            {/* Growth Potential Summary */}
-            <div className="bg-gradient-to-r from-primary to-accent rounded-xl p-8 text-white text-center mb-8">
-              <h3 className="text-2xl font-bold mb-6">Growth Potential with Pattern3</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <div className="text-4xl font-bold mb-2">{potentialGrowth}</div>
-                  <div className="text-sm opacity-90">Growth Potential</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold mb-2">{roiMultiplier}</div>
-                  <div className="text-sm opacity-90">ROI Multiplier</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold mb-2">{timeframe}</div>
-                  <div className="text-sm opacity-90">Implementation Timeline</div>
+              {/* Mobile: Stat Badges */}
+              <div className="md:hidden">
+                <h3 className="text-2xl font-bold text-center mb-8">
+                  Your Growth Timeline
+                </h3>
+                <div className="space-y-4">
+                  <StatBadge period="Month 1–3" growth="+50%" delay={1} />
+                  <StatBadge period="Month 4–7" growth="+120%" delay={2} />
+                  <StatBadge period="Month 8–12" growth="+300%" delay={3} />
                 </div>
               </div>
             </div>
 
-            {/* AI Implementation Timeline */}
-            <div className="mb-8">
-              <h3 className="text-xl font-bold text-center mb-6">AI Implementation Milestones</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {Object.entries(milestones).map(([month, milestone]) => (
-                  <div key={month} className="bg-gray-50 rounded-lg p-4 border-l-4 border-primary">
-                    <div className="font-bold text-primary mb-2">Month {month}</div>
-                    <div className="text-sm text-gray-700">{milestone}</div>
-                  </div>
+            {/* AI Implementation Milestones */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-center mb-12">AI Implementation Milestones</h3>
+              
+              {/* Desktop: 3 cards per row */}
+              <div className="hidden md:grid md:grid-cols-3 gap-6">
+                {milestones.map((milestone, index) => (
+                  <AnimatedSection key={milestone.month} animation="scale" delay={index * 0.1 + 1}>
+                    <div className="bg-white rounded-xl p-6 border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow">
+                      <div className="text-sm font-medium text-primary mb-2">
+                        Month {milestone.month}
+                      </div>
+                      <div className="font-bold text-gray-900 mb-3">
+                        {milestone.title}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {milestone.benefit}
+                      </div>
+                    </div>
+                  </AnimatedSection>
                 ))}
+              </div>
+
+              {/* Mobile: Horizontal scroll */}
+              <div className="md:hidden">
+                <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+                  {milestones.map((milestone, index) => (
+                    <div 
+                      key={milestone.month}
+                      className="flex-shrink-0 w-80 bg-white rounded-xl p-6 border-l-4 border-primary shadow-sm"
+                    >
+                      <div className="text-sm font-medium text-primary mb-2">
+                        Month {milestone.month}
+                      </div>
+                      <div className="font-bold text-gray-900 mb-3">
+                        {milestone.title}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {milestone.benefit}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* CTA */}
-            <div className="text-center">
+            <div className="text-center mt-16">
               <div className="mb-6">
                 <div className="text-2xl font-bold text-gray-900 mb-2">
                   Ready to unlock your growth potential?

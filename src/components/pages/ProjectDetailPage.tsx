@@ -55,6 +55,11 @@ export default function ProjectDetailPage() {
           `/images/projects/perks/p3.jpg`
         )
         break
+      case 'ai automation':
+        images.push(
+          `/images/projects/ai automation/Pattern3Automation.png`
+        )
+        break
       default:
         // For projects without additional images, just use cover
         const extensions = ['png', 'jpg']
@@ -79,7 +84,7 @@ export default function ProjectDetailPage() {
       overview: "Built a fully automated workflow that takes a client's form submission and turns it into a full brand voice guide — styled, written, and delivered automatically.",
       description: "This is a fully automated brand system built using n8n, Docker, and the OpenAI API — all running locally, powered by curiosity and extensive research. The system takes client input through a Tally form, processes it via a self-hosted n8n instance through ngrok, and leverages GPT-4o using OpenAI's API. The custom-built prompt returns a comprehensive tone-of-voice breakdown, writing examples, and personality guide structured like a creative brief. The result is automatically formatted into a Google Doc and delivered via email. Running on a local PC with Docker and PowerShell, this solution eliminates expensive backend costs, with OpenAI API being the only significant expense at just cents per submission — far more cost-effective than traditional writing or strategy services.",
       vimeoEmbed: `<div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1088605068?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" width="2160" height="3840" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Fully Automated Brand Builder – Powered by AI + No-Code"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
-      images: ['/images/projects/ai automation/cover.png'],
+      images: getProjectImages('ai automation'),
       nextProject: 'golf-canvas'
     },
     'golf-canvas': {
