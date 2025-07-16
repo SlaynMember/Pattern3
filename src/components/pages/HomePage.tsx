@@ -298,7 +298,7 @@ export default function HomePage() {
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/brand-builder'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
-                  src="/images/projects/ai automation/cover.png" 
+                  src="/images/projects/ai automation/Pattern3Automation.png" 
                   alt="AI Automation - Brand Builder"
                   width={400}
                   height={225}

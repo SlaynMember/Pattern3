@@ -12,7 +12,7 @@ export default function WorkPage() {
       title: "AI Automation - Brand Builder",
       category: "Automation",
       description: "Built a fully automated workflow that takes brand inputs and creates comprehensive brand guidelines, assets, and advanced automations.",
-      image: "/images/projects/ai automation/cover.png",
+      image: "/images/projects/ai automation/Pattern3Automation.png",
       tags: ["AI", "Automation", "Branding"]
     },
     {
