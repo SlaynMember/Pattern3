@@ -249,7 +249,7 @@ export default function HomePage() {
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <AnimatedSection animation="scale" delay={1}>
-              <Card hover className="group">
+              <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/d32-text-rewriter'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
                 <OptimizedImage
                   src="/images/d32cover.png" 
