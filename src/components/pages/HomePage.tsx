@@ -4,6 +4,7 @@ import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
 import GrowthJourneySection from '../sections/GrowthJourneySection'
+import ClientTrustBanner from '../sections/ClientTrustBanner'
 import OptimizedImage from '../ui/OptimizedImage'
 
 export default function HomePage() {
@@ -258,7 +259,10 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              <h3 
+                className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
+                onClick={() => window.location.href = '/work/d32-text-rewriter'}
+              >
                 D32 Text Message Re-Writer
               </h3>
               <p className="body-base text-gray-600 mb-4">
@@ -281,7 +285,10 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              <h3 
+                className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
+                onClick={() => window.location.href = '/work/echo-transcription'}
+              >
                 Echo - AI Transcription
               </h3>
               <p className="body-base text-gray-600 mb-4">
@@ -304,7 +311,10 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              <h3 
+                className="text-xl font-bold mb-3 group-hover:text-primary transition-colors cursor-pointer"
+                onClick={() => window.location.href = '/work/brand-builder'}
+              >
                 AI Automation - Brand Builder
               </h3>
               <p className="body-base text-gray-600 mb-4">
@@ -316,6 +326,9 @@ export default function HomePage() {
               </Card>
             </AnimatedSection>
           </div>
+          
+          {/* Client Trust Banner */}
+          <ClientTrustBanner />
           
           <div className="text-center">
             <AnimatedSection animation="fade-in" delay={2}>

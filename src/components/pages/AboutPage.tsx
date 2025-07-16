@@ -214,7 +214,7 @@ export default function AboutPage() {
             className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl mb-8"
           />
           <p className="text-lg text-gray-600 italic">
-            "Growing up with my brother taught me that the best solutions come from understanding people first, technology second."
+            Growing up with my brother taught me that the best solutions come from understanding people first, technology second.
           </p>
         </div>
       </section>
