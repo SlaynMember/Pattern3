@@ -46,8 +46,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    # Enable Brotli compression
-    Content-Encoding = "br"
+    # Netlify handles compression automatically
 
 # Redirects
 [[redirects]]
