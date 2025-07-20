@@ -297,3 +297,39 @@ p {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Modal overlay styles */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Focus management for modal */
+.modal-content:focus {
+  outline: none;
+}
+
+/* Ensure modal is above everything */
+.modal-overlay {
+  z-index: 9999;
+}

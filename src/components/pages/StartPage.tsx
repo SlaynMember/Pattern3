@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { ArrowRight, Mail } from 'lucide-react'
 import { supabase, type ConsultationBooking } from '../../lib/supabase'
+import ConsultationModal from '../ui/ConsultationModal'
 
 export default function StartPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
@@ -116,7 +118,7 @@ export default function StartPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4">
             <button 
-              onClick={() => document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setIsModalOpen(true)}
               className="btn-primary"
             >
               <ArrowRight className="mr-2 w-5 h-5" />
@@ -473,6 +475,12 @@ export default function StartPage() {
           </div>
         </div>
       </section>
+
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   )
 }
