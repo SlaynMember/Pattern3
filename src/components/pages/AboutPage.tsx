@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Static optimized image component for build-time compatibility
 function StaticImage({ 
   src, 
