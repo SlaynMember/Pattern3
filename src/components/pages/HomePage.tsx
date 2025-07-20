@@ -50,7 +50,6 @@ export default function HomePage() {
       </section>
 
       {/* Growth Journey Section */}
-      <GrowthJourneySection />
 
       {/* Why Pattern3 Section */}
       <section className="py-20 bg-white">
