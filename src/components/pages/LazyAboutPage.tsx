@@ -6,10 +6,11 @@ const AboutPage = lazy(() => import('./AboutPage'))
 // Simple loading fallback that works during build
 function AboutPageFallback() {
   return (
-    <div className="pt-16 min-h-screen flex items-center justify-center">
+    <div className="pt-16 min-h-screen flex items-center justify-center" role="status" aria-live="polite">
       <div className="text-center">
         <div className="animate-pulse bg-primary rounded-full w-8 h-8 mx-auto mb-4"></div>
         <p className="text-gray-600">Loading...</p>
+        <span className="sr-only">Loading About page content</span>
       </div>
     </div>
   )

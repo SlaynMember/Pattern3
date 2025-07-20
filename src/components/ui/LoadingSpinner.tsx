@@ -17,7 +17,7 @@ export default function LoadingSpinner({
 
   if (variant === 'triangles') {
     return (
-      <div className={`loading-triangles ${className}`} role="status" aria-label="Loading">
+      <div className={`loading-triangles ${className}`} role="status" aria-label="Loading" aria-live="polite">
         <div className="loading-triangle"></div>
         <div className="loading-triangle"></div>
         <div className="loading-triangle"></div>
@@ -32,6 +32,7 @@ export default function LoadingSpinner({
         className={`animate-pulse bg-primary rounded-full ${sizeClasses[size]} ${className}`}
         role="status" 
         aria-label="Loading"
+        aria-live="polite"
       >
         <span className="sr-only">Loading...</span>
       </div>
@@ -44,6 +45,7 @@ export default function LoadingSpinner({
       className={`animate-spin border-2 border-gray-300 border-t-primary rounded-full ${sizeClasses[size]} ${className}`}
       role="status" 
       aria-label="Loading"
+      aria-live="polite"
     >
       <span className="sr-only">Loading...</span>
     </div>

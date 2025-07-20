@@ -16,10 +16,11 @@ import LazyProjectDetailPage from './components/pages/LazyProjectDetailPage'
 // Loading fallback component
 function PageLoadingFallback() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center" role="status" aria-live="polite">
       <div className="text-center">
         <LoadingSpinner size="lg" variant="triangles" />
         <p className="mt-4 text-gray-600">Loading...</p>
+        <span className="sr-only">Loading page content</span>
       </div>
     </div>
   )
