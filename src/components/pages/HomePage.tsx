@@ -4,6 +4,7 @@ import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
 import OptimizedImage from '../ui/OptimizedImage'
+import ClientTrustBanner from '../sections/ClientTrustBanner'
 
 export default function HomePage() {
   return (
