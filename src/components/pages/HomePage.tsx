@@ -1,15 +1,19 @@
 import { Play } from 'lucide-react'
+import { useState } from 'react'
 import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
-import GrowthJourneySection from '../sections/GrowthJourneySection'
-import ClientTrustBanner from '../sections/ClientTrustBanner'
 import OptimizedImage from '../ui/OptimizedImage'
+import ClientTrustBanner from '../sections/ClientTrustBanner'
+import ConsultationModal from '../ui/ConsultationModal'
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
-    <div className="pt-16">
+    <>
+      <div className="pt-16">
       {/* Hero Section */}
       <section className="hero-bg py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -26,10 +30,10 @@ export default function HomePage() {
                 that work.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="primary" href="/start">
+                <Button variant="primary" onClick={() => setIsModalOpen(true)}>
                   Start Free Consultation <Icon name="arrow" className="ml-2" />
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" href="/work">
                   <Play className="mr-2 w-5 h-5" />
                   View Past Work
                 </Button>
@@ -52,7 +56,6 @@ export default function HomePage() {
       </section>
 
       {/* Growth Journey Section */}
-      <GrowthJourneySection />
 
       {/* Why Pattern3 Section */}
       <section className="py-20 bg-white">
@@ -330,6 +333,13 @@ export default function HomePage() {
         </div>
       </section>
 
-    </div>
+      </div>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </>
   )
 }

@@ -1,4 +1,29 @@
-import OptimizedImage from '../ui/OptimizedImage'
+// Static optimized image component for build-time compatibility
+function StaticImage({ 
+  src, 
+  alt, 
+  width, 
+  height, 
+  className = '' 
+}: {
+  src: string
+  alt: string
+  width?: number
+  height?: number
+  className?: string
+}) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      loading="lazy"
+      decoding="async"
+    />
+  )
+}
 
 export default function AboutPage() {
   return (
@@ -76,12 +101,11 @@ export default function AboutPage() {
             </div>
             
             <div className="order-1 lg:order-2 text-center">
-              <OptimizedImage
+              <StaticImage
                 src="/images/headshot.jpg" 
                 alt="Will Patterson - Founder of Pattern3"
                 width={320}
                 height={320}
-                priority={true}
                 className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl"
               />
             </div>
@@ -126,7 +150,7 @@ export default function AboutPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">N</span>
               </div>
-              <h3 className="xl font-bold mb-4">No-Code Enabled</h3>
+              <h3 className="text-xl font-bold mb-4">No-Code Enabled</h3>
               <p className="text-gray-600">
                 Rapid prototyping and implementation using modern no-code tools that integrate seamlessly with your existing systems.
               </p>
@@ -206,7 +230,7 @@ export default function AboutPage() {
       {/* Childhood Photo Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <OptimizedImage
+          <StaticImage
             src="/images/childhood.jpg" 
             alt="Will and his brother as children"
             width={320}
@@ -214,11 +238,10 @@ export default function AboutPage() {
             className="w-80 h-80 object-cover rounded-2xl mx-auto shadow-2xl mb-8"
           />
           <p className="text-lg text-gray-600 italic">
-            Growing up with my brother taught me that the best solutions come from understanding people first, technology second.
+            "Growing up with my brother taught me that the best solutions come from understanding people first, technology second."
           </p>
         </div>
       </section>
-
     </div>
   )
 }

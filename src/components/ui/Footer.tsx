@@ -52,9 +52,9 @@ export default function Footer() {
               
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="text-primary hover:text-primary-light font-medium transition-colors flex items-center"
+                className="bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center"
               >
-                Ready to start? <ArrowRight className="ml-2 w-4 h-4" />
+                Start Free Consultation <ArrowRight className="ml-2 w-4 h-4" />
               </button>
             </div>
           </div>
