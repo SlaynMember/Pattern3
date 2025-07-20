@@ -39,7 +39,7 @@ export default function AdvancedOptimizedImage({
   const placeholderSrc = (() => {
     if (placeholder === 'empty') return ''
     if (placeholder === 'blur') {
-      return imageOptimizer.generateOptimizedUrl(src, { ...config, quality: 10, blur: true })
+      return imageOptimizer.generateOptimizedUrl(src, { ...config, quality: 10 })
     }
     if (typeof placeholder === 'string') return placeholder
     return generatePlaceholder(width || 400, height || 300)
