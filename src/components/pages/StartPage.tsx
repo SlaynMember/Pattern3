@@ -11,16 +11,6 @@ export default function StartPage() {
       {/* Hero Section */}
       <section className="hero-bg py-20">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
-          <div className="mb-8">
-            <img 
-              src="/images/pattern3black.png" 
-              alt="Pattern3" 
-              width="1000"
-              height="500"
-              className="h-12 mx-auto mb-8"
-            />
-          </div>
-          
           <h1 className="text-4xl md:text-6xl font-black mb-6">
             Let's Talk About Your{' '}
             <span className="text-gradient">AI Journey</span>
