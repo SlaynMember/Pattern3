@@ -28,7 +28,7 @@ export default function HomePage() {
                 <Button variant="primary" href="/start">
                   Start Free Consultation <Icon name="arrow" className="ml-2" />
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" href="/work">
                   <Play className="mr-2 w-5 h-5" />
                   View Past Work
                 </Button>
