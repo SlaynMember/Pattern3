@@ -288,6 +288,31 @@ p {
   background: #0891b2;
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .observe-fade-in,
+  .observe-scale,
+  .animate-pulse,
+  .animate-spin,
+  .card:hover,
+  .btn-primary:hover,
+  .btn-accent:hover,
+  .btn-outline:hover {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Hide scrollbar for mobile milestone cards */
 .scrollbar-hide {
   -ms-overflow-style: none;

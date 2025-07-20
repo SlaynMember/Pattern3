@@ -66,6 +66,8 @@ export default function Navigation() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-primary transition-colors"
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
