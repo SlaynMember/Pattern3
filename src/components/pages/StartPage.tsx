@@ -15,6 +15,8 @@ export default function StartPage() {
             <img 
               src="/images/pattern3black.png" 
               alt="Pattern3" 
+              width="1000"
+              height="500"
               className="h-12 mx-auto mb-8"
             />
           </div>
