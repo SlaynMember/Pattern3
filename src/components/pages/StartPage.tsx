@@ -6,14 +6,6 @@ import ConsultationForm from '../forms/ConsultationForm'
 export default function StartPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const openGoogleCalendar = () => {
-    window.open(
-      'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ20Vqo2cMGfOWDwybhkY_2j-rtsWeaqdmFsYiFZ5UY8gM8B3caO91sBgSYhvUuH_Hyo98CHSlZD?gv=true', 
-      '_blank',
-      'noopener,noreferrer'
-    )
-  }
-
   return (
     <div className="pt-16">
       {/* Hero Section */}
