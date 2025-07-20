@@ -3,8 +3,6 @@ import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
-import GrowthJourneySection from '../sections/GrowthJourneySection'
-import ClientTrustBanner from '../sections/ClientTrustBanner'
 import OptimizedImage from '../ui/OptimizedImage'
 
 export default function HomePage() {
