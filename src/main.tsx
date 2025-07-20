@@ -5,7 +5,7 @@ import App from './App.tsx'
 import './index.css'
 
 // Import all performance optimization utilities
-import { preloadFonts, addResourceHints, measurePerformance } from './utils/performance'
+import { addResourceHints, measurePerformance } from './utils/performance'
 import { criticalResourceOptimizer } from './utils/criticalResourceOptimizer'
 import { serviceWorkerManager } from './utils/serviceWorkerManager'
 import { performanceMonitor } from './utils/advancedPerformanceMonitor'
@@ -16,7 +16,6 @@ const initializePerformanceOptimizations = async () => {
   criticalResourceOptimizer.initialize()
   
   // Legacy performance utilities
-  preloadFonts()
   addResourceHints()
   measurePerformance()
   

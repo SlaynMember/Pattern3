@@ -22,11 +22,6 @@ class CriticalResourceOptimizer {
   // Preload critical resources
   preloadCriticalResources() {
     const criticalResources: CriticalResource[] = [
-      // Critical fonts
-      { url: '/fonts/inter-400.woff2', type: 'font', priority: 'high', crossorigin: true },
-      { url: '/fonts/inter-500.woff2', type: 'font', priority: 'high', crossorigin: true },
-      { url: '/fonts/inter-700.woff2', type: 'font', priority: 'high', crossorigin: true },
-      
       // Critical images
       { url: '/images/headshot.jpg', type: 'image', priority: 'high' },
       { url: '/images/pattern3black.png', type: 'image', priority: 'high' },
@@ -156,54 +151,11 @@ class CriticalResourceOptimizer {
     document.head.appendChild(style)
   }
 
-  // Optimize font loading with font-display: swap
-  optimizeFontLoading() {
-    const fontFaces = [
-      {
-        family: 'Inter',
-        weight: '400',
-        style: 'normal',
-        display: 'swap',
-        src: 'url(/fonts/inter-400.woff2) format("woff2")'
-      },
-      {
-        family: 'Inter',
-        weight: '500',
-        style: 'normal',
-        display: 'swap',
-        src: 'url(/fonts/inter-500.woff2) format("woff2")'
-      },
-      {
-        family: 'Inter',
-        weight: '700',
-        style: 'normal',
-        display: 'swap',
-        src: 'url(/fonts/inter-700.woff2) format("woff2")'
-      }
-    ]
-
-    const style = document.createElement('style')
-    style.textContent = fontFaces
-      .map(font => `
-        @font-face {
-          font-family: '${font.family}';
-          font-weight: ${font.weight};
-          font-style: ${font.style};
-          font-display: ${font.display};
-          src: ${font.src};
-        }
-      `)
-      .join('')
-
-    document.head.appendChild(style)
-  }
-
   // Initialize all optimizations
   initialize() {
     this.addResourceHints()
     this.preloadCriticalResources()
     this.inlineCriticalCSS()
-    this.optimizeFontLoading()
   }
 }
 
