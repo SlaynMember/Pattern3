@@ -22,7 +22,7 @@ export default function HomePage() {
             <div className="text-left">
               <h1 className="heading-1 mb-6">
                 Buy back your week with{' '}
-                <span className="text-gradient">AI automation</span>.
+                <span className="text-gradient">AI automation.</span>
               </h1>
               <p className="body-large text-gray-600 mb-8">
                 We turn repetitive tasks into button-click flows for SMB teams — no dev team required.
@@ -56,151 +56,148 @@ export default function HomePage() {
 
       {/* Growth Journey Section */}
 
-      {/* How the Pattern3 Method Works Section */}
-      <section className="py-20 bg-white">
+      {/* How We Turn Chaos into Clarity Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AnimatedSection animation="fade-in">
               <h2 className="heading-2 mb-4">
-                How the Pattern3 Method Works
-            </h2>
-            </AnimatedSection>
-          </div>
-
-          {/* 1 · The Pain */}
-          <div className="mb-20">
-            <AnimatedSection animation="fade-in" delay={1}>
-              <h3 className="text-3xl font-bold text-center mb-8">1 · The Pain</h3>
-              <h4 className="text-2xl font-bold text-center mb-12">The Messy Middle (<strong>7.5 hrs/week lost</strong>)</h4>
-            </AnimatedSection>
-            
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <AnimatedSection animation="scale" delay={1}>
-                <Card className="text-center" padding="md">
-                  <div className="w-16 h-16 bg-gray-200 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <span className="text-red-600 font-bold text-lg">Field</span>
-                  </div>
-                  <h4 className="text-lg font-bold mb-3">Field Operations</h4>
-                  <p className="text-gray-600 text-sm">Scattered data collection</p>
-                </Card>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={2}>
-                <Card className="text-center" padding="md">
-                  <div className="w-16 h-16 bg-gray-200 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <span className="text-red-600 font-bold text-lg">Office</span>
-                  </div>
-                  <h4 className="text-lg font-bold mb-3">Office Management</h4>
-                  <p className="text-gray-600 text-sm">Manual data entry</p>
-                </Card>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={3}>
-                <Card className="text-center" padding="md">
-                  <div className="w-16 h-16 bg-gray-200 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <span className="text-red-600 font-bold text-lg">Clients</span>
-                  </div>
-                  <h4 className="text-lg font-bold mb-3">Client Communication</h4>
-                  <p className="text-gray-600 text-sm">Inconsistent follow-ups</p>
-                </Card>
-              </AnimatedSection>
-            </div>
-            
-            <AnimatedSection animation="fade-in" delay={4}>
-              <p className="text-center text-lg text-gray-700 max-w-2xl mx-auto">
-                Scattered data, manual re-typing and inconsistent follow-ups sap nearly a full work-day from every manager.
+                How We Turn Chaos into <span className="text-gradient">Clarity</span>
+              </h2>
+              <p className="body-large text-gray-600 max-w-3xl mx-auto">
+                Follow Jane, a real-world owner who escaped the "messy middle" with Pattern3.
               </p>
             </AnimatedSection>
           </div>
 
-          {/* 2 · Our 5-Step Fix */}
-          <div className="mb-20">
-            <AnimatedSection animation="fade-in" delay={1}>
-              <h3 className="text-2xl font-bold text-center mb-12">2 · Our 5-Step Fix</h3>
-            </AnimatedSection>
-            
-            <div className="max-w-4xl mx-auto mb-8">
-              <AnimatedSection animation="fade-in" delay={2}>
-                <div className="relative">
-                  {/* Connecting Line */}
-                  <div className="absolute top-6 left-0 right-0 h-0.5 bg-gray-300 z-0"></div>
-                  
-                  {/* Steps */}
-                  <div className="relative z-10 flex justify-between items-center">
-                    {[
-                      { number: "1", label: "Discover" },
-                      { number: "2", label: "Build" },
-                      { number: "3", label: "Prototype" },
-                      { number: "4", label: "Rollout" },
-                      { number: "5", label: "Train" }
-                    ].map((step, index) => (
-                      <div key={index} className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-3 border-4 border-white shadow-md">
-                          {step.number}
-                        </div>
-                        <span className="text-sm font-medium text-gray-700">{step.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
-            
-            <AnimatedSection animation="fade-in" delay={3}>
-              <p className="text-center text-lg text-gray-700 max-w-2xl mx-auto">
-                We shoulder the tech — your team keeps working.
-              </p>
-            </AnimatedSection>
-          </div>
-          
-          {/* 3 · The Win */}
+          {/* Jane's Journey - Step Cards */}
           <div className="mb-16">
-            <AnimatedSection animation="fade-in" delay={1}>
-              <h3 className="text-2xl font-bold text-center mb-12">3 · The Win</h3>
-              <h4 className="text-xl font-bold text-center mb-12">In 4–6 Weeks:</h4>
-            </AnimatedSection>
+            {/* Desktop: Horizontal Layout */}
+            <div className="hidden md:block">
+              <div className="flex items-center justify-between max-w-6xl mx-auto">
+                {[
+                  {
+                    number: "1",
+                    title: "The Struggle",
+                    description: "Jane's team was drowning in paperwork, missed hand-offs and late invoices.",
+                    emoji: "😰",
+                    bgColor: "from-red-500 to-red-600"
+                  },
+                  {
+                    number: "2", 
+                    title: "Find the Clutter",
+                    description: "We mapped every copy-paste loop and flagged the hours lost to data entry.",
+                    emoji: "🔍",
+                    bgColor: "from-yellow-500 to-yellow-600"
+                  },
+                  {
+                    number: "3",
+                    title: "Clear the Mess", 
+                    description: "Smart automations filed docs, synced systems and saved 7.5 hours a week.",
+                    emoji: "⚡",
+                    bgColor: "from-blue-500 to-blue-600"
+                  },
+                  {
+                    number: "4",
+                    title: "Success",
+                    description: "Jane now spends Fridays on growth projects, not spreadsheets.",
+                    emoji: "🚀",
+                    bgColor: "from-green-500 to-green-600"
+                  }
+                ].map((step, index) => (
+                  <div key={index} className="flex items-center">
+                    <AnimatedSection animation="scale" delay={index + 1}>
+                      <Card className="w-64 text-center" padding="lg">
+                        <div className={`w-16 h-16 bg-gradient-to-br ${step.bgColor} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                          <span className="text-2xl">{step.emoji}</span>
+                        </div>
+                        <h3 className="text-lg font-bold mb-3 text-gray-900">
+                          {step.number} · {step.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </Card>
+                    </AnimatedSection>
+                    
+                    {/* Arrow between cards */}
+                    {index < 3 && (
+                      <div className="mx-4 text-primary hover:text-primary-dark transition-colors">
+                        <Icon name="arrow" size="lg" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <AnimatedSection animation="scale" delay={1}>
-                <Card className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <Icon name="check-circle" size="lg" className="text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold mb-3">Invoices Auto-Drafted</h4>
-                  <p className="text-gray-600">Billing runs on autopilot.</p>
-                </Card>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={2}>
-                <Card className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <Icon name="check-circle" size="lg" className="text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold mb-3">Equipment PM Alerts</h4>
-                  <p className="text-gray-600">Maintenance scheduled before breakdowns.</p>
-                </Card>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={3}>
-                <Card className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                    <Icon name="check-circle" size="lg" className="text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold mb-3">Managers Regain Fridays</h4>
-                  <p className="text-gray-600">Paperwork &lt; 30 min / wk.</p>
-                </Card>
-              </AnimatedSection>
+            {/* Mobile: Vertical Layout */}
+            <div className="md:hidden space-y-6">
+              {[
+                {
+                  number: "1",
+                  title: "The Struggle",
+                  description: "Jane's team was drowning in paperwork, missed hand-offs and late invoices.",
+                  emoji: "😰",
+                  bgColor: "from-red-500 to-red-600"
+                },
+                {
+                  number: "2", 
+                  title: "Find the Clutter",
+                  description: "We mapped every copy-paste loop and flagged the hours lost to data entry.",
+                  emoji: "🔍",
+                  bgColor: "from-yellow-500 to-yellow-600"
+                },
+                {
+                  number: "3",
+                  title: "Clear the Mess", 
+                  description: "Smart automations filed docs, synced systems and saved 7.5 hours a week.",
+                  emoji: "⚡",
+                  bgColor: "from-blue-500 to-blue-600"
+                },
+                {
+                  number: "4",
+                  title: "Success",
+                  description: "Jane now spends Fridays on growth projects, not spreadsheets.",
+                  emoji: "🚀",
+                  bgColor: "from-green-500 to-green-600"
+                }
+              ].map((step, index) => (
+                <AnimatedSection key={index} animation="fade-in" delay={index + 1}>
+                  <Card className="text-center" padding="lg">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${step.bgColor} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                      <span className="text-2xl">{step.emoji}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                      {step.number} · {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </Card>
+                  
+                  {/* Downward arrow on mobile */}
+                  {index < 3 && (
+                    <div className="flex justify-center my-4 text-primary">
+                      <Icon name="arrow-up" size="lg" className="transform rotate-180" />
+                    </div>
+                  )}
+                </AnimatedSection>
+              ))}
             </div>
           </div>
           
-          {/* Let's Talk Results CTA */}
-          <AnimatedSection animation="fade-in" delay={4}>
+          {/* Ready to Declutter CTA */}
+          <AnimatedSection animation="fade-in" delay={5}>
             <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Ready to declutter your business?
+              </h3>
               <Button variant="primary" onClick={() => setIsModalOpen(true)} className="mb-4">
                 Book My Free Consult
               </Button>
-              <p className="text-sm text-gray-500">
-                No hard pitch — we map savings first.
+              <p className="text-xs text-gray-500">
+                No pitch – we show your savings first.
               </p>
             </div>
           </AnimatedSection>
