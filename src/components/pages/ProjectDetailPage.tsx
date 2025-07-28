@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { useState } from 'react'
 
 interface Project {
   title: string
@@ -17,6 +18,7 @@ interface Project {
 
 export default function ProjectDetailPage() {
   const { projectId } = useParams()
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null)
 
   // Helper function to get project images (cover + up to 5 additional images)
   const getProjectImages = (folderPath: string): string[] => {
@@ -282,11 +284,15 @@ export default function ProjectDetailPage() {
                   <h3 className="text-xl font-bold mb-4">Project Gallery</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project.images.map((image, index) => (
-                      <div key={index} className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                      <div 
+                        key={index} 
+                        className="aspect-video bg-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                        onClick={() => setZoomedImage(image)}
+                      >
                         <img
                           src={image}
                           alt={`${project.title} - Image ${index + 1}`}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
                           loading="lazy"
                         />
                       </div>
@@ -349,6 +355,34 @@ export default function ProjectDetailPage() {
           )}
         </div>
       </section>
+
+      {/* Image Zoom Overlay */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setZoomedImage(null)}
+        >
+          <div 
+            className="relative max-w-4xl max-h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={zoomedImage}
+              alt="Zoomed project image"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
+            <button
+              onClick={() => setZoomedImage(null)}
+              className="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-200"
+              aria-label="Close zoomed image"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

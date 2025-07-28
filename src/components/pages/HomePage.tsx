@@ -42,10 +42,10 @@ export default function HomePage() {
             
             <div className="lg:text-right">
               <OptimizedImage
-                src="/images/headshot.jpg" 
+                src="/images/profile/B&Wheadshot.jpg" 
                 alt="Will Patterson - Founder of Pattern3"
-                width={320}
-                height={320}
+                width={1902}
+                height={2536}
                 priority={true}
                 className="w-80 h-80 object-cover rounded-2xl mx-auto lg:ml-auto shadow-2xl"
               />
