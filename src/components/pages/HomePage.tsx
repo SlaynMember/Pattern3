@@ -187,7 +187,7 @@ export default function HomePage() {
                     <Icon name="check-circle" size="lg" className="text-white" />
                   </div>
                   <h4 className="text-xl font-bold mb-3">Managers Regain Fridays</h4>
-                  <p className="text-gray-600">Paperwork < 30 min / wk.</p>
+                  <p className="text-gray-600">Paperwork &lt; 30 min / wk.</p>
                 </Card>
               </AnimatedSection>
             </div>
