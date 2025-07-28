@@ -58,7 +58,7 @@ export default function ClientTrustBanner() {
           
           <div className="text-center mt-8">
             <p className="text-sm text-gray-500 italic">
-              "Pattern3 transformed our operations with 60% efficiency gains and 3x ROI in just 6 months"
+              "Pattern3 streamlined our operations, saving us an hour a day and boosting efficiency by 60% in just 6 months."
             </p>
           </div>
         </AnimatedSection>
