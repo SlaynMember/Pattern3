@@ -1,10 +1,16 @@
-```diff
---- a/src/types/global.d.ts
-+++ b/src/types/global.d.ts
-@@ -0,0 +1,5 @@
-+interface Window {
-+  dataLayer: any[];
-+  gtag: (...args: any[]) => void;
-+}
-+
-```
+// Global type declarations for third-party services
+
+interface Window {
+  dataLayer: any[];
+  gtag: (...args: any[]) => void;
+}
+
+// Extend the global namespace to include these types
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
+export {}; // This makes the file a module and ensures the global declarations work properly
