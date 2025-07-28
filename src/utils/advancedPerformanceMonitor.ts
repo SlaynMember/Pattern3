@@ -261,7 +261,7 @@ class AdvancedPerformanceMonitor {
     console.log('Performance Report:', report)
 
     // Example: Send to Google Analytics 4
-    if ('gtag' in window) {
+    if (typeof (window as any).gtag === 'function') {
       const gtag = (window as any).gtag
       gtag('event', 'web_vitals', {
         metric_name: 'fcp',
