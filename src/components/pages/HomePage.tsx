@@ -46,15 +46,13 @@ export default function HomePage() {
                 height={2536}
                 priority={true}
                 className="w-80 h-80 object-cover object-top rounded-2xl mx-auto lg:ml-auto shadow-2xl"
-                style={{ objectPosition: '20% 0%' }}
+                style={{ objectPosition: '30% 5%' }}
               />
             </div>
           </div>
           </AnimatedSection>
         </div>
       </section>
-
-      {/* Growth Journey Section */}
 
       {/* How We Turn Chaos into Clarity Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
@@ -204,6 +202,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Client Trust Banner */}
+      <ClientTrustBanner />
+
       {/* Who It's For Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -339,8 +340,6 @@ export default function HomePage() {
               </Card>
             </AnimatedSection>
           </div>
-          
-          <ClientTrustBanner />
           
           <div className="text-center">
             <AnimatedSection animation="fade-in" delay={2}>
