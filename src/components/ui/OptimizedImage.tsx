@@ -10,6 +10,7 @@ interface OptimizedImageProps {
   priority?: boolean
   quality?: number
   placeholder?: string
+  style?: React.CSSProperties
 }
 
 const lazyLoader = new LazyImageLoader()
@@ -22,7 +23,8 @@ export default function OptimizedImage({
   className = '',
   priority = false,
   quality = 85,
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjFmNWY5Ii8+PC9zdmc+'
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjFmNWY5Ii8+PC9zdmc+',
+  style
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -84,6 +86,7 @@ export default function OptimizedImage({
       className={`transition-opacity duration-300 ${
         isLoaded ? 'opacity-100' : 'opacity-0'
       } ${className}`}
+      style={style}
       onLoad={handleLoad}
       onError={handleError}
       loading={priority ? 'eager' : 'lazy'}
