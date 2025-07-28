@@ -219,7 +219,7 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={1}>
               <Card hover className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Icon name="healthcare" size="lg" className="text-white" />
+                <Icon name="medical-cross" size="lg" className="text-white" />
               </div>
               <h3 className="heading-3 mb-4">Healthcare Offices</h3>
               <p className="body-base text-gray-600">
