@@ -167,7 +167,7 @@ export default function HomePage() {
                     <Icon name="check-circle" size="lg" className="text-white" />
                   </div>
                   <h4 className="text-xl font-bold mb-3">Invoices Auto-Drafted</h4>
-                  <p className="text-gray-600"><span style="font-weight:400">Billing runs on autopilot.</span></p>
+                  <p className="text-gray-600">Billing runs on autopilot.</p>
                 </Card>
               </AnimatedSection>
               
@@ -177,7 +177,7 @@ export default function HomePage() {
                     <Icon name="check-circle" size="lg" className="text-white" />
                   </div>
                   <h4 className="text-xl font-bold mb-3">Equipment PM Alerts</h4>
-                  <p className="text-gray-600"><span style="font-weight:400">Maintenance scheduled before breakdowns.</span></p>
+                  <p className="text-gray-600">Maintenance scheduled before breakdowns.</p>
                 </Card>
               </AnimatedSection>
               
@@ -187,7 +187,7 @@ export default function HomePage() {
                     <Icon name="check-circle" size="lg" className="text-white" />
                   </div>
                   <h4 className="text-xl font-bold mb-3">Managers Regain Fridays</h4>
-                  <p className="text-gray-600"><span style="font-weight:400">Paperwork &lt; 30 min / wk.</span></p>
+                  <p className="text-gray-600">Paperwork < 30 min / wk.</p>
                 </Card>
               </AnimatedSection>
             </div>
