@@ -7,6 +7,7 @@ interface AdvancedOptimizedImageProps {
   width?: number
   height?: number
   className?: string
+  style?: React.CSSProperties
   priority?: boolean
   quality?: number
   placeholder?: 'blur' | 'empty' | string
@@ -20,6 +21,7 @@ export default function AdvancedOptimizedImage({
   width,
   height,
   className = '',
+  style,
   priority = false,
   quality = 85,
   placeholder = 'empty',
@@ -124,14 +126,15 @@ export default function AdvancedOptimizedImage({
         className={`transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         } ${className}`}
+        style={{
+          filter: isLoaded ? 'none' : 'blur(5px)',
+          transition: 'filter 0.3s ease-out, opacity 0.3s ease-out',
+          ...style
+        }}
         onLoad={handleLoad}
         onError={handleError}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
-        style={{
-          filter: isLoaded ? 'none' : 'blur(5px)',
-          transition: 'filter 0.3s ease-out, opacity 0.3s ease-out'
-        }}
       />
     </picture>
   )
