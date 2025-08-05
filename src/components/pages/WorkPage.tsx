@@ -162,9 +162,6 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Client Trust Banner */}
-      <ClientTrustBanner />
-
       {/* All Projects Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,6 +227,9 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
+
+      {/* Client Trust Banner */}
+      <ClientTrustBanner />
 
       {/* Related Resources */}
       <section className="py-16 bg-gray-50">
