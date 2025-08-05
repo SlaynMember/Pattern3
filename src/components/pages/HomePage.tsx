@@ -4,7 +4,7 @@ import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
-import OptimizedImage from '../ui/OptimizedImage'
+import AdvancedOptimizedImage from '../ui/AdvancedOptimizedImage'
 import ClientTrustBanner from '../sections/ClientTrustBanner'
 import ConsultationModal from '../ui/ConsultationModal'
 
@@ -39,7 +39,7 @@ export default function HomePage() {
             </div>
             
             <div className="lg:text-right">
-              <OptimizedImage
+              <AdvancedOptimizedImage
                 src="/images/profile/B&Wheadshot.jpg" 
                 alt="Will Patterson – AI consultant smiling"
                 width={1902}

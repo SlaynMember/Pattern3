@@ -23,7 +23,7 @@ class CriticalResourceOptimizer {
   preloadCriticalResources() {
     const criticalResources: CriticalResource[] = [
       // Critical images
-      { url: '/images/headshot.jpg', type: 'image', priority: 'high' },
+      { url: '/images/profile/B&Wheadshot.jpg', type: 'image', priority: 'high' },
       { url: '/images/pattern3black.png', type: 'image', priority: 'high' },
       { url: '/images/pattern3white.png', type: 'image', priority: 'medium' },
     ]
