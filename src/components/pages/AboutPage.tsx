@@ -219,7 +219,7 @@ export default function AboutPage() {
               'Claude', 'Bolt', 'Supabase', 'Stripe', 'GPT-4', 'OpenAI', 'Meta', 'Google Cloud',
               'LangChain', 'JavaScript', 'APIs', 'No-Code', 'AI Agents'
             ].map((skill) => (
-              <div key={skill} className="bg-gray-100 rounded-lg p-4 hover:bg-gray-200 transition-colors">
+              <div key={skill} className="bg-gray-100 rounded-lg px-3 py-2 hover:bg-gray-200 transition-colors">
                 <span className="text-sm font-medium text-gray-700">{skill}</span>
               </div>
             ))}
