@@ -358,3 +358,40 @@ p {
 .modal-overlay {
   z-index: 9999;
 }
+
+/* Internal linking enhancements */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced link hover states for better UX */
+a[href^="/"] {
+  position: relative;
+}
+
+a[href^="/"]:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Breadcrumb navigation styling */
+.breadcrumb-nav {
+  font-size: 0.875rem;
+}
+
+.breadcrumb-nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Category navigation enhancements */
+.category-nav {
+  position: sticky;
+  top: 64px; /* Below fixed header */
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}

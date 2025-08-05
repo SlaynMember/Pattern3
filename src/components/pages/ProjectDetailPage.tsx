@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
+import RelatedProjects from '../ui/RelatedProjects'
+import StructuredData from '../ui/StructuredData'
 
 interface Project {
   title: string
@@ -236,6 +238,18 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="pt-16">
+      {/* Structured Data for Project */}
+      <StructuredData 
+        type="article" 
+        data={{
+          title: project.title,
+          description: project.overview,
+          image: project.images?.[0],
+          datePublished: `${project.year}-01-01`,
+          dateModified: `${project.year}-12-31`
+        }} 
+      />
+      
       {/* Header */}
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,6 +362,7 @@ export default function ProjectDetailPage() {
               <Link 
                 to={`/work/${project.nextProject}`}
                 className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium"
+                title={`View next project: ${project.nextProject.replace(/-/g, ' ')}`}
               >
                 Next Project <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -355,6 +370,13 @@ export default function ProjectDetailPage() {
           )}
         </div>
       </section>
+
+      {/* Related Projects */}
+      <RelatedProjects 
+        currentProjectId={projectId!} 
+        currentCategory={project.category}
+        maxItems={3}
+      />
 
       {/* Image Zoom Overlay */}
       {zoomedImage && (

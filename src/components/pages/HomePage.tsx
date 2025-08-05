@@ -27,6 +27,12 @@ export default function HomePage() {
               <p className="body-large text-gray-600 mb-8">
                 We turn repetitive tasks into button-click flows for SMB teams — no dev team required.
               </p>
+              <p className="body-base text-gray-600 mb-8">
+                Our <Link to="/work" className="text-primary hover:text-primary-dark font-medium">AI automation solutions</Link> help 
+                <Link to="/work?category=Healthcare" className="text-primary hover:text-primary-dark font-medium ml-1">healthcare practices</Link>, 
+                <Link to="/about" className="text-primary hover:text-primary-dark font-medium ml-1">solo founders</Link>, and 
+                local businesses save time while maintaining quality and compliance.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="primary" onClick={() => setIsModalOpen(true)}>
                   Start Free Consultation <Icon name="arrow" className="ml-2" />
@@ -267,6 +273,11 @@ export default function HomePage() {
               <p className="body-large text-gray-600">
               Real solutions for real businesses — see how we've helped others bridge technology and human connection.
             </p>
+              <p className="body-base text-gray-600 mt-4">
+                From <Link to="/work/d32-text-rewriter" className="text-primary hover:text-primary-dark font-medium">healthcare communication tools</Link> to 
+                <Link to="/work/brand-builder" className="text-primary hover:text-primary-dark font-medium ml-1">automated brand systems</Link>, 
+                explore how we've helped businesses <Link to="/about" className="text-primary hover:text-primary-dark font-medium">transform operations with AI</Link>.
+              </p>
             </AnimatedSection>
           </div>
           

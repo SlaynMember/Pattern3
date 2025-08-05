@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import OptimizedImage from '../ui/OptimizedImage'
+import { LinkCluster } from '../ui/InternalLinkEnhancer'
 
 export default function WorkPage() {
   const navigate = useNavigate()
@@ -120,6 +121,11 @@ export default function WorkPage() {
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             Recent builds and client outcomes showcasing real AI solutions for real businesses.
           </p>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover how our <Link to="/about" className="text-primary hover:text-primary-dark font-medium">human-centered approach</Link> creates 
+            AI solutions that save time and improve outcomes. Ready to get started? 
+            <Link to="/start" className="text-primary hover:text-primary-dark font-medium ml-1">Book your free consultation</Link>.
+          </p>
         </div>
       </section>
 
@@ -208,6 +214,76 @@ export default function WorkPage() {
                 </button>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <LinkCluster
+              title="Popular AI Solutions"
+              links={[
+                { 
+                  text: "Healthcare AI automation", 
+                  href: "/work?category=Healthcare",
+                  description: "HIPAA-compliant tools for medical practices"
+                },
+                { 
+                  text: "Business workflow automation", 
+                  href: "/work?category=Automation",
+                  description: "Save 7+ hours weekly with smart workflows"
+                },
+                { 
+                  text: "Custom AI development", 
+                  href: "/work?category=Personal%20Challenge",
+                  description: "Tailored AI tools for specific business needs"
+                }
+              ]}
+            />
+            
+            <LinkCluster
+              title="Get Started Today"
+              links={[
+                { 
+                  text: "Book free consultation", 
+                  href: "/start",
+                  description: "45-minute strategy session at no cost"
+                },
+                { 
+                  text: "Learn about our process", 
+                  href: "/about",
+                  description: "Discover the Pattern3 methodology"
+                },
+                { 
+                  text: "Meet the founder", 
+                  href: "/about",
+                  description: "Will Patterson's background and expertise"
+                }
+              ]}
+            />
+            
+            <LinkCluster
+              title="Success Stories"
+              links={[
+                { 
+                  text: "Dental32 text automation", 
+                  href: "/work/d32-text-rewriter",
+                  description: "Saved 2+ hours daily on communication"
+                },
+                { 
+                  text: "Echo transcription system", 
+                  href: "/work/echo-transcription",
+                  description: "4+ hours saved on medical documentation"
+                },
+                { 
+                  text: "Brand automation workflow", 
+                  href: "/work/brand-builder",
+                  description: "Fully automated brand guideline creation"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
