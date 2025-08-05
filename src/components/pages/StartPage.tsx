@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ArrowRight, Mail } from 'lucide-react'
 import ConsultationModal from '../ui/ConsultationModal'
 import ConsultationForm from '../forms/ConsultationForm'
+import ClientTrustBanner from '../sections/ClientTrustBanner'
 
 export default function StartPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -39,6 +40,9 @@ export default function StartPage() {
           </div>
         </div>
       </section>
+
+      {/* Client Trust Banner */}
+      <ClientTrustBanner />
 
       {/* How to Reach Us */}
       <section className="py-16 bg-white">

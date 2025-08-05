@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import OptimizedImage from '../ui/OptimizedImage'
 import { LinkCluster } from '../ui/InternalLinkEnhancer'
+import ClientTrustBanner from '../sections/ClientTrustBanner'
 
 export default function WorkPage() {
   const navigate = useNavigate()
@@ -152,6 +153,9 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
+
+      {/* Client Trust Banner */}
+      <ClientTrustBanner />
 
       {/* All Projects Grid */}
       <section className="py-20">
