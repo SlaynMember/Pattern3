@@ -250,6 +250,19 @@ export default function ProjectDetailPage() {
         }} 
       />
       
+      {/* Breadcrumbs for project pages only */}
+      <section className="py-3 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-sm">
+            <Link to="/" className="text-primary hover:text-primary-dark">Home</Link>
+            <span className="text-gray-400">→</span>
+            <Link to="/work" className="text-primary hover:text-primary-dark">Case Studies</Link>
+            <span className="text-gray-400">→</span>
+            <span className="text-gray-900 font-medium">{project.title}</span>
+          </div>
+        </div>
+      </section>
+      
       {/* Header */}
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

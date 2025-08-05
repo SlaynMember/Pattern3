@@ -40,8 +40,6 @@ function App() {
       
       <ScrollToTop />
       <Navigation />
-      <Breadcrumbs />
-      <CategoryNav />
       <Suspense fallback={<PageLoadingFallback />}>
         <Routes>
           <Route path="/" element={<LazyHomePage />} />

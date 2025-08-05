@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import OptimizedImage from '../ui/OptimizedImage'
-import { LinkCluster } from '../ui/InternalLinkEnhancer'
 import ClientTrustBanner from '../sections/ClientTrustBanner'
 
 export default function WorkPage() {
   const navigate = useNavigate()
-  const [activeFilter, setActiveFilter] = useState('All')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const activeFilter = searchParams.get('category') || 'All'
 
   const projects = [
     {
@@ -108,6 +108,14 @@ export default function WorkPage() {
     ? projects 
     : projects.filter(project => project.category === activeFilter)
 
+  const handleFilterChange = (category: string) => {
+    if (category === 'All') {
+      setSearchParams({})
+    } else {
+      setSearchParams({ category })
+    }
+  }
+
   const handleProjectClick = (projectId: string) => {
     navigate(`/work/${projectId}`)
   }
@@ -139,7 +147,7 @@ export default function WorkPage() {
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setActiveFilter(category)}
+                  onClick={() => handleFilterChange(category)}
                   className={`px-4 py-2 font-medium transition-colors ${
                     activeFilter === category
                       ? 'text-primary border-b-2 border-primary'
