@@ -1,5 +1,6 @@
 import { Play } from 'lucide-react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
