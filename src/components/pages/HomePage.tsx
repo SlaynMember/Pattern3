@@ -4,7 +4,7 @@ import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
-import AdvancedOptimizedImage from '../ui/AdvancedOptimizedImage'
+import OptimizedImage from '../ui/OptimizedImage'
 import ClientTrustBanner from '../sections/ClientTrustBanner'
 import ConsultationModal from '../ui/ConsultationModal'
 
@@ -39,7 +39,7 @@ export default function HomePage() {
             </div>
             
             <div className="lg:text-right">
-              <AdvancedOptimizedImage
+              <OptimizedImage
                 src="/images/profile/B&Wheadshot.jpg" 
                 alt="Will Patterson – AI consultant smiling"
                 width={1902}
@@ -274,7 +274,7 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={1}>
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/d32-text-rewriter'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                <AdvancedOptimizedImage
+                <OptimizedImage
                   src="/images/projects/rewriter/cover.png" 
                   alt="D32 Text Message Re-Writer"
                   width={400}
@@ -297,7 +297,7 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={2}>
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/echo-transcription'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                <AdvancedOptimizedImage
+                <OptimizedImage
                   src="/images/projects/echo/cover.png" 
                   alt="Echo - AI Transcription"
                   width={400}
@@ -320,7 +320,7 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={3}>
               <Card hover className="group cursor-pointer" onClick={() => window.location.href = '/work/brand-builder'}>
               <div className="aspect-video bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                <AdvancedOptimizedImage
+                <OptimizedImage
                   src="/images/projects/ai automation/Pattern3Automation.png" 
                   alt="AI Automation - Brand Builder"
                   width={400}
