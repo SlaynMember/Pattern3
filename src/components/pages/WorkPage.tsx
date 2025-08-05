@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import OptimizedImage from '../ui/OptimizedImage'
 import ClientTrustBanner from '../sections/ClientTrustBanner'
+import { LinkCluster } from '../ui/InternalLinkEnhancer'
 
 export default function WorkPage() {
   const navigate = useNavigate()

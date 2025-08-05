@@ -5,8 +5,6 @@ import ScrollToTop from './components/ui/ScrollToTop'
 import Footer from './components/ui/Footer'
 import LoadingSpinner from './components/ui/LoadingSpinner'
 import PerformanceDashboard from './components/ui/PerformanceDashboard'
-import Breadcrumbs from './components/ui/Breadcrumbs'
-import CategoryNav from './components/ui/CategoryNav'
 import StructuredData from './components/ui/StructuredData'
 
 // Lazy load all page components for better performance
