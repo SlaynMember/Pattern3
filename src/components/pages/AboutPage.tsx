@@ -94,7 +94,7 @@ export default function AboutPage() {
                 <p>
                   What sets my approach apart is my passion for storytelling at the bridge between technology and 
                   humanity. I don't see AI implementation as a purely technical challenge, but as an opportunity to create 
-                  solutions that feel compelling story that resonates on a fundamental human level. Making complex 
+                  solutions that tell a compelling story that resonates on a fundamental human level. Making complex 
                   technology accessible, meaningful, and impactful.
                 </p>
               </div>
