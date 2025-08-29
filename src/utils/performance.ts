@@ -1,24 +1,5 @@
 // Performance optimization utilities
 
-// Font preloading
-export function preloadFonts() {
-  const fonts = [
-    '/fonts/inter-400.woff2',
-    '/fonts/inter-500.woff2',
-    '/fonts/inter-700.woff2'
-  ]
-
-  fonts.forEach(font => {
-    const link = document.createElement('link')
-    link.rel = 'preload'
-    link.as = 'font'
-    link.type = 'font/woff2'
-    link.crossOrigin = 'anonymous'
-    link.href = font
-    document.head.appendChild(link)
-  })
-}
-
 // Resource hints
 export function addResourceHints() {
   const hints = [

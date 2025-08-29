@@ -5,6 +5,7 @@ import ScrollToTop from './components/ui/ScrollToTop'
 import Footer from './components/ui/Footer'
 import LoadingSpinner from './components/ui/LoadingSpinner'
 import PerformanceDashboard from './components/ui/PerformanceDashboard'
+import StructuredData from './components/ui/StructuredData'
 
 // Lazy load all page components for better performance
 import LazyHomePage from './components/pages/LazyHomePage'
@@ -29,6 +30,12 @@ function PageLoadingFallback() {
 function App() {
   return (
     <div className="min-h-screen">
+      {/* Structured Data for SEO */}
+      <StructuredData type="website" data={{}} />
+      <StructuredData type="organization" data={{}} />
+      <StructuredData type="service" data={{}} />
+      <StructuredData type="breadcrumb" data={{}} />
+      
       <ScrollToTop />
       <Navigation />
       <Suspense fallback={<PageLoadingFallback />}>

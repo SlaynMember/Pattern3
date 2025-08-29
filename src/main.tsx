@@ -5,10 +5,37 @@ import App from './App.tsx'
 import './index.css'
 
 // Import all performance optimization utilities
-import { preloadFonts, addResourceHints, measurePerformance } from './utils/performance'
+import { addResourceHints, measurePerformance } from './utils/performance'
 import { criticalResourceOptimizer } from './utils/criticalResourceOptimizer'
 import { serviceWorkerManager } from './utils/serviceWorkerManager'
 import { performanceMonitor } from './utils/advancedPerformanceMonitor'
+
+// Optimized Google Analytics loader
+const loadGoogleAnalytics = () => {
+  // Only load in production
+  if (process.env.NODE_ENV !== 'production') return
+  
+  // Load after page is interactive to avoid blocking main thread
+  const script = document.createElement('script')
+  script.async = true
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK870F6L8G'
+  
+  script.onload = () => {
+    // Initialize gtag after script loads
+    window.dataLayer = window.dataLayer || []
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args)
+    }
+    
+    // Make gtag globally available
+    ;(window as any).gtag = gtag
+    
+    gtag('js', new Date())
+    gtag('config', 'G-ZK870F6L8G')
+  }
+  
+  document.head.appendChild(script)
+}
 
 // Initialize performance optimizations immediately
 const initializePerformanceOptimizations = async () => {
@@ -16,7 +43,6 @@ const initializePerformanceOptimizations = async () => {
   criticalResourceOptimizer.initialize()
   
   // Legacy performance utilities
-  preloadFonts()
   addResourceHints()
   measurePerformance()
   
@@ -34,6 +60,9 @@ const initializePerformanceOptimizations = async () => {
       performanceMonitor.sendToAnalytics(report)
     }
   })
+  
+  // Load Google Analytics after other optimizations
+  setTimeout(loadGoogleAnalytics, 2000) // 2 second delay
 }
 
 // Initialize optimizations

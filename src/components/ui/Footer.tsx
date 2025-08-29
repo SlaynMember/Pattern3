@@ -17,6 +17,8 @@ export default function Footer() {
                 <img 
                   src="/images/pattern3white.png" 
                   alt="Pattern3" 
+                  width="1000"
+                  height="500"
                   className="h-8 w-auto"
                 />
                 <div>

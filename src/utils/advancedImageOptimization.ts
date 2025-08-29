@@ -7,8 +7,6 @@ export interface ImageOptimizationConfig {
   height?: number
   lazy?: boolean
   priority?: boolean
-  blur?: boolean
-  grayscale?: boolean
 }
 
 export class AdvancedImageOptimizer {
@@ -59,25 +57,37 @@ export class AdvancedImageOptimizer {
 
     const {
       quality = 85,
-      format = 'auto',
+      format = 'webp',
       width,
-      height,
-      blur = false,
-      grayscale = false
+      height
     } = config
 
-    // In production, this would integrate with a service like Cloudinary or ImageKit
-    // For now, we'll simulate the optimization parameters
+    // Use Netlify Image CDN for optimization
     const params = new URLSearchParams()
     
-    if (quality !== 85) params.append('q', quality.toString())
+    // Always include quality for better control
+    params.append('q', quality.toString())
+    
     if (width) params.append('w', width.toString())
     if (height) params.append('h', height.toString())
-    if (format !== 'auto') params.append('f', format)
-    if (blur) params.append('blur', '300')
-    if (grayscale) params.append('e', 'grayscale')
+    
+    // Set format using Netlify's parameter name 'fm'
+    if (format && format !== 'auto') {
+      // Map format names to Netlify's expected values
+      const formatMap: Record<string, string> = {
+        'jpeg': 'jpg',
+        'webp': 'webp',
+        'avif': 'avif',
+        'png': 'png'
+      }
+      const netlifyFormat = formatMap[format] || format
+      params.append('fm', netlifyFormat)
+    }
 
-    const optimizedUrl = params.toString() ? `${src}?${params.toString()}` : src
+    // Construct Netlify Image CDN URL
+    const netlifyImageUrl = `/.netlify/images?url=${encodeURIComponent(src)}`
+    const optimizedUrl = params.toString() ? `${netlifyImageUrl}&${params.toString()}` : netlifyImageUrl
+    
     this.cache.set(cacheKey, optimizedUrl)
     
     return optimizedUrl

@@ -1,5 +1,6 @@
 import { Play } from 'lucide-react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import AnimatedSection from '../ui/AnimatedSection'
 import Icon from '../ui/Icon'
 import Card from '../ui/Card'
@@ -21,13 +22,17 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <h1 className="heading-1 mb-6">
-                AI Solutions for the{' '}
-                <span className="text-gradient">Little Guys</span>
+                Buy back your week with{' '}
+                <span className="text-gradient">AI automation.</span>
               </h1>
               <p className="body-large text-gray-600 mb-8">
-                Pattern3 LLC brings enterprise-level AI to small businesses, solo entrepreneurs, 
-                and creative teams. No dev team or massive budget required — just smart solutions 
-                that work.
+                We turn repetitive tasks into button-click flows for SMB teams — no dev team required.
+              </p>
+              <p className="body-base text-gray-600 mb-8">
+                Our <Link to="/work" className="text-primary hover:text-primary-dark font-medium">AI automation solutions</Link> help 
+                <Link to="/work?category=Healthcare" className="text-primary hover:text-primary-dark font-medium ml-1">healthcare practices</Link>, 
+                <Link to="/about" className="text-primary hover:text-primary-dark font-medium ml-1">solo founders</Link>, and 
+                local businesses save time while maintaining quality and compliance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="primary" onClick={() => setIsModalOpen(true)}>
@@ -42,12 +47,13 @@ export default function HomePage() {
             
             <div className="lg:text-right">
               <OptimizedImage
-                src="/images/headshot.jpg" 
-                alt="Will Patterson - Founder of Pattern3"
-                width={320}
-                height={320}
+                src="/images/profile/B&Wheadshot.jpg" 
+                alt="Will Patterson – AI consultant smiling"
+                width={1902}
+                height={2536}
                 priority={true}
-                className="w-80 h-80 object-cover rounded-2xl mx-auto lg:ml-auto shadow-2xl"
+                className="w-80 h-80 object-cover object-top rounded-2xl mx-auto lg:ml-auto shadow-2xl"
+                style={{ objectPosition: '30% 5%' }}
               />
             </div>
           </div>
@@ -55,135 +61,156 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Growth Journey Section */}
-
-      {/* Why Pattern3 Section */}
-      <section className="py-20 bg-white">
+      {/* How We Turn Chaos into Clarity Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AnimatedSection animation="fade-in">
               <h2 className="heading-2 mb-4">
-              Why Pattern3 LLC
-            </h2>
-              <p className="body-large text-gray-600 max-w-2xl mx-auto">
-              We don't just implement AI — we craft experiences where AI meets human creativity.
-            </p>
+                How We Turn Chaos into <span className="text-gradient">Clarity</span>
+              </h2>
+              <p className="body-large text-gray-600 max-w-3xl mx-auto">
+                Follow Jane, a real-world owner who escaped the "messy middle" with Pattern3.
+              </p>
             </AnimatedSection>
           </div>
 
+          {/* Jane's Journey - Step Cards */}
           <div className="mb-16">
-            <AnimatedSection animation="fade-in" delay={1}>
-              <h3 className="heading-3 text-center mb-12">
-              Human-Centered, Design-Driven AI Solutions
-            </h3>
-            </AnimatedSection>
+            {/* Desktop: Horizontal Layout */}
+            <div className="hidden md:block">
+              <div className="flex items-center justify-between max-w-6xl mx-auto">
+                {[
+                  {
+                    number: "1",
+                    title: "The Struggle",
+                    description: "Jane's team was drowning in paperwork, missed hand-offs and late invoices.",
+                    emoji: "😰",
+                    bgColor: "from-red-500 to-red-600"
+                  },
+                  {
+                    number: "2", 
+                    title: "Find the Clutter",
+                    description: "We mapped every copy-paste loop and flagged the hours lost to data entry.",
+                    emoji: "🔍",
+                    bgColor: "from-yellow-500 to-yellow-600"
+                  },
+                  {
+                    number: "3",
+                    title: "Clear the Mess", 
+                    description: "Smart automations filed docs, synced systems and saved 7.5 hours a week.",
+                    emoji: "⚡",
+                    bgColor: "from-blue-500 to-blue-600"
+                  },
+                  {
+                    number: "4",
+                    title: "Success",
+                    description: "Jane now spends Fridays on growth projects, not spreadsheets.",
+                    emoji: "🚀",
+                    bgColor: "from-green-500 to-green-600"
+                  }
+                ].map((step, index) => (
+                  <div key={index} className="flex items-center">
+                    <AnimatedSection animation="scale" delay={index + 1}>
+                      <Card className="w-64 text-center" padding="lg">
+                        <div className={`w-16 h-16 bg-gradient-to-br ${step.bgColor} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                          <span className="text-2xl">{step.emoji}</span>
+                        </div>
+                        <h3 className="text-lg font-bold mb-3 text-gray-900">
+                          {step.number} · {step.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </Card>
+                    </AnimatedSection>
+                    
+                    {/* Arrow between cards */}
+                    {index < 3 && (
+                      <div className="mx-4 text-primary hover:text-primary-dark transition-colors">
+                        <Icon name="arrow" size="lg" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <AnimatedSection animation="scale" delay={1}>
-                <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <Icon name="check-circle" size="lg" className="text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">Accessible to Everyone</h4>
-                <p className="body-small text-gray-600">
-                  Streamlined for small teams without advanced technical expertise or IT departments.
-                </p>
-              </div>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={2}>
-                <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <Icon name="lightning" size="lg" className="text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">Design-Forward Solutions</h4>
-                <p className="body-small text-gray-600">
-                  Beautiful, intuitive interfaces that make AI feel like a natural extension of your workflow.
-                </p>
-              </div>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={3}>
-                <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <Icon name="target" size="lg" className="text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">Rapid Implementation</h4>
-                <p className="body-small text-gray-600">
-                  Custom-built solutions that ship fast and see real creative gains, not just automation wins.
-                </p>
-              </div>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="scale" delay={4}>
-                <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <Icon name="users" size="lg" className="text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">Focus on the Biz</h4>
-                <p className="body-small text-gray-600">
-                  Powerful tech behind the scenes while understanding of your business challenges.
-                </p>
-              </div>
-              </AnimatedSection>
+            {/* Mobile: Vertical Layout */}
+            <div className="md:hidden space-y-6">
+              {[
+                {
+                  number: "1",
+                  title: "The Struggle",
+                  description: "Jane's team was drowning in paperwork, missed hand-offs and late invoices.",
+                  emoji: "😰",
+                  bgColor: "from-red-500 to-red-600"
+                },
+                {
+                  number: "2", 
+                  title: "Find the Clutter",
+                  description: "We mapped every copy-paste loop and flagged the hours lost to data entry.",
+                  emoji: "🔍",
+                  bgColor: "from-yellow-500 to-yellow-600"
+                },
+                {
+                  number: "3",
+                  title: "Clear the Mess", 
+                  description: "Smart automations filed docs, synced systems and saved 7.5 hours a week.",
+                  emoji: "⚡",
+                  bgColor: "from-blue-500 to-blue-600"
+                },
+                {
+                  number: "4",
+                  title: "Success",
+                  description: "Jane now spends Fridays on growth projects, not spreadsheets.",
+                  emoji: "🚀",
+                  bgColor: "from-green-500 to-green-600"
+                }
+              ].map((step, index) => (
+                <AnimatedSection key={index} animation="fade-in" delay={index + 1}>
+                  <Card className="text-center" padding="lg">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${step.bgColor} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                      <span className="text-2xl">{step.emoji}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                      {step.number} · {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </Card>
+                  
+                  {/* Downward arrow on mobile */}
+                  {index < 3 && (
+                    <div className="flex justify-center my-4 text-primary">
+                      <Icon name="arrow-up" size="lg" className="transform rotate-180" />
+                    </div>
+                  )}
+                </AnimatedSection>
+              ))}
             </div>
           </div>
-
-          {/* After Our Live Google Meet Call Section */}
-          <AnimatedSection animation="fade-in" delay={2}>
-            <Card variant="elevated" padding="xl" className="bg-gray-50">
-              <h3 className="heading-3 text-center mb-8">
-              After Our Live Google Meet Call, You'll Receive:
-            </h3>
-              <p className="body-large text-center text-gray-600 mb-12">
-              A personalized AI roadmap, no strings attached — even if you don't move forward.
-            </p>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-2xl">1</span>
-                </div>
-                <h4 className="text-xl font-bold mb-3">PDF Roadmap</h4>
-                <p className="body-small text-gray-600">
-                  A comprehensive roadmap outlining your AI implementation strategy and timeline.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-2xl">2</span>
-                </div>
-                <h4 className="text-xl font-bold mb-3">System Analysis</h4>
-                <p className="body-small text-gray-600">
-                  Detailed analysis of your current systems and integration opportunities.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-2xl">3</span>
-                </div>
-                <h4 className="text-xl font-bold mb-3">Follow-up Call</h4>
-                <p className="body-small text-gray-600">
-                  A follow-up session to discuss the roadmap and answer any questions.
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-2xl">4</span>
-                </div>
-                <h4 className="text-xl font-bold mb-3">Cloud Breakdown</h4>
-                <p className="body-small text-gray-600">
-                  A breakdown of cloud infrastructure and ongoing costs for your solution.
-                </p>
-              </div>
+          
+          {/* Ready to Declutter CTA */}
+          <AnimatedSection animation="fade-in" delay={5}>
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Ready to declutter your business?
+              </h3>
+              <Button variant="primary" onClick={() => setIsModalOpen(true)} className="mb-4">
+                Book My Free Consult
+              </Button>
+              <p className="text-xs text-gray-500">
+                No pitch – we show your savings first.
+              </p>
             </div>
-            </Card>
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Client Trust Banner */}
+      <ClientTrustBanner />
 
       {/* Who It's For Section */}
       <section className="py-20">
@@ -200,7 +227,7 @@ export default function HomePage() {
             <AnimatedSection animation="scale" delay={1}>
               <Card hover className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Icon name="healthcare" size="lg" className="text-white" />
+                <Icon name="medical-cross" size="lg" className="text-white" />
               </div>
               <h3 className="heading-3 mb-4">Healthcare Offices</h3>
               <p className="body-base text-gray-600">
@@ -247,6 +274,11 @@ export default function HomePage() {
               <p className="body-large text-gray-600">
               Real solutions for real businesses — see how we've helped others bridge technology and human connection.
             </p>
+              <p className="body-base text-gray-600 mt-4">
+                From <Link to="/work/d32-text-rewriter" className="text-primary hover:text-primary-dark font-medium">healthcare communication tools</Link> to 
+                <Link to="/work/brand-builder" className="text-primary hover:text-primary-dark font-medium ml-1">automated brand systems</Link>, 
+                explore how we've helped businesses <Link to="/about" className="text-primary hover:text-primary-dark font-medium">transform operations with AI</Link>.
+              </p>
             </AnimatedSection>
           </div>
           
@@ -266,7 +298,7 @@ export default function HomePage() {
                 D32 Text Message Re-Writer
               </h3>
               <p className="body-base text-gray-600 mb-4">
-                Built a custom chatbot assistant to help Darnell32 turn basic staff communication into professional, branded messaging.
+                Saved Dental32's front desk 2+ hours daily while keeping all communications on-brand and error-free.
               </p>
               <span className="text-sm font-medium text-primary bg-blue-50 px-3 py-1 rounded-full">
                 Content Creation
@@ -289,7 +321,7 @@ export default function HomePage() {
                 Echo - AI Transcription
               </h3>
               <p className="body-base text-gray-600 mb-4">
-                Built an internal AI-powered transcription tool for healthcare professionals using React, Supabase, and advanced AI models.
+                Saved healthcare assistants 4+ hours daily on chart notes while keeping PHI fully secure and compliant.
               </p>
               <span className="text-sm font-medium text-primary bg-blue-50 px-3 py-1 rounded-full">
                 Healthcare
@@ -312,7 +344,7 @@ export default function HomePage() {
                 AI Automation - Brand Builder
               </h3>
               <p className="body-base text-gray-600 mb-4">
-                Built a fully automated workflow that takes brand inputs and creates comprehensive brand guidelines, assets, and advanced automations.
+                Allowed solo founder Claire to completely automate her marketing business lead intake, saving 1-2 hours daily.
               </p>
               <span className="text-sm font-medium text-primary bg-blue-50 px-3 py-1 rounded-full">
                 Automation
@@ -320,8 +352,6 @@ export default function HomePage() {
               </Card>
             </AnimatedSection>
           </div>
-          
-          <ClientTrustBanner />
           
           <div className="text-center">
             <AnimatedSection animation="fade-in" delay={2}>

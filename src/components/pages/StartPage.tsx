@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ArrowRight, Mail } from 'lucide-react'
 import ConsultationModal from '../ui/ConsultationModal'
 import ConsultationForm from '../forms/ConsultationForm'
+import ClientTrustBanner from '../sections/ClientTrustBanner'
 
 export default function StartPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -11,14 +12,6 @@ export default function StartPage() {
       {/* Hero Section */}
       <section className="hero-bg py-20">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
-          <div className="mb-8">
-            <img 
-              src="/images/pattern3black.png" 
-              alt="Pattern3" 
-              className="h-12 mx-auto mb-8"
-            />
-          </div>
-          
           <h1 className="text-4xl md:text-6xl font-black mb-6">
             Let's Talk About Your{' '}
             <span className="text-gradient">AI Journey</span>
@@ -47,6 +40,9 @@ export default function StartPage() {
           </div>
         </div>
       </section>
+
+      {/* Client Trust Banner */}
+      <ClientTrustBanner />
 
       {/* How to Reach Us */}
       <section className="py-16 bg-white">

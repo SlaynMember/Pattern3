@@ -6,17 +6,23 @@ export default function ClientTrustBanner() {
     {
       name: 'Dental32',
       logo: '/images/logos/dental32logopng.PNG',
-      alt: 'Dental32 - Healthcare Practice'
+      alt: 'Dental32 - Healthcare Practice',
+      width: 1280,
+      height: 720
     },
     {
       name: 'Clark',
       logo: '/images/logos/clark.png',
-      alt: 'Clark - Professional Services'
+      alt: 'Clark - Professional Services',
+      width: 1440,
+      height: 1440
     },
     {
       name: 'Legacy Blue',
       logo: '/images/logos/legacyblue.png',
-      alt: 'Legacy Blue - Business Solutions'
+      alt: 'Legacy Blue - Business Solutions',
+      width: 500,
+      height: 87
     }
   ]
 
@@ -40,6 +46,8 @@ export default function ClientTrustBanner() {
                   <OptimizedImage
                     src={client.logo}
                     alt={client.alt}
+                    width={client.width}
+                    height={client.height}
                     className="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
                     priority={true}
                   />
@@ -50,7 +58,7 @@ export default function ClientTrustBanner() {
           
           <div className="text-center mt-8">
             <p className="text-sm text-gray-500 italic">
-              "Pattern3 transformed our operations with 60% efficiency gains and 3x ROI in just 6 months"
+              "Pattern3 streamlined our operations, saving us an hour a day and boosting efficiency by 60% in just 6 months."
             </p>
           </div>
         </AnimatedSection>
